@@ -6,7 +6,7 @@
     <file url="file://$PROJECT_DIR$/Horoshu-Core/src/main/java/com" charset="GBK" />
     <file url="file://$PROJECT_DIR$/Horoshu-Core/src/main/java/ctop" charset="GBK" />
     <file url="file://$PROJECT_DIR$/Horoshu-Core/src/main/java/cyan" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/Horoshu-Core/src/main/java/orange/core/horoshu/impl/RestSvc.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Horoshu-Core/src/main/java/orange/core/horoshu/impl/HttpSvc.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/Horoshu-Core/src/main/resources/log4j.properties" charset="GBK" />
     <file url="file://$PROJECT_DIR$/Horoshu-Demo" charset="UTF-8" />
   </component>
