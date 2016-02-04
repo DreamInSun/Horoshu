@@ -1,9 +1,9 @@
-package orange.core.horoshu.fecade;
+package orange.core.horoshu;
 
 /**
  * Created by DreamInSun on 2016/2/2.
  */
-public interface IRSvc {
+public interface ISvc {
 
     /**
      *

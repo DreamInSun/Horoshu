@@ -16,6 +16,10 @@ public class SvcDns {
 
     /*========== Factory ==========*/
     private static SvcDns g_svcDns;
+    /*========== Properties ==========*/
+    private Map<String, DnsItem> m_DnsMap = new ConcurrentHashMap<String, DnsItem>();
+    /* Fresh DNS Item Interval, in Second */
+    private Integer m_freshInterval = 15;
 
     public static SvcDns getInstance() {
         return SvcDns.getInstance(Config.getEmptyConfig());
@@ -28,18 +32,17 @@ public class SvcDns {
         return g_svcDns;
     }
 
-    /*========== Properties ==========*/
-    /**  */
-    private Map<String, DnsItem> m_DnsMap = new ConcurrentHashMap<String, DnsItem>();
-    /** Fresh DNS Item Interval in Second */
-    private Integer m_freshInterval = 15;
-
     /*========== Export Functions ==========*/
-    public DnsItem lookup(String svcName) {
-        /*==== Input Protection =====*/
-        if (null == svcName || svcName.isEmpty()) return null;
-        /*==== LookUp From Map =====*/
-        return m_DnsMap.get(svcName);
+    public URIBuilder translateAddr(URIBuilder uriBuilder) throws URISyntaxException {
+        DnsItem realAddr = this.lookup(uriBuilder.getHost());
+        if (realAddr != null) {
+            uriBuilder.setHost(realAddr.realHost);
+            uriBuilder.setPort(realAddr.realPort);
+            if (!(null == realAddr.projBase && realAddr.projBase.isEmpty())) {
+                uriBuilder.setPath(realAddr.projBase + uriBuilder.getPath());
+            }
+        }
+        return uriBuilder;
     }
 
     public URI translateAddr(URI uri) throws URISyntaxException {
@@ -48,9 +51,20 @@ public class SvcDns {
             URIBuilder uriBuilder = new URIBuilder(uri);
             uriBuilder.setHost(realAddr.realHost);
             uriBuilder.setPort(realAddr.realPort);
+            if (!(null == realAddr.projBase && realAddr.projBase.isEmpty())) {
+                uriBuilder.setPath(realAddr.projBase + uri.getPath());
+            }
             return uriBuilder.build();
         }
         return uri;
+    }
+
+    /*========== Assistant Functions ==========*/
+    private DnsItem lookup(String svcName) {
+        /*==== Input Protection =====*/
+        if (null == svcName || svcName.isEmpty()) return null;
+        /*==== LookUp From Map =====*/
+        return m_DnsMap.get(svcName);
     }
 
     /*====================================================*/
