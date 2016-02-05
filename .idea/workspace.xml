@@ -1,118 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e6d71895-4696-4ffb-aaab-6d626dfb0793" name="Default" comment="HttpReqChain&#10;Http链式请求类完成。">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Horoshu-Core/src/main/java/orange/core/horoshu/http/HttpRequest.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Horoshu-Core/src/test/sample/HttpRequestProxyUtil.java" />
-      <change type="DELETED" beforePath="D:\WorkStation\JAVA_WorkSpace\[Coding]cyan.lib.Horoshu\Horoshu-Core\src\main\java\com\hztech\platform\v3\common\ComData.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\WorkStation\JAVA_WorkSpace\[Coding]cyan.lib.Horoshu\Horoshu-Core\src\main\java\com\hztech\platform\v3\common\V3Util.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\WorkStation\JAVA_WorkSpace\[Coding]cyan.lib.Horoshu\Horoshu-Core\src\main\java\com\hztech\util\HZUtil.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\WorkStation\JAVA_WorkSpace\[Coding]cyan.lib.Horoshu\Horoshu-Core\src\main\java\com\hztech\util\vo\ResourceVO.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\WorkStation\JAVA_WorkSpace\[Coding]cyan.lib.Horoshu\Horoshu-Core\src\main\java\com\other\demo\DemoServices.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\WorkStation\JAVA_WorkSpace\[Coding]cyan.lib.Horoshu\Horoshu-Core\src\main\java\ctop\v3\msb\MSB.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\WorkStation\JAVA_WorkSpace\[Coding]cyan.lib.Horoshu\Horoshu-Core\src\main\java\ctop\v3\msb\amoeba\DynObject.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\WorkStation\JAVA_WorkSpace\[Coding]cyan.lib.Horoshu\Horoshu-Core\src\main\java\ctop\v3\msb\amoeba\ObjectDynamicCreator.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\WorkStation\JAVA_WorkSpace\[Coding]cyan.lib.Horoshu\Horoshu-Core\src\main\java\ctop\v3\msb\amoeba\prototype\Prototype.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\WorkStation\JAVA_WorkSpace\[Coding]cyan.lib.Horoshu\Horoshu-Core\src\main\java\ctop\v3\msb\amoeba\schema\Schema.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\WorkStation\JAVA_WorkSpace\[Coding]cyan.lib.Horoshu\Horoshu-Core\src\main\java\ctop\v3\msb\amoeba\schema\SchemaManager.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\WorkStation\JAVA_WorkSpace\[Coding]cyan.lib.Horoshu\Horoshu-Core\src\main\java\ctop\v3\msb\bridge\MsbBridge.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\WorkStation\JAVA_WorkSpace\[Coding]cyan.lib.Horoshu\Horoshu-Core\src\main\java\ctop\v3\msb\bridge\data\MsbBridgeMap.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\WorkStation\JAVA_WorkSpace\[Coding]cyan.lib.Horoshu\Horoshu-Core\src\main\java\ctop\v3\msb\common\exception\MsbException.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\WorkStation\JAVA_WorkSpace\[Coding]cyan.lib.Horoshu\Horoshu-Core\src\main\java\ctop\v3\msb\common\urn\MsbDomain.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\WorkStation\JAVA_WorkSpace\[Coding]cyan.lib.Horoshu\Horoshu-Core\src\main\java\ctop\v3\msb\common\urn\MsbUrn.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\WorkStation\JAVA_WorkSpace\[Coding]cyan.lib.Horoshu\Horoshu-Core\src\main\java\ctop\v3\msb\common\urn\MsbUrnVer.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\WorkStation\JAVA_WorkSpace\[Coding]cyan.lib.Horoshu\Horoshu-Core\src\main\java\ctop\v3\msb\managment\UsrmManager.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\WorkStation\JAVA_WorkSpace\[Coding]cyan.lib.Horoshu\Horoshu-Core\src\main\java\ctop\v3\msb\managment\data\JsonDataObject.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\WorkStation\JAVA_WorkSpace\[Coding]cyan.lib.Horoshu\Horoshu-Core\src\main\java\ctop\v3\msb\managment\data\ServiceSummary.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\WorkStation\JAVA_WorkSpace\[Coding]cyan.lib.Horoshu\Horoshu-Core\src\main\java\ctop\v3\msb\memcached\MemCacheInvoke.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\WorkStation\JAVA_WorkSpace\[Coding]cyan.lib.Horoshu\Horoshu-Core\src\main\java\ctop\v3\msb\memcached\MemCacheInvokeTest.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\WorkStation\JAVA_WorkSpace\[Coding]cyan.lib.Horoshu\Horoshu-Core\src\main\java\ctop\v3\msb\msbu\Msbu.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\WorkStation\JAVA_WorkSpace\[Coding]cyan.lib.Horoshu\Horoshu-Core\src\main\java\ctop\v3\msb\msbu\config\AccessCtrlConfigProviderServlet.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\WorkStation\JAVA_WorkSpace\[Coding]cyan.lib.Horoshu\Horoshu-Core\src\main\java\ctop\v3\msb\msbu\config\AccessCtrlConfigProviderXML.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\WorkStation\JAVA_WorkSpace\[Coding]cyan.lib.Horoshu\Horoshu-Core\src\main\java\ctop\v3\msb\msbu\config\IAccessCtrlConfigProvider.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\WorkStation\JAVA_WorkSpace\[Coding]cyan.lib.Horoshu\Horoshu-Core\src\main\java\ctop\v3\msb\msbu\config\IMsbConfigProvider.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\WorkStation\JAVA_WorkSpace\[Coding]cyan.lib.Horoshu\Horoshu-Core\src\main\java\ctop\v3\msb\msbu\config\MsbConfigProviderServlet.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\WorkStation\JAVA_WorkSpace\[Coding]cyan.lib.Horoshu\Horoshu-Core\src\main\java\ctop\v3\msb\msbu\config\MsbConfigProviderXml.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\WorkStation\JAVA_WorkSpace\[Coding]cyan.lib.Horoshu\Horoshu-Core\src\main\java\ctop\v3\msb\msbu\data\MsbuInfo.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\WorkStation\JAVA_WorkSpace\[Coding]cyan.lib.Horoshu\Horoshu-Core\src\main\java\ctop\v3\msb\msbu\mngr\access\AccessCtrlBrief.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\WorkStation\JAVA_WorkSpace\[Coding]cyan.lib.Horoshu\Horoshu-Core\src\main\java\ctop\v3\msb\msbu\mngr\access\AccessCtrlItem.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\WorkStation\JAVA_WorkSpace\[Coding]cyan.lib.Horoshu\Horoshu-Core\src\main\java\ctop\v3\msb\msbu\mngr\access\AccessCtrlManager.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\WorkStation\JAVA_WorkSpace\[Coding]cyan.lib.Horoshu\Horoshu-Core\src\main\java\ctop\v3\msb\msbu\mngr\access\AccessCtrlManagerMdb.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\WorkStation\JAVA_WorkSpace\[Coding]cyan.lib.Horoshu\Horoshu-Core\src\main\java\ctop\v3\msb\msbu\mngr\access\AccessCtrlManagerMixMap.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\WorkStation\JAVA_WorkSpace\[Coding]cyan.lib.Horoshu\Horoshu-Core\src\main\java\ctop\v3\msb\msbu\mngr\access\IAccessCtrlManager.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\WorkStation\JAVA_WorkSpace\[Coding]cyan.lib.Horoshu\Horoshu-Core\src\main\java\ctop\v3\msb\msbu\mngr\callback\MsbCallbackManager.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\WorkStation\JAVA_WorkSpace\[Coding]cyan.lib.Horoshu\Horoshu-Core\src\main\java\ctop\v3\msb\port\IPlatformPort.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\WorkStation\JAVA_WorkSpace\[Coding]cyan.lib.Horoshu\Horoshu-Core\src\main\java\ctop\v3\msb\proxy\MsbProxy.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\WorkStation\JAVA_WorkSpace\[Coding]cyan.lib.Horoshu\Horoshu-Core\src\main\java\ctop\v3\msb\proxy\base\SyncCallback.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\WorkStation\JAVA_WorkSpace\[Coding]cyan.lib.Horoshu\Horoshu-Core\src\main\java\ctop\v3\msb\proxy\conn\MsbConnParam.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\WorkStation\JAVA_WorkSpace\[Coding]cyan.lib.Horoshu\Horoshu-Core\src\main\java\ctop\v3\msb\proxy\conn\MsbConnParamMap.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\WorkStation\JAVA_WorkSpace\[Coding]cyan.lib.Horoshu\Horoshu-Core\src\main\java\ctop\v3\msb\proxy\constants\CMsbRegion.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\WorkStation\JAVA_WorkSpace\[Coding]cyan.lib.Horoshu\Horoshu-Core\src\main\java\ctop\v3\msb\proxy\constants\CMsgField.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\WorkStation\JAVA_WorkSpace\[Coding]cyan.lib.Horoshu\Horoshu-Core\src\main\java\ctop\v3\msb\proxy\constants\EConsumerType.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\WorkStation\JAVA_WorkSpace\[Coding]cyan.lib.Horoshu\Horoshu-Core\src\main\java\ctop\v3\msb\proxy\constants\EMsbMsgType.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\WorkStation\JAVA_WorkSpace\[Coding]cyan.lib.Horoshu\Horoshu-Core\src\main\java\ctop\v3\msb\proxy\constants\EProducerType.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\WorkStation\JAVA_WorkSpace\[Coding]cyan.lib.Horoshu\Horoshu-Core\src\main\java\ctop\v3\msb\proxy\data\ServiceEntry.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\WorkStation\JAVA_WorkSpace\[Coding]cyan.lib.Horoshu\Horoshu-Core\src\main\java\ctop\v3\msb\proxy\mngr\IMsbuSvcManager.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\WorkStation\JAVA_WorkSpace\[Coding]cyan.lib.Horoshu\Horoshu-Core\src\main\java\ctop\v3\msb\proxy\mngr\MsbSvcManager.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\WorkStation\JAVA_WorkSpace\[Coding]cyan.lib.Horoshu\Horoshu-Core\src\main\java\ctop\v3\msb\proxy\routemap\IRouteMap.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\WorkStation\JAVA_WorkSpace\[Coding]cyan.lib.Horoshu\Horoshu-Core\src\main\java\ctop\v3\msb\proxy\routemap\RouteMapBase.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\WorkStation\JAVA_WorkSpace\[Coding]cyan.lib.Horoshu\Horoshu-Core\src\main\java\ctop\v3\msb\proxy\routemap\RouteMapHash.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\WorkStation\JAVA_WorkSpace\[Coding]cyan.lib.Horoshu\Horoshu-Core\src\main\java\ctop\v3\msb\proxy\routemap\RouteMapMdb.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\WorkStation\JAVA_WorkSpace\[Coding]cyan.lib.Horoshu\Horoshu-Core\src\main\java\ctop\v3\msb\support\file\ControlFileFetch.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\WorkStation\JAVA_WorkSpace\[Coding]cyan.lib.Horoshu\Horoshu-Core\src\main\java\ctop\v3\msb\support\file\FileAccess.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\WorkStation\JAVA_WorkSpace\[Coding]cyan.lib.Horoshu\Horoshu-Core\src\main\java\ctop\v3\msb\support\file\FileFetch.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\WorkStation\JAVA_WorkSpace\[Coding]cyan.lib.Horoshu\Horoshu-Core\src\main\java\ctop\v3\msb\support\file\Log.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\WorkStation\JAVA_WorkSpace\[Coding]cyan.lib.Horoshu\Horoshu-Core\src\main\java\ctop\v3\msb\support\file\TextThreadsAndPointAdd.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\WorkStation\JAVA_WorkSpace\[Coding]cyan.lib.Horoshu\Horoshu-Core\src\main\java\ctop\v3\msb\support\file\TranBean.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\WorkStation\JAVA_WorkSpace\[Coding]cyan.lib.Horoshu\Horoshu-Core\src\main\java\ctop\v3\msb\usrm\UsrmNodeMaintain.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\WorkStation\JAVA_WorkSpace\[Coding]cyan.lib.Horoshu\Horoshu-Core\src\main\java\ctop\v3\msb\usrm\UsrmSvcMaster.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\WorkStation\JAVA_WorkSpace\[Coding]cyan.lib.Horoshu\Horoshu-Core\src\main\java\ctop\v3\msb\usrm\UsrmSvcPublisher.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\WorkStation\JAVA_WorkSpace\[Coding]cyan.lib.Horoshu\Horoshu-Core\src\main\java\ctop\v3\msb\usrm\UsrmSvcRouter.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\WorkStation\JAVA_WorkSpace\[Coding]cyan.lib.Horoshu\Horoshu-Core\src\main\java\ctop\v3\msb\usrm\authen\IUsrmAuthen.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\WorkStation\JAVA_WorkSpace\[Coding]cyan.lib.Horoshu\Horoshu-Core\src\main\java\ctop\v3\msb\usrm\authen\UsrmAuthenBase.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\WorkStation\JAVA_WorkSpace\[Coding]cyan.lib.Horoshu\Horoshu-Core\src\main\java\ctop\v3\msb\usrm\channel\UsrmChannel.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\WorkStation\JAVA_WorkSpace\[Coding]cyan.lib.Horoshu\Horoshu-Core\src\main\java\ctop\v3\msb\usrm\constants\EMsbConectionType.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\WorkStation\JAVA_WorkSpace\[Coding]cyan.lib.Horoshu\Horoshu-Core\src\main\java\ctop\v3\msb\usrm\constants\EUsrmCmdCode.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\WorkStation\JAVA_WorkSpace\[Coding]cyan.lib.Horoshu\Horoshu-Core\src\main\java\ctop\v3\msb\usrm\data\MsbRouteBulletin.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\WorkStation\JAVA_WorkSpace\[Coding]cyan.lib.Horoshu\Horoshu-Core\src\main\java\ctop\v3\msb\usrm\data\MsbRouteItem.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\WorkStation\JAVA_WorkSpace\[Coding]cyan.lib.Horoshu\Horoshu-Core\src\main\java\ctop\v3\msb\usrm\data\MsbSvcBulletin.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\WorkStation\JAVA_WorkSpace\[Coding]cyan.lib.Horoshu\Horoshu-Core\src\main\java\ctop\v3\msb\usrm\data\SvcDescriptor.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\WorkStation\JAVA_WorkSpace\[Coding]cyan.lib.Horoshu\Horoshu-Core\src\main\java\ctop\v3\msb\usrm\data\UsrmCommand.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\WorkStation\JAVA_WorkSpace\[Coding]cyan.lib.Horoshu\Horoshu-Core\src\main\java\ctop\v3\msb\usrm\data\UsrmNodeInfo.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\WorkStation\JAVA_WorkSpace\[Coding]cyan.lib.Horoshu\Horoshu-Core\src\main\java\ctop\v3\msb\usrm\exception\UsrmException.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\WorkStation\JAVA_WorkSpace\[Coding]cyan.lib.Horoshu\Horoshu-Core\src\main\java\ctop\v3\msb\usrm\interfaces\IUsrmCmdListener.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\WorkStation\JAVA_WorkSpace\[Coding]cyan.lib.Horoshu\Horoshu-Core\src\main\java\ctop\v3\msb\usrm\node\UsrmNode.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\WorkStation\JAVA_WorkSpace\[Coding]cyan.lib.Horoshu\Horoshu-Core\src\main\java\ctop\v3\msb\usrm\node\UsrmNodeManager.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\WorkStation\JAVA_WorkSpace\[Coding]cyan.lib.Horoshu\Horoshu-Core\src\main\java\ctop\v3\msb\util\HashSetMap.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\WorkStation\JAVA_WorkSpace\[Coding]cyan.lib.Horoshu\Horoshu-Core\src\main\java\ctop\v3\msb\util\OneToManyHashMap.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\WorkStation\JAVA_WorkSpace\[Coding]cyan.lib.Horoshu\Horoshu-Core\src\main\java\ctop\v3\servlet\MsbuManagementServlet.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\WorkStation\JAVA_WorkSpace\[Coding]cyan.lib.Horoshu\Horoshu-Core\src\main\java\ctop\v3\servlet\UsrmServlet.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\WorkStation\JAVA_WorkSpace\[Coding]cyan.lib.Horoshu\Horoshu-Core\src\main\java\ctop\v3\servlet\VendorAuthServlet.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\WorkStation\JAVA_WorkSpace\[Coding]cyan.lib.Horoshu\Horoshu-Core\src\main\java\ctop\v3\servlet\base\MsbuServlet.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\WorkStation\JAVA_WorkSpace\[Coding]cyan.lib.Horoshu\Horoshu-Core\src\main\java\ctop\v3\setting\config\AppConfig.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\WorkStation\JAVA_WorkSpace\[Coding]cyan.lib.Horoshu\Horoshu-Core\src\main\java\ctop\v3\setting\preference\PerferenceManager.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\WorkStation\JAVA_WorkSpace\[Coding]cyan.lib.Horoshu\Horoshu-Core\src\main\java\ctop\v3\setting\preference\Preference.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\WorkStation\JAVA_WorkSpace\[Coding]cyan.lib.Horoshu\Horoshu-Core\src\main\java\ctop\v3\setting\profile\ProfileManager.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\WorkStation\JAVA_WorkSpace\[Coding]cyan.lib.Horoshu\Horoshu-Core\src\main\java\ctop\v3\setting\profile\base\DefaultProfile.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\WorkStation\JAVA_WorkSpace\[Coding]cyan.lib.Horoshu\Horoshu-Core\src\main\java\ctop\v3\setting\profile\base\TenantProfile.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\WorkStation\JAVA_WorkSpace\[Coding]cyan.lib.Horoshu\Horoshu-Core\src\main\java\ctop\v3\vendor\authrization\VendorManager.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\WorkStation\JAVA_WorkSpace\[Coding]cyan.lib.Horoshu\Horoshu-Core\src\main\java\ctop\v3\vendor\authrization\VendorManagerTest.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\WorkStation\JAVA_WorkSpace\[Coding]cyan.lib.Horoshu\Horoshu-Core\src\main\java\ctop\v3\vendor\authrization\data\AppInfo.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\WorkStation\JAVA_WorkSpace\[Coding]cyan.lib.Horoshu\Horoshu-Core\src\main\java\ctop\v3\vendor\authrization\data\ComResponse.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\WorkStation\JAVA_WorkSpace\[Coding]cyan.lib.Horoshu\Horoshu-Core\src\main\java\ctop\v3\vendor\authrization\data\VendorAuthItem.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\WorkStation\JAVA_WorkSpace\[Coding]cyan.lib.Horoshu\Horoshu-Core\src\main\java\ctop\v3\vendor\authrization\data\VendorAuthMap.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\WorkStation\JAVA_WorkSpace\[Coding]cyan.lib.Horoshu\Horoshu-Core\src\main\java\ctop\v3\vendor\authrization\data\VendorInfo.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\WorkStation\JAVA_WorkSpace\[Coding]cyan.lib.Horoshu\Horoshu-Core\src\main\java\ctop\v3\vendor\authrization\interfaces\IAppInfoManage.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\WorkStation\JAVA_WorkSpace\[Coding]cyan.lib.Horoshu\Horoshu-Core\src\main\java\ctop\v3\vendor\authrization\interfaces\IVendorAuthPersistence.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\WorkStation\JAVA_WorkSpace\[Coding]cyan.lib.Horoshu\Horoshu-Core\src\main\java\ctop\v3\vendor\authrization\interfaces\IVendorManage.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\WorkStation\JAVA_WorkSpace\[Coding]cyan.lib.Horoshu\Horoshu-Core\src\main\java\cyan\demo\servlet\RESTUtil.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\WorkStation\JAVA_WorkSpace\[Coding]cyan.lib.Horoshu\Horoshu-Core\src\main\java\cyan\other\demo\DemoServices.java" afterPath="" />
+    <list default="true" id="e6d71895-4696-4ffb-aaab-6d626dfb0793" name="Default" comment="调整了项目结构">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Horoshu-Core/src/main/java/orange/core/horoshu/http/HttpReqChain.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Horoshu-Core/src/main/java/cyan/core/convert/XmlConvertor.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Horoshu-Core/src/main/java/orange/core/horoshu/dns/DnsItem.java" afterPath="$PROJECT_DIR$/Horoshu-Core/src/main/java/orange/core/horoshu/dns/DnsItem.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Horoshu-Core/src/main/java/orange/core/horoshu/http/HttpRequest.java" afterPath="$PROJECT_DIR$/Horoshu-Core/src/main/java/orange/core/horoshu/http/HttpRequest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Horoshu-Core/src/test/sample/HttpRequestProxyUtil.java" afterPath="$PROJECT_DIR$/Horoshu-Core/src/test/sample/HttpRequestProxyUtil.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Horoshu-Core/src/main/java/orange/core/horoshu/dns/SvcDns.java" afterPath="$PROJECT_DIR$/Horoshu-Core/src/main/java/orange/core/horoshu/dns/SvcDns.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/encodings.xml" afterPath="$PROJECT_DIR$/.idea/encodings.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Horoshu-Core/pom.xml" afterPath="$PROJECT_DIR$/Horoshu-Core/pom.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MOVED" beforePath="D:\WorkStation\JAVA_WorkSpace\[Coding]cyan.lib.Horoshu\Horoshu-Core\src\main\java\orange\core\horoshu\fecade\IRSvc.java" afterPath="$PROJECT_DIR$/Horoshu-Core/src/main/java/orange/core/horoshu/ISvc.java" />
     </list>
     <ignored path="Horoshu.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -138,15 +36,18 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="HttpSvc.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="HttpSvc.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Horoshu-Core/src/main/java/orange/core/horoshu/http/HttpSvc.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="219" column="0" selection-start-line="219" selection-start-column="0" selection-end-line="219" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.8350983">
+              <caret line="76" column="0" selection-start-line="76" selection-start-column="0" selection-end-line="76" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="method#httpPostRequest#0;class#HttpSvc#0" expanded="false" />
-                <element signature="method#translateDNS#0;class#HttpSvc#0" expanded="false" />
+                <element signature="method#HttpSvc#0;class#HttpSvc#0" expanded="false" />
+                <element signature="method#getClientMngr#0;class#HttpSvc#0" expanded="false" />
+                <element signature="method#getHttpClient#0;class#HttpSvc#0" expanded="false" />
+                <element signature="method#doRequest#0;class#HttpSvc#0" expanded="false" />
+                <element signature="method#doRequest#1;class#HttpSvc#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -156,9 +57,127 @@
         <entry file="file://$PROJECT_DIR$/Horoshu-Core/src/test/java/orange/core/horoshu/http/HttpSvcTest.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="126" column="0" selection-start-line="126" selection-start-column="0" selection-end-line="126" selection-end-column="0" />
+              <caret line="173" column="0" selection-start-line="173" selection-start-column="2" selection-end-line="176" selection-end-column="30" />
               <folding>
                 <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="HttpReqChain.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Horoshu-Core/src/main/java/orange/core/horoshu/http/HttpReqChain.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-5.766667">
+              <caret line="28" column="13" selection-start-line="28" selection-start-column="13" selection-end-line="28" selection-end-column="13" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="docComment;class#HttpReqChain#0" expanded="false" />
+                <element signature="e#1815#1816#0" expanded="true" />
+                <element signature="e#1879#1880#0" expanded="true" />
+                <element signature="method#setURI#0;class#HttpReqChain#0" expanded="false" />
+                <element signature="method#setURI#1;class#HttpReqChain#0" expanded="false" />
+                <element signature="method#setScheme#0;class#HttpReqChain#0" expanded="false" />
+                <element signature="method#setUser#0;class#HttpReqChain#0" expanded="false" />
+                <element signature="method#setHost#0;class#HttpReqChain#0" expanded="false" />
+                <element signature="method#setHost#1;class#HttpReqChain#0" expanded="false" />
+                <element signature="method#setPort#0;class#HttpReqChain#0" expanded="false" />
+                <element signature="method#setPath#0;class#HttpReqChain#0" expanded="false" />
+                <element signature="method#setFragment#0;class#HttpReqChain#0" expanded="false" />
+                <element signature="method#post#0;class#HttpReqChain#0" expanded="false" />
+                <element signature="method#put#0;class#HttpReqChain#0" expanded="false" />
+                <element signature="method#delete#0;class#HttpReqChain#0" expanded="false" />
+                <element signature="method#head#0;class#HttpReqChain#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="XmlConvertor.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Horoshu-Core/src/main/java/cyan/core/convert/XmlConvertor.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="14" column="50" selection-start-line="14" selection-start-column="50" selection-end-line="14" selection-end-column="50" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="BufferedOutputStream.java" pinned="false" current-in-tab="false">
+        <entry file="jar://C:/Program Files (x86)/Java/jdk1.7.0_25/src.zip!/java/io/BufferedOutputStream.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="57" column="11" selection-start-line="57" selection-start-column="11" selection-end-line="57" selection-end-column="11" />
+              <folding>
+                <element signature="e#1188#1189#0" expanded="true" />
+                <element signature="e#1219#1220#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Horoshu-Core/pom.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="225" column="21" selection-start-line="225" selection-start-column="21" selection-end-line="225" selection-end-column="21" />
+              <folding>
+                <element signature="n#plugin#4;n#plugins#0;n#build#0;n#project#0;n#!!top" expanded="false" />
+                <element signature="n#plugin#5;n#plugins#0;n#build#0;n#project#0;n#!!top" expanded="false" />
+                <element signature="n#plugin#6;n#plugins#0;n#build#0;n#project#0;n#!!top" expanded="false" />
+                <element signature="n#plugin#7;n#plugins#0;n#build#0;n#project#0;n#!!top" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SerializeConfig.java" pinned="false" current-in-tab="false">
+        <entry file="jar://$MAVEN_REPOSITORY$/com/alibaba/fastjson/1.2.7/fastjson-1.2.7-sources.jar!/com/alibaba/fastjson/serializer/SerializeConfig.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="155" column="11" selection-start-line="155" selection-start-column="11" selection-end-line="155" selection-end-column="11" />
+              <folding>
+                <element signature="method#createJavaBeanSerializer#0;class#SerializeConfig#0" expanded="false" />
+                <element signature="e#4367#4368#0" expanded="true" />
+                <element signature="e#4398#4399#0" expanded="true" />
+                <element signature="method#SerializeConfig#1;class#SerializeConfig#0" expanded="false" />
+                <element signature="method#getObjectWriter#0;class#SerializeConfig#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="HttpRequest.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Horoshu-Core/src/main/java/orange/core/horoshu/http/HttpRequest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="26" column="65" selection-start-line="26" selection-start-column="65" selection-end-line="26" selection-end-column="65" />
+              <folding>
+                <element signature="docComment;class#HttpRequest#0" expanded="false" />
+                <element signature="e#1642#1643#0" expanded="true" />
+                <element signature="e#1673#1674#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SvcDns.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Horoshu-Core/src/main/java/orange/core/horoshu/dns/SvcDns.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="69" column="74" selection-start-line="69" selection-start-column="74" selection-end-line="69" selection-end-column="74" />
+              <folding>
+                <element signature="e#672#673#0" expanded="true" />
+                <element signature="e#738#739#0" expanded="true" />
+                <element signature="e#970#971#0" expanded="true" />
+                <element signature="e#992#993#0" expanded="true" />
+                <element signature="method#lookup#0;class#SvcDns#0" expanded="false" />
+                <element signature="e#2111#2112#0" expanded="true" />
+                <element signature="e#2195#2196#0" expanded="true" />
+                <element signature="e#2425#2426#0" expanded="true" />
+                <element signature="e#2479#2480#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -171,36 +190,6 @@
               <caret line="24" column="24" selection-start-line="24" selection-start-column="24" selection-end-line="24" selection-end-column="24" />
               <folding>
                 <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="HttpReqChain.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Horoshu-Core/src/main/java/orange/core/horoshu/http/HttpReqChain.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.33285093">
-              <caret line="23" column="13" selection-start-line="23" selection-start-column="13" selection-end-line="23" selection-end-column="13" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="docComment;class#HttpReqChain#0" expanded="false" />
-                <element signature="method#pushError#0;class#HttpReqChain#0" expanded="false" />
-                <element signature="method#setURI#0;class#HttpReqChain#0" expanded="false" />
-                <element signature="method#setURI#1;class#HttpReqChain#0" expanded="false" />
-                <element signature="method#setScheme#0;class#HttpReqChain#0" expanded="false" />
-                <element signature="method#setUser#0;class#HttpReqChain#0" expanded="false" />
-                <element signature="method#setHost#0;class#HttpReqChain#0" expanded="false" />
-                <element signature="method#setHost#1;class#HttpReqChain#0" expanded="false" />
-                <element signature="method#setPort#0;class#HttpReqChain#0" expanded="false" />
-                <element signature="method#setPath#0;class#HttpReqChain#0" expanded="false" />
-                <element signature="method#setParam#0;class#HttpReqChain#0" expanded="false" />
-                <element signature="method#setFragment#0;class#HttpReqChain#0" expanded="false" />
-                <element signature="method#setParams#0;class#HttpReqChain#0" expanded="false" />
-                <element signature="method#setHeader#0;class#HttpReqChain#0" expanded="false" />
-                <element signature="method#setHeaders#0;class#HttpReqChain#0" expanded="false" />
-                <element signature="method#setContent#0;class#HttpReqChain#0" expanded="false" />
-                <element signature="method#put#0;class#HttpReqChain#0" expanded="false" />
-                <element signature="method#delete#0;class#HttpReqChain#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -249,7 +238,6 @@
         <option value="$PROJECT_DIR$/Horoshu-Core/src/main/java/orange/core/horoshu/fecade/SvcConfig.java" />
         <option value="$PROJECT_DIR$/Horoshu-Core/src/main/java/orange/core/horoshu/impl/RestRequest.java" />
         <option value="$PROJECT_DIR$/Horoshu-Core/src/main/java/orange/core/horoshu/impl/RestSvc.java" />
-        <option value="$PROJECT_DIR$/Horoshu-Core/pom.xml" />
         <option value="$PROJECT_DIR$/Horoshu-Core/src/main/java/orange/core/horoshu/impl/HttpXmlClient.java" />
         <option value="$PROJECT_DIR$/Horoshu-Core/src/main/java/cyan/core/config/IConfig.java" />
         <option value="$PROJECT_DIR$/Horoshu-Core/src/main/java/orange/core/horoshu/dns/DnsConfig.java" />
@@ -259,22 +247,24 @@
         <option value="$PROJECT_DIR$/Horoshu-Core/src/main/java/orange/core/horoshu/sample/HttpRequestProxyUtil.java" />
         <option value="$PROJECT_DIR$/Horoshu-Core/src/main/java/orange/core/horoshu/dns/EtcdDns.java" />
         <option value="$PROJECT_DIR$/Horoshu-Core/src/main/java/orange/core/horoshu/impl/HttpSvc.java" />
-        <option value="$PROJECT_DIR$/Horoshu-Core/src/main/java/orange/core/horoshu/dns/SvcDns.java" />
         <option value="$PROJECT_DIR$/Horoshu-Core/src/main/java/orange/core/horoshu/impl/HttpEntityRequest.java" />
         <option value="$PROJECT_DIR$/Horoshu-Core/src/main/java/orange/core/horoshu/impl/HttpRequest.java" />
         <option value="$PROJECT_DIR$/Horoshu-Core/src/main/java/orange/core/horoshu/impl/HttpChain.java" />
-        <option value="$PROJECT_DIR$/Horoshu-Core/src/main/java/orange/core/horoshu/dns/DnsItem.java" />
         <option value="$PROJECT_DIR$/Horoshu-Core/src/main/java/orange/core/horoshu/ISvc.java" />
         <option value="$PROJECT_DIR$/Horoshu-Core/src/main/java/orange/core/horoshu/http/HttpSvcTest.java" />
         <option value="$PROJECT_DIR$/Horoshu-Core/src/main/java/ctop/v3/msb/msbu/mngr/access/AccessCtrlManagerMdb.java" />
         <option value="$PROJECT_DIR$/Horoshu-Core/src/test/java/orange/core/horoshu/http/sample/HttpRequestProxyUtil.java" />
         <option value="$PROJECT_DIR$/Horoshu-Core/src/main/resources/log4j.properties" />
-        <option value="$PROJECT_DIR$/Horoshu-Core/src/main/java/orange/core/horoshu/http/HttpRequest.java" />
         <option value="$PROJECT_DIR$/Horoshu-Core/src/main/java/cyan/core/config/Config.java" />
-        <option value="$PROJECT_DIR$/Horoshu-Core/src/test/java/orange/core/horoshu/http/HttpSvcTest.java" />
-        <option value="$PROJECT_DIR$/Horoshu-Core/src/main/java/orange/core/horoshu/http/HttpReqChain.java" />
-        <option value="$PROJECT_DIR$/Horoshu-Core/src/main/java/orange/core/horoshu/http/HttpSvc.java" />
         <option value="$PROJECT_DIR$/Horoshu-Core/src/test/sample/HttpRequestProxyUtil.java" />
+        <option value="$PROJECT_DIR$/Horoshu-Core/src/main/java/orange/core/horoshu/http/HttpSvc.java" />
+        <option value="$PROJECT_DIR$/Horoshu-Core/src/main/java/orange/core/horoshu/dns/DnsItem.java" />
+        <option value="$PROJECT_DIR$/Horoshu-Core/src/main/java/orange/core/horoshu/dns/SvcDns.java" />
+        <option value="$PROJECT_DIR$/Horoshu-Core/src/test/java/orange/core/horoshu/http/HttpSvcTest.java" />
+        <option value="$PROJECT_DIR$/Horoshu-Core/src/main/java/orange/core/horoshu/http/HttpRequest.java" />
+        <option value="$PROJECT_DIR$/Horoshu-Core/pom.xml" />
+        <option value="$PROJECT_DIR$/Horoshu-Core/src/main/java/cyan/core/convert/XmlConvertor.java" />
+        <option value="$PROJECT_DIR$/Horoshu-Core/src/main/java/orange/core/horoshu/http/HttpReqChain.java" />
       </list>
     </option>
   </component>
@@ -415,58 +405,6 @@
               <option name="myItemId" value="src" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="test" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="sample" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Horoshu" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Horoshu-Core" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="test" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Horoshu" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Horoshu-Core" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="test" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="http" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -483,28 +421,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Horoshu" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Horoshu-Core" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="resources" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -583,6 +499,40 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="core" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="convert" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Horoshu" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Horoshu-Core" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="core" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -591,7 +541,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="settings.editor.selected.configurable" value="plugins.junitgenerator.application" />
+    <property name="settings.editor.selected.configurable" value="vcs.Git" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="WebServerToolWindowFactoryState" value="true" />
@@ -607,11 +557,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\WorkStation\JAVA_WorkSpace\[Coding]cyan.lib.Horoshu\Horoshu-Core" />
       <recent name="D:\WorkStation\JAVA_WorkSpace\[Coding]cyan.lib.Horoshu\Horoshu-Core\src\main\java\orange\core\horoshu\sample" />
       <recent name="D:\WorkStation\JAVA_WorkSpace\[Coding]cyan.lib.Horoshu\Horoshu-Core\src\main\java\orange\core\horoshu\impl" />
       <recent name="D:\WorkStation\JAVA_WorkSpace\[Coding]cyan.lib.Horoshu\Horoshu-Core\src\main\resources" />
       <recent name="D:\WorkStation\JAVA_WorkSpace\[Coding]cyan.lib.Horoshu\Horoshu-Core\src\main\java" />
-      <recent name="D:\WorkStation\JAVA_WorkSpace\[Coding]cyan.lib.Horoshu\Horoshu-Demo" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\WorkStation\JAVA_WorkSpace\[Coding]cyan.lib.Horoshu\Horoshu-Core\src\test\sample" />
@@ -975,7 +925,7 @@
       <updated>1454389396475</updated>
       <workItem from="1454389405788" duration="38757000" />
       <workItem from="1454597082245" duration="8239000" />
-      <workItem from="1454606520271" duration="3722000" />
+      <workItem from="1454606520271" duration="16657000" />
     </task>
     <task id="LOCAL-00001" summary="搭建基础框架">
       <created>1454406442964</created>
@@ -1013,11 +963,29 @@
       <option name="project" value="LOCAL" />
       <updated>1454600302924</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="删除了原CTOP的参考代码。">
+      <created>1454610385485</created>
+      <option name="number" value="00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1454610385485</updated>
+    </task>
+    <task id="LOCAL-00008" summary="HttpReqChain&#10;Http链式请求类完成。">
+      <created>1454610455134</created>
+      <option name="number" value="00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1454610455134</updated>
+    </task>
+    <task id="LOCAL-00009" summary="调整了项目结构">
+      <created>1454611560341</created>
+      <option name="number" value="00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1454611560341</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="50718000" />
+    <option name="totallyTimeSpent" value="63653000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1034,33 +1002,33 @@
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32885906" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.27979276" sideWeight="0.48933902" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.27979276" sideWeight="0.48081023" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32885906" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.253886" sideWeight="0.5143923" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.253886" sideWeight="0.31769723" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.13859275" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.253886" sideWeight="0.48560768" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.253886" sideWeight="0.6823028" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18603411" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18603411" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32953367" sideWeight="0.48507464" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.7953092" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.7729211" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32953367" sideWeight="0.49573562" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -1075,12 +1043,17 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
+    <option name="CHECK_NEW_TODO" value="false" />
     <MESSAGE value="搭建基础框架" />
     <MESSAGE value="引入通用配置类" />
     <MESSAGE value="添加了.gitignore" />
     <MESSAGE value="完成了DNS查找和替换函数" />
+    <MESSAGE value="删除了原CTOP的参考代码。" />
     <MESSAGE value="HttpReqChain&#10;Http链式请求类完成。" />
-    <option name="LAST_COMMIT_MESSAGE" value="HttpReqChain&#10;Http链式请求类完成。" />
+    <MESSAGE value="调整了项目结构" />
+    <option name="LAST_COMMIT_MESSAGE" value="调整了项目结构" />
+    <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
@@ -1088,42 +1061,12 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/Horoshu-Core/src/main/java/orange/core/horoshu/http/HttpReqChain.java</url>
-          <line>106</line>
+          <line>114</line>
           <properties />
           <option name="timeStamp" value="14" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/Horoshu-Core/src/main/java/orange/core/horoshu/http/HttpSvc.java</url>
-          <line>183</line>
-          <properties />
-          <option name="timeStamp" value="19" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/Horoshu-Core/src/main/java/orange/core/horoshu/http/HttpReqChain.java</url>
-          <line>214</line>
-          <properties />
-          <option name="timeStamp" value="20" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/Horoshu-Core/src/main/java/orange/core/horoshu/http/HttpReqChain.java</url>
-          <line>229</line>
-          <properties />
-          <option name="timeStamp" value="36" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/Horoshu-Core/src/test/java/orange/core/horoshu/http/HttpSvcTest.java</url>
-          <line>128</line>
-          <properties />
-          <option name="timeStamp" value="38" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/Horoshu-Core/src/test/java/orange/core/horoshu/http/HttpSvcTest.java</url>
-          <line>126</line>
-          <properties />
-          <option name="timeStamp" value="39" />
-        </line-breakpoint>
       </breakpoints>
-      <option name="time" value="42" />
+      <option name="time" value="58" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="JUnit">
@@ -1137,158 +1080,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/httpcomponents/httpclient/4.5.1/httpclient-4.5.1-sources.jar!/org/apache/http/impl/client/HttpClients.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="38" column="24" selection-start-line="38" selection-start-column="13" selection-end-line="38" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files (x86)/Java/jdk1.7.0_25/src.zip!/java/util/Map.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="383" column="10" selection-start-line="383" selection-start-column="10" selection-end-line="383" selection-end-column="10" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/httpcomponents/httpclient/4.5.1/httpclient-4.5.1-sources.jar!/org/apache/http/client/methods/CloseableHttpResponse.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="38" column="59" selection-start-line="38" selection-start-column="47" selection-end-line="38" selection-end-column="59" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/httpcomponents/httpclient/4.5.1/httpclient-4.5.1-sources.jar!/org/apache/http/impl/client/CloseableHttpClient.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="136" column="57" selection-start-line="136" selection-start-column="57" selection-end-line="136" selection-end-column="57" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/httpcomponents/httpcore/4.4.3/httpcore-4.4.3-sources.jar!/org/apache/http/message/BasicNameValuePair.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="55" column="11" selection-start-line="55" selection-start-column="11" selection-end-line="55" selection-end-column="11" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/httpcomponents/httpclient/4.5.1/httpclient-4.5.1-sources.jar!/org/apache/http/client/methods/HttpPut.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="65" column="11" selection-start-line="65" selection-start-column="11" selection-end-line="65" selection-end-column="11" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/httpcomponents/httpcore/4.4.3/httpcore-4.4.3-sources.jar!/org/apache/http/HttpEntity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="64" column="27" selection-start-line="64" selection-start-column="17" selection-end-line="64" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/httpcomponents/httpcore/4.4.3/httpcore-4.4.3-sources.jar!/org/apache/http/entity/StringEntity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="132" column="58" selection-start-line="132" selection-start-column="51" selection-end-line="132" selection-end-column="58" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/httpcomponents/httpcore/4.4.3/httpcore-4.4.3-sources.jar!/org/apache/http/message/AbstractHttpMessage.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="123" column="36" selection-start-line="123" selection-start-column="36" selection-end-line="123" selection-end-column="36" />
-          <folding>
-            <element signature="e#3884#3885#0" expanded="false" />
-            <element signature="e#3936#3937#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/httpcomponents/httpcore/4.4.3/httpcore-4.4.3-sources.jar!/org/apache/http/Header.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="27" column="23" selection-start-line="27" selection-start-column="8" selection-end-line="27" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files (x86)/Java/jdk1.7.0_25/src.zip!/java/nio/charset/Charset.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="275" column="22" selection-start-line="275" selection-start-column="22" selection-end-line="275" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files (x86)/Java/jdk1.7.0_25/src.zip!/java/lang/StackTraceElement.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="203" column="57" selection-start-line="203" selection-start-column="57" selection-end-line="203" selection-end-column="57" />
-          <folding>
-            <element signature="e#0#8484#0" expanded="false" />
-            <element signature="e#3171#3172#0" expanded="false" />
-            <element signature="e#3202#3203#0" expanded="false" />
-            <element signature="e#3795#3796#0" expanded="false" />
-            <element signature="e#3828#3829#0" expanded="false" />
-            <element signature="e#4167#4168#0" expanded="false" />
-            <element signature="e#4204#4205#0" expanded="false" />
-            <element signature="e#4781#4782#0" expanded="false" />
-            <element signature="e#4814#4815#0" expanded="false" />
-            <element signature="e#5156#5157#0" expanded="false" />
-            <element signature="e#5195#5196#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files (x86)/Java/jdk1.7.0_25/src.zip!/java/net/URI.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="777" column="71" selection-start-line="777" selection-start-column="15" selection-end-line="777" selection-end-column="71" />
-          <folding>
-            <element signature="e#0#134586#0" expanded="false" />
-            <element signature="imports" expanded="false" />
-            <element signature="e#42777#42778#0" expanded="false" />
-            <element signature="e#42815#42816#0" expanded="false" />
-            <element signature="e#45169#45170#0" expanded="false" />
-            <element signature="e#45210#45211#0" expanded="false" />
-            <element signature="e#45883#45884#0" expanded="false" />
-            <element signature="e#45930#45931#0" expanded="false" />
-            <element signature="e#46953#46954#0" expanded="false" />
-            <element signature="e#46997#46998#0" expanded="false" />
-            <element signature="e#48420#48421#0" expanded="false" />
-            <element signature="e#48449#48450#0" expanded="false" />
-            <element signature="e#48710#48711#0" expanded="false" />
-            <element signature="e#48747#48748#0" expanded="false" />
-            <element signature="e#49196#49197#0" expanded="false" />
-            <element signature="e#49231#49232#0" expanded="false" />
-            <element signature="e#50990#50991#0" expanded="false" />
-            <element signature="e#51022#51023#0" expanded="false" />
-            <element signature="e#52085#52086#0" expanded="false" />
-            <element signature="e#52116#52117#0" expanded="false" />
-            <element signature="e#54478#54479#0" expanded="false" />
-            <element signature="e#54505#54506#0" expanded="false" />
-            <element signature="e#54802#54803#0" expanded="false" />
-            <element signature="e#54829#54830#0" expanded="false" />
-            <element signature="e#55322#55323#0" expanded="false" />
-            <element signature="e#55349#55350#0" expanded="false" />
-            <element signature="e#56254#56255#0" expanded="false" />
-            <element signature="e#56282#56283#0" expanded="false" />
-            <element signature="e#57213#57214#0" expanded="false" />
-            <element signature="e#57244#57245#0" expanded="false" />
-            <element signature="e#110277#110278#0" expanded="false" />
-            <element signature="e#110335#110336#0" expanded="false" />
-            <element signature="e#110470#110471#0" expanded="false" />
-            <element signature="e#110516#110517#0" expanded="false" />
-            <element signature="e#110661#110662#0" expanded="false" />
-            <element signature="e#110729#110730#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://C:/Program Files (x86)/Java/jdk1.7.0_25/src.zip!/org/omg/CORBA/NameValuePair.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1300,16 +1091,8 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="27" column="0" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/httpcomponents/httpclient/4.5.1/httpclient-4.5.1-sources.jar!/org/apache/http/client/utils/URIBuilder.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="465" column="18" selection-start-line="465" selection-start-column="18" selection-end-line="465" selection-end-column="18" />
           <folding>
-            <element signature="e#14738#14739#0" expanded="false" />
-            <element signature="e#14770#14771#0" expanded="false" />
+            <element signature="e#0#1546#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1318,6 +1101,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1356,22 +1140,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/httpcomponents/httpclient/4.5.1/httpclient-4.5.1-sources.jar!/org/apache/http/client/methods/HttpDelete.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="51" column="31" selection-start-line="51" selection-start-column="31" selection-end-line="51" selection-end-column="31" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Horoshu-Core/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="188" column="42" selection-start-line="188" selection-start-column="42" selection-end-line="188" selection-end-column="42" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Horoshu-Core/src/main/java/cyan/core/config/IConfig.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1388,36 +1156,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/httpcomponents/httpclient/4.5.1/httpclient-4.5.1-sources.jar!/org/apache/http/client/methods/HttpRequestBase.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="53" column="27" selection-start-line="53" selection-start-column="27" selection-end-line="53" selection-end-column="27" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Horoshu-Core/src/test/sample/HttpClientUtil.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="52" column="6" selection-start-line="52" selection-start-column="6" selection-end-line="52" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Horoshu-Core/src/test/sample/HttpXmlClient.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="112" column="67" selection-start-line="112" selection-start-column="67" selection-end-line="112" selection-end-column="67" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/org/apache/httpcomponents/httpclient/4.5.1/httpclient-4.5.1-sources.jar!/org/apache/http/conn/socket/PlainConnectionSocketFactory.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="48" column="0" selection-start-line="48" selection-start-column="0" selection-end-line="48" selection-end-column="0" />
           <folding>
-            <element signature="e#1812#1813#0" expanded="true" />
+            <element signature="e#1812#1813#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1430,21 +1174,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/httpcomponents/httpcore/4.4.3/httpcore-4.4.3-sources.jar!/org/apache/http/util/Args.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="55" column="0" selection-start-line="55" selection-start-column="0" selection-end-line="55" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/org/apache/httpcomponents/httpcore/4.4.3/httpcore-4.4.3-sources.jar!/org/apache/http/config/RegistryBuilder.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="59" column="0" selection-start-line="59" selection-start-column="0" selection-end-line="59" selection-end-column="0" />
           <folding>
-            <element signature="e#1591#1592#0" expanded="true" />
-            <element signature="e#1638#1639#0" expanded="true" />
+            <element signature="e#1591#1592#0" expanded="false" />
+            <element signature="e#1638#1639#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1454,8 +1190,8 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="115" column="0" selection-start-line="115" selection-start-column="0" selection-end-line="115" selection-end-column="0" />
           <folding>
-            <element signature="e#4868#4893#0" expanded="true" />
-            <element signature="e#5190#5191#0" expanded="true" />
+            <element signature="e#4868#4893#0" expanded="false" />
+            <element signature="e#5190#5191#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1505,8 +1241,8 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="40" column="0" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
           <folding>
-            <element signature="e#1192#1342#0" expanded="true" />
-            <element signature="e#1341#1342#0" expanded="true" />
+            <element signature="e#1192#1342#0" expanded="false" />
+            <element signature="e#1341#1342#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1524,8 +1260,43 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="27" column="0" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
           <folding>
-            <element signature="e#592#593#0" expanded="true" />
+            <element signature="e#592#593#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/httpcomponents/httpcore/4.4.3/httpcore-4.4.3-sources.jar!/org/apache/http/util/Args.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="55" column="0" selection-start-line="55" selection-start-column="0" selection-end-line="55" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/httpcomponents/httpclient/4.5.1/httpclient-4.5.1-sources.jar!/org/apache/http/client/methods/HttpRequestBase.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="90" column="0" selection-start-line="90" selection-start-column="0" selection-end-line="90" selection-end-column="0" />
+          <folding>
+            <element signature="e#2476#2477#0" expanded="false" />
+            <element signature="e#2507#2508#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/httpcomponents/httpclient/4.5.1/httpclient-4.5.1-sources.jar!/org/apache/http/client/methods/HttpRequestWrapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="194" column="0" selection-start-line="194" selection-start-column="0" selection-end-line="194" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/httpcomponents/httpclient/4.5.1/httpclient-4.5.1-sources.jar!/org/apache/http/impl/client/InternalHttpClient.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="183" column="0" selection-start-line="183" selection-start-column="0" selection-end-line="183" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1540,34 +1311,120 @@
     <entry file="jar://$MAVEN_REPOSITORY$/junit/junit/4.7/junit-4.7-sources.jar!/org/junit/internal/runners/statements/RunAfters.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="27" column="30" selection-start-line="27" selection-start-column="8" selection-end-line="27" selection-end-column="30" />
+          <caret line="41" column="0" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
           <folding>
             <element signature="e#657#668#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Horoshu-Core/src/main/java/orange/core/horoshu/http/HttpRequest.java">
+    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/httpcomponents/httpcore/4.4.3/httpcore-4.4.3-sources.jar!/org/apache/http/util/Asserts.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="25" column="0" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
+          <caret line="33" column="0" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/httpcomponents/httpcore/4.4.3/httpcore-4.4.3-sources.jar!/org/apache/http/pool/AbstractConnPool.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="183" column="0" selection-start-line="183" selection-start-column="0" selection-end-line="183" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Horoshu-Core/src/test/sample/HttpClientUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="52" column="6" selection-start-line="52" selection-start-column="6" selection-end-line="52" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/httpcomponents/httpclient/4.5.1/httpclient-4.5.1-sources.jar!/org/apache/http/client/methods/HttpDelete.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="51" column="31" selection-start-line="51" selection-start-column="31" selection-end-line="51" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Horoshu-Core/src/test/sample/HttpXmlClient.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="112" column="67" selection-start-line="112" selection-start-column="67" selection-end-line="112" selection-end-column="67" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/httpcomponents/httpmime/4.5.1/httpmime-4.5.1-sources.jar!/org/apache/http/entity/mime/HttpMultipartMode.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="33" column="12" selection-start-line="33" selection-start-column="12" selection-end-line="33" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/httpcomponents/httpmime/4.5.1/httpmime-4.5.1-sources.jar!/org/apache/http/entity/mime/MultipartEntityBuilder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="77" column="53" selection-start-line="77" selection-start-column="53" selection-end-line="77" selection-end-column="53" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files (x86)/Java/jdk1.7.0_25/src.zip!/java/io/Closeable.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.41272727">
+          <caret line="37" column="17" selection-start-line="37" selection-start-column="17" selection-end-line="37" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/httpcomponents/httpclient/4.5.1/httpclient-4.5.1-sources.jar!/org/apache/http/impl/client/CloseableHttpClient.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="55" column="63" selection-start-line="55" selection-start-column="53" selection-end-line="55" selection-end-column="63" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/httpcomponents/httpclient/4.5.1/httpclient-4.5.1-sources.jar!/org/apache/http/impl/client/HttpClientBuilder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33272728">
+          <caret line="921" column="31" selection-start-line="921" selection-start-column="31" selection-end-line="921" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/httpcomponents/httpclient/4.5.1/httpclient-4.5.1-sources.jar!/org/apache/http/client/utils/URIBuilder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="466" column="0" selection-start-line="466" selection-start-column="0" selection-end-line="466" selection-end-column="0" />
           <folding>
-            <element signature="docComment;class#HttpRequest#0" expanded="false" />
-            <element signature="method#getMethod#0;class#HttpRequest#0" expanded="false" />
+            <element signature="e#14770#14771#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files (x86)/Java/jdk1.7.0_25/src.zip!/java/util/Map.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="227" column="6" selection-start-line="227" selection-start-column="6" selection-end-line="227" selection-end-column="6" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Horoshu-Core/src/main/java/orange/core/horoshu/dns/DnsItem.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="30" column="27" selection-start-line="30" selection-start-column="27" selection-end-line="30" selection-end-column="27" />
+          <caret line="29" column="7" selection-start-line="29" selection-start-column="7" selection-end-line="29" selection-end-column="7" />
           <folding>
             <element signature="docComment;field#svcName#0;class#DnsItem#0" expanded="false" />
             <element signature="docComment;field#protocol#0;class#DnsItem#0" expanded="false" />
-            <element signature="docComment;field#realHost#0;class#DnsItem#0" expanded="false" />
-            <element signature="docComment;field#realPort#0;class#DnsItem#0" expanded="false" />
-            <element signature="docComment;field#projBase#0;class#DnsItem#0" expanded="false" />
+            <element signature="docComment;field#host#0;class#DnsItem#0" expanded="false" />
+            <element signature="docComment;field#port#0;class#DnsItem#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1577,38 +1434,6 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Horoshu-Core/src/main/java/orange/core/horoshu/dns/SvcDns.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="20" column="0" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
-          <folding>
-            <element signature="e#524#541#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Horoshu-Core/src/main/java/orange/core/horoshu/http/HttpSvc.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="219" column="0" selection-start-line="219" selection-start-column="0" selection-end-line="219" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#httpPostRequest#0;class#HttpSvc#0" expanded="false" />
-            <element signature="method#translateDNS#0;class#HttpSvc#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Horoshu-Core/src/test/java/orange/core/horoshu/http/HttpSvcTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="126" column="0" selection-start-line="126" selection-start-column="0" selection-end-line="126" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1622,14 +1447,103 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Horoshu-Core/src/main/java/orange/core/horoshu/dns/SvcDns.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="69" column="74" selection-start-line="69" selection-start-column="74" selection-end-line="69" selection-end-column="74" />
+          <folding>
+            <element signature="e#672#673#0" expanded="true" />
+            <element signature="e#738#739#0" expanded="true" />
+            <element signature="e#970#971#0" expanded="true" />
+            <element signature="e#992#993#0" expanded="true" />
+            <element signature="method#lookup#0;class#SvcDns#0" expanded="false" />
+            <element signature="e#2111#2112#0" expanded="true" />
+            <element signature="e#2195#2196#0" expanded="true" />
+            <element signature="e#2425#2426#0" expanded="true" />
+            <element signature="e#2479#2480#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Horoshu-Core/src/test/java/orange/core/horoshu/http/HttpSvcTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="173" column="0" selection-start-line="173" selection-start-column="2" selection-end-line="176" selection-end-column="30" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Horoshu-Core/src/main/java/orange/core/horoshu/http/HttpRequest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="26" column="65" selection-start-line="26" selection-start-column="65" selection-end-line="26" selection-end-column="65" />
+          <folding>
+            <element signature="docComment;class#HttpRequest#0" expanded="false" />
+            <element signature="e#1642#1643#0" expanded="true" />
+            <element signature="e#1673#1674#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/com/alibaba/fastjson/1.2.7/fastjson-1.2.7-sources.jar!/com/alibaba/fastjson/serializer/SerializeConfig.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="155" column="11" selection-start-line="155" selection-start-column="11" selection-end-line="155" selection-end-column="11" />
+          <folding>
+            <element signature="method#createJavaBeanSerializer#0;class#SerializeConfig#0" expanded="false" />
+            <element signature="e#4367#4368#0" expanded="true" />
+            <element signature="e#4398#4399#0" expanded="true" />
+            <element signature="method#SerializeConfig#1;class#SerializeConfig#0" expanded="false" />
+            <element signature="method#getObjectWriter#0;class#SerializeConfig#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Horoshu-Core/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="225" column="21" selection-start-line="225" selection-start-column="21" selection-end-line="225" selection-end-column="21" />
+          <folding>
+            <element signature="n#plugin#4;n#plugins#0;n#build#0;n#project#0;n#!!top" expanded="false" />
+            <element signature="n#plugin#5;n#plugins#0;n#build#0;n#project#0;n#!!top" expanded="false" />
+            <element signature="n#plugin#6;n#plugins#0;n#build#0;n#project#0;n#!!top" expanded="false" />
+            <element signature="n#plugin#7;n#plugins#0;n#build#0;n#project#0;n#!!top" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files (x86)/Java/jdk1.7.0_25/src.zip!/java/io/BufferedOutputStream.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="57" column="11" selection-start-line="57" selection-start-column="11" selection-end-line="57" selection-end-column="11" />
+          <folding>
+            <element signature="e#1188#1189#0" expanded="true" />
+            <element signature="e#1219#1220#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Horoshu-Core/src/main/java/cyan/core/convert/XmlConvertor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="14" column="50" selection-start-line="14" selection-start-column="50" selection-end-line="14" selection-end-column="50" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Horoshu-Core/src/main/java/orange/core/horoshu/http/HttpReqChain.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33285093">
-          <caret line="23" column="13" selection-start-line="23" selection-start-column="13" selection-end-line="23" selection-end-column="13" />
+        <state vertical-scroll-proportion="-5.766667">
+          <caret line="28" column="13" selection-start-line="28" selection-start-column="13" selection-end-line="28" selection-end-column="13" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="docComment;class#HttpReqChain#0" expanded="false" />
-            <element signature="method#pushError#0;class#HttpReqChain#0" expanded="false" />
+            <element signature="e#1815#1816#0" expanded="true" />
+            <element signature="e#1879#1880#0" expanded="true" />
             <element signature="method#setURI#0;class#HttpReqChain#0" expanded="false" />
             <element signature="method#setURI#1;class#HttpReqChain#0" expanded="false" />
             <element signature="method#setScheme#0;class#HttpReqChain#0" expanded="false" />
@@ -1638,14 +1552,26 @@
             <element signature="method#setHost#1;class#HttpReqChain#0" expanded="false" />
             <element signature="method#setPort#0;class#HttpReqChain#0" expanded="false" />
             <element signature="method#setPath#0;class#HttpReqChain#0" expanded="false" />
-            <element signature="method#setParam#0;class#HttpReqChain#0" expanded="false" />
             <element signature="method#setFragment#0;class#HttpReqChain#0" expanded="false" />
-            <element signature="method#setParams#0;class#HttpReqChain#0" expanded="false" />
-            <element signature="method#setHeader#0;class#HttpReqChain#0" expanded="false" />
-            <element signature="method#setHeaders#0;class#HttpReqChain#0" expanded="false" />
-            <element signature="method#setContent#0;class#HttpReqChain#0" expanded="false" />
+            <element signature="method#post#0;class#HttpReqChain#0" expanded="false" />
             <element signature="method#put#0;class#HttpReqChain#0" expanded="false" />
             <element signature="method#delete#0;class#HttpReqChain#0" expanded="false" />
+            <element signature="method#head#0;class#HttpReqChain#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Horoshu-Core/src/main/java/orange/core/horoshu/http/HttpSvc.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.8350983">
+          <caret line="76" column="0" selection-start-line="76" selection-start-column="0" selection-end-line="76" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#HttpSvc#0;class#HttpSvc#0" expanded="false" />
+            <element signature="method#getClientMngr#0;class#HttpSvc#0" expanded="false" />
+            <element signature="method#getHttpClient#0;class#HttpSvc#0" expanded="false" />
+            <element signature="method#doRequest#0;class#HttpSvc#0" expanded="false" />
+            <element signature="method#doRequest#1;class#HttpSvc#0" expanded="false" />
           </folding>
         </state>
       </provider>

@@ -151,7 +151,7 @@
                     <password>admin</password>
                     <path>/${project.build.finalName}</path>
                     <!-- war文件路径缺省情况下指向target -->
-                    <!--<warFile>${basedir}/target/${project.request.finalName}.war</warFile> -->
+                    <!--<warFile>${basedir}/target/${project.doRequest.finalName}.war</warFile> -->
                 </configuration>
             </plugin>
         </plugins>
@@ -166,7 +166,7 @@
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
-            <version>4.7</version>
+            <version>4.11</version>
             <scope>test</scope>
         </dependency>
 
@@ -178,7 +178,7 @@
         </dependency>
 
         <!-- ========== Cache Client ========== -->
-         <dependency>
+        <dependency>
             <groupId>net.floatingsun</groupId>
             <artifactId>jetcd</artifactId>
             <version>0.3.1</version>
@@ -218,11 +218,11 @@
             <artifactId>fastjson</artifactId>
             <version>1.2.7</version>
         </dependency>
-        <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>4.11</version>
-        </dependency>
 
+        <dependency>
+            <groupId>com.thoughtworks.xstream</groupId>
+            <artifactId>xstream</artifactId>
+            <version>1.4.7</version>
+        </dependency>
     </dependencies>
 </project>

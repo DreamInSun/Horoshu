@@ -21,6 +21,11 @@ public class SvcDns {
     /* Fresh DNS Item Interval, in Second */
     private Integer m_freshInterval = 15;
 
+    /*========== Constructor ==========*/
+    private SvcDns() {
+        test();
+    }
+
     public static SvcDns getInstance() {
         return SvcDns.getInstance(Config.getEmptyConfig());
     }
@@ -36,27 +41,21 @@ public class SvcDns {
     public URIBuilder translateAddr(URIBuilder uriBuilder) throws URISyntaxException {
         DnsItem realAddr = this.lookup(uriBuilder.getHost());
         if (realAddr != null) {
-            uriBuilder.setHost(realAddr.realHost);
-            uriBuilder.setPort(realAddr.realPort);
-            if (!(null == realAddr.projBase && realAddr.projBase.isEmpty())) {
-                uriBuilder.setPath(realAddr.projBase + uriBuilder.getPath());
+            if (null != realAddr.host && !realAddr.host.isEmpty()) {
+                uriBuilder.setHost(realAddr.host);
+            }
+            if (realAddr.port != 0) {
+                uriBuilder.setPort(realAddr.port);
+            }
+            if (null != realAddr.pathBase && !realAddr.pathBase.isEmpty()) {
+                uriBuilder.setPath(realAddr.pathBase + uriBuilder.getPath());
             }
         }
         return uriBuilder;
     }
 
     public URI translateAddr(URI uri) throws URISyntaxException {
-        DnsItem realAddr = this.lookup(uri.getHost());
-        if (realAddr != null) {
-            URIBuilder uriBuilder = new URIBuilder(uri);
-            uriBuilder.setHost(realAddr.realHost);
-            uriBuilder.setPort(realAddr.realPort);
-            if (!(null == realAddr.projBase && realAddr.projBase.isEmpty())) {
-                uriBuilder.setPath(realAddr.projBase + uri.getPath());
-            }
-            return uriBuilder.build();
-        }
-        return uri;
+        return translateAddr(new URIBuilder(uri)).build();
     }
 
     /*========== Assistant Functions ==========*/
@@ -67,9 +66,26 @@ public class SvcDns {
         return m_DnsMap.get(svcName);
     }
 
+    private void test() {
+        addDnsItem("cyan.core.Test", "dreaminsun.ngrok.natapp.cn", 0, null );
+    }
+
     /*====================================================*/
     /*========== DNS Synchronization Management ==========*/
     /*====================================================*/
+    public void addDnsItem(DnsItem dnsItem) {
+        m_DnsMap.put(dnsItem.svcName, dnsItem);
+    }
+
+    public void addDnsItem(String svcName, String host, int port, String pathBase) {
+        DnsItem dnsItem = new DnsItem();
+        dnsItem.svcName = svcName;
+        dnsItem.host = host;
+        dnsItem.port = port;
+        dnsItem.pathBase = pathBase;
+        m_DnsMap.put(svcName, dnsItem);
+    }
+
     public void fresh() {
         /*===== STEP 1. Remove Expired DNS =====*/
 

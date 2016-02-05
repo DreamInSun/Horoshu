@@ -39,7 +39,7 @@ public class HttpRequestProxyUtil {
 			get.setDoAuthentication(true);
 
 			int result = httpClient.executeMethod(get);
-			logger.debug("get method request code:" + result);
+			logger.debug("get method doRequest code:" + result);
 			if (result > 200) {
 				return null;
 			}
@@ -77,7 +77,7 @@ public class HttpRequestProxyUtil {
 			get.setDoAuthentication(true);
 
 			int result = httpClient.executeMethod(get);
-			logger.debug("get method request code:" + result);
+			logger.debug("get method doRequest code:" + result);
 			if (result > 200) {
 				return null;
 			}
@@ -115,7 +115,7 @@ public class HttpRequestProxyUtil {
 			delete.setDoAuthentication(true);
 
 			int result = httpClient.executeMethod(delete);
-			logger.debug("delete method request code:" + result);
+			logger.debug("delete method doRequest code:" + result);
 			if (result > 200) {
 				return null;
 			}

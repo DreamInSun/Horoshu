@@ -20,13 +20,25 @@ public class DnsItem {
     /**
      * Serivce real host in IP or Domain
      */
-    public String realHost;
+    public String host;
     /**
      * Service read port
      */
-    public Integer realPort;
+    public Integer port;
     /**
-     * must be request with '/'
+     * must be doRequest with '/'
      */
-    public String projBase;
+    public String pathBase;
+
+    /*========== toString ==========*/
+    @Override
+    public String toString() {
+        return "DnsItem{" +
+                "svcName='" + svcName + '\'' +
+                ", protocol='" + protocol + '\'' +
+                ", host='" + host + '\'' +
+                ", port=" + port +
+                ", pathBase='" + pathBase + '\'' +
+                '}';
+    }
 }
