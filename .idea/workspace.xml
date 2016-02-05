@@ -1,19 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e6d71895-4696-4ffb-aaab-6d626dfb0793" name="Default" comment="调整了项目结构">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Horoshu-Core/tools/natapp/ngrok.exe" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Horoshu-Core/src/main/java/orange/core/horoshu/http/IHttpRespHandler.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Horoshu-Core/tools/natapp/ngrok.cfg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Horoshu-Core/tools/natapp/run.bat" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Horoshu-Core/src/main/java/orange/core/horoshu/dns/DnsItem.java" afterPath="$PROJECT_DIR$/Horoshu-Core/src/main/java/orange/core/horoshu/dns/DnsItem.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Horoshu-Core/src/main/java/orange/core/horoshu/dns/EtcdDns.java" afterPath="$PROJECT_DIR$/Horoshu-Core/src/main/java/orange/core/horoshu/dns/EtcdDns.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Horoshu-Core/src/test/sample/HttpRequestProxyUtil.java" afterPath="$PROJECT_DIR$/Horoshu-Core/src/test/sample/HttpRequestProxyUtil.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Horoshu-Core/src/main/java/orange/core/horoshu/dns/SvcDns.java" afterPath="$PROJECT_DIR$/Horoshu-Core/src/main/java/orange/core/horoshu/dns/SvcDns.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/encodings.xml" afterPath="$PROJECT_DIR$/.idea/encodings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Horoshu-Core/pom.xml" afterPath="$PROJECT_DIR$/Horoshu-Core/pom.xml" />
+    <list default="true" id="e6d71895-4696-4ffb-aaab-6d626dfb0793" name="Default" comment="修改HttpReqChain为HttpReq，每个Http请求都有一个该对象作为跟踪。&#10;增驾了HttpReq调用的钩子和处理句柄&#10;增加了DnsItem构造函数">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Horoshu-Core/target/classes/cyan/core/config/BaseConfig.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Horoshu-Core/target/classes/orange/core/horoshu/dns/DnsItem.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Horoshu-Core/target/classes/orange/core/horoshu/dns/EtcdDns.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Horoshu-Core/target/classes/orange/core/horoshu/http/HttpReqChain$1.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Horoshu-Core/target/classes/orange/core/horoshu/http/HttpReqChain.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Horoshu-Core/target/classes/orange/core/horoshu/http/HttpRequest.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Horoshu-Core/target/classes/orange/core/horoshu/http/HttpSvc$IHooks.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Horoshu-Core/target/classes/orange/core/horoshu/http/HttpSvc.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Horoshu-Core/target/test-classes/orange/core/horoshu/http/HttpSvcTest$1.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Horoshu-Core/target/test-classes/orange/core/horoshu/http/HttpSvcTest$2.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Horoshu-Core/target/test-classes/orange/core/horoshu/http/HttpSvcTest$3.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Horoshu-Core/target/test-classes/orange/core/horoshu/http/HttpSvcTest$4.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Horoshu-Core/target/test-classes/orange/core/horoshu/http/HttpSvcTest$5.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Horoshu-Core/target/test-classes/orange/core/horoshu/http/HttpSvcTest.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Horoshu-Core/target/classes/cyan/core/config/IConfig.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Horoshu-Core/target/classes/orange/core/horoshu/http/IHttpRespHandler.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Horoshu-Core/target/classes/orange/core/horoshu/ISvc.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Horoshu-Core/target/classes/orange/core/horoshu/dns/SvcDns.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Horoshu-Core/target/classes/cyan/core/convert/XmlConvertor.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Horoshu-Core/target/classes/log4j.properties" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MOVED" beforePath="D:\WorkStation\JAVA_WorkSpace\[Coding]cyan.lib.Horoshu\Horoshu-Core\src\main\java\orange\core\horoshu\http\HttpReqChain.java" afterPath="$PROJECT_DIR$/Horoshu-Core/src/main/java/orange/core/horoshu/http/HttpReq.java" />
     </list>
     <ignored path="Horoshu.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -43,15 +52,20 @@
         <entry file="file://$PROJECT_DIR$/Horoshu-Core/src/main/java/orange/core/horoshu/http/HttpSvc.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="91" column="39" selection-start-line="91" selection-start-column="39" selection-end-line="91" selection-end-column="39" />
+              <caret line="75" column="5" selection-start-line="75" selection-start-column="5" selection-end-line="75" selection-end-column="5" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#2360#2361#0" expanded="false" />
+                <element signature="e#2400#2401#0" expanded="false" />
                 <element signature="docComment;method#getInstance#0;class#HttpSvc#0" expanded="false" />
+                <element signature="e#2511#2512#0" expanded="false" />
+                <element signature="e#2570#2571#0" expanded="false" />
                 <element signature="docComment;method#getInstance#1;class#HttpSvc#0" expanded="false" />
                 <element signature="method#getInstance#1;class#HttpSvc#0" expanded="false" />
-                <element signature="method#translateDNS#0;class#HttpSvc#0" expanded="false" />
-                <element signature="method#execRequest#0;class#HttpSvc#0" expanded="false" />
-                <element signature="docComment;method#execRequest#1;class#HttpSvc#0" expanded="false" />
+                <element signature="method#build#0;class#HttpSvc#0" expanded="false" />
+                <element signature="method#getClientMngr#0;class#HttpSvc#0" expanded="false" />
+                <element signature="docComment;method#execRequest#0;class#HttpSvc#0" expanded="false" />
+                <marker date="1454668730444" expanded="true" signature="5670:5816" placeholder="{...}" />
               </folding>
             </state>
           </provider>
@@ -67,11 +81,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="HttpSvcTest.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="HttpSvcTest.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Horoshu-Core/src/test/java/orange/core/horoshu/http/HttpSvcTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.55716354">
-              <caret line="63" column="66" selection-start-line="63" selection-start-column="54" selection-end-line="63" selection-end-column="66" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="102" column="122" selection-start-line="102" selection-start-column="122" selection-end-line="102" selection-end-column="122" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="class#783:1470" expanded="false" />
@@ -79,6 +93,16 @@
                 <element signature="initializer##0;class#2483:2642" expanded="false" />
                 <element signature="initializer##0;class#2721:2842" expanded="false" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.057315234">
+              <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -193,18 +217,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SvcDns.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Horoshu-Core/src/main/java/orange/core/horoshu/dns/SvcDns.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="86" column="0" selection-start-line="86" selection-start-column="0" selection-end-line="86" selection-end-column="0" />
-              <folding>
-                <element signature="method#lookup#0;class#SvcDns#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
     </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
@@ -223,6 +235,9 @@
       </list>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="PUSH_TAGS">
+      <GitPushTagMode />
+    </option>
   </component>
   <component name="GradleLocalSettings">
     <option name="modificationStamps">
@@ -250,7 +265,6 @@
         <option value="$PROJECT_DIR$/Horoshu-Core/src/main/java/orange/core/horoshu/impl/RestSvc.java" />
         <option value="$PROJECT_DIR$/Horoshu-Core/src/main/java/orange/core/horoshu/impl/HttpXmlClient.java" />
         <option value="$PROJECT_DIR$/Horoshu-Core/src/main/java/orange/core/horoshu/dns/DnsConfig.java" />
-        <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/Horoshu-Core/src/main/java/orange/core/horoshu/impl/HttpClientUtil.java" />
         <option value="$PROJECT_DIR$/Horoshu-Core/src/main/java/orange/core/horoshu/sample/HttpClientUtil.java" />
         <option value="$PROJECT_DIR$/Horoshu-Core/src/main/java/orange/core/horoshu/sample/HttpRequestProxyUtil.java" />
@@ -278,6 +292,7 @@
         <option value="$PROJECT_DIR$/Horoshu-Core/src/main/java/orange/core/horoshu/http/HttpReq.java" />
         <option value="$PROJECT_DIR$/Horoshu-Core/src/main/java/orange/core/horoshu/http/HttpSvc.java" />
         <option value="$PROJECT_DIR$/Horoshu-Core/src/test/java/orange/core/horoshu/http/HttpSvcTest.java" />
+        <option value="$PROJECT_DIR$/.gitignore" />
       </list>
     </option>
   </component>
@@ -968,7 +983,7 @@
       <updated>1454389396475</updated>
       <workItem from="1454389405788" duration="38757000" />
       <workItem from="1454597082245" duration="8239000" />
-      <workItem from="1454606520271" duration="26522000" />
+      <workItem from="1454606520271" duration="26964000" />
     </task>
     <task id="LOCAL-00001" summary="搭建基础框架">
       <created>1454406442964</created>
@@ -1030,11 +1045,29 @@
       <option name="project" value="LOCAL" />
       <updated>1454653443488</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="修改HttpReqChain为HttpReq，每个Http请求都有一个该对象作为跟踪。&#10;增驾了HttpReq调用的钩子和处理句柄&#10;增加了DnsItem构造函数">
+      <created>1454668418419</created>
+      <option name="number" value="00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1454668418419</updated>
+    </task>
+    <task id="LOCAL-00012" summary="修改HttpReqChain为HttpReq，每个Http请求都有一个该对象作为跟踪。&#10;增驾了HttpReq调用的钩子和处理句柄&#10;增加了DnsItem构造函数">
+      <created>1454668673351</created>
+      <option name="number" value="00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1454668673351</updated>
+    </task>
+    <task id="LOCAL-00013" summary="修改HttpReqChain为HttpReq，每个Http请求都有一个该对象作为跟踪。&#10;增驾了HttpReq调用的钩子和处理句柄&#10;增加了DnsItem构造函数">
+      <created>1454668733639</created>
+      <option name="number" value="00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1454668733639</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="73518000" />
+    <option name="totallyTimeSpent" value="73960000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1055,10 +1088,10 @@
       <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3284974" sideWeight="0.4978678" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.253886" sideWeight="0.32302773" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.253886" sideWeight="0.32302773" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.13859275" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.253886" sideWeight="0.67697227" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.253886" sideWeight="0.67697227" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32953367" sideWeight="0.49573562" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1101,7 +1134,8 @@
     <MESSAGE value="删除了原CTOP的参考代码。" />
     <MESSAGE value="HttpReqChain&#10;Http链式请求类完成。" />
     <MESSAGE value="调整了项目结构" />
-    <option name="LAST_COMMIT_MESSAGE" value="调整了项目结构" />
+    <MESSAGE value="修改HttpReqChain为HttpReq，每个Http请求都有一个该对象作为跟踪。&#10;增驾了HttpReq调用的钩子和处理句柄&#10;增加了DnsItem构造函数" />
+    <option name="LAST_COMMIT_MESSAGE" value="修改HttpReqChain为HttpReq，每个Http请求都有一个该对象作为跟踪。&#10;增驾了HttpReq调用的钩子和处理句柄&#10;增加了DnsItem构造函数" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
@@ -1130,14 +1164,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/httpcomponents/httpclient/4.5.1/httpclient-4.5.1-sources.jar!/org/apache/http/client/methods/HttpGet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="52" column="31" selection-start-line="52" selection-start-column="31" selection-end-line="52" selection-end-column="31" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Horoshu-Core/src/main/java/orange/core/horoshu/ISvc.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1482,8 +1508,6 @@
           <caret line="42" column="0" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#249#250#0" expanded="true" />
-            <element signature="e#288#289#0" expanded="true" />
             <element signature="e#694#695#0" expanded="true" />
             <element signature="e#736#737#0" expanded="true" />
             <element signature="e#1034#1035#0" expanded="true" />
@@ -1616,23 +1640,28 @@
     <entry file="file://$PROJECT_DIR$/Horoshu-Core/src/main/java/orange/core/horoshu/http/HttpSvc.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="91" column="39" selection-start-line="91" selection-start-column="39" selection-end-line="91" selection-end-column="39" />
+          <caret line="75" column="5" selection-start-line="75" selection-start-column="5" selection-end-line="75" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#2360#2361#0" expanded="false" />
+            <element signature="e#2400#2401#0" expanded="false" />
             <element signature="docComment;method#getInstance#0;class#HttpSvc#0" expanded="false" />
+            <element signature="e#2511#2512#0" expanded="false" />
+            <element signature="e#2570#2571#0" expanded="false" />
             <element signature="docComment;method#getInstance#1;class#HttpSvc#0" expanded="false" />
             <element signature="method#getInstance#1;class#HttpSvc#0" expanded="false" />
-            <element signature="method#translateDNS#0;class#HttpSvc#0" expanded="false" />
-            <element signature="method#execRequest#0;class#HttpSvc#0" expanded="false" />
-            <element signature="docComment;method#execRequest#1;class#HttpSvc#0" expanded="false" />
+            <element signature="method#build#0;class#HttpSvc#0" expanded="false" />
+            <element signature="method#getClientMngr#0;class#HttpSvc#0" expanded="false" />
+            <element signature="docComment;method#execRequest#0;class#HttpSvc#0" expanded="false" />
+            <marker date="1454668730444" expanded="true" signature="5670:5816" placeholder="{...}" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Horoshu-Core/src/test/java/orange/core/horoshu/http/HttpSvcTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.55716354">
-          <caret line="63" column="66" selection-start-line="63" selection-start-column="54" selection-end-line="63" selection-end-column="66" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="102" column="122" selection-start-line="102" selection-start-column="122" selection-end-line="102" selection-end-column="122" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="class#783:1470" expanded="false" />
@@ -1640,6 +1669,14 @@
             <element signature="initializer##0;class#2483:2642" expanded="false" />
             <element signature="initializer##0;class#2721:2842" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.057315234">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+          <folding />
         </state>
       </provider>
     </entry>
