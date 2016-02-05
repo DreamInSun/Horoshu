@@ -1,6 +1,6 @@
 package orange.core.horoshu.dns;
 
-import cyan.core.config.Config;
+import cyan.core.config.BaseConfig;
 import cyan.core.config.IConfig;
 import org.apache.http.client.utils.URIBuilder;
 
@@ -27,7 +27,7 @@ public class SvcDns {
     }
 
     public static SvcDns getInstance() {
-        return SvcDns.getInstance(Config.getEmptyConfig());
+        return SvcDns.getInstance(BaseConfig.getEmptyConfig());
     }
 
     public static SvcDns getInstance(IConfig config) {
@@ -67,7 +67,7 @@ public class SvcDns {
     }
 
     private void test() {
-        addDnsItem("cyan.core.Test", "dreaminsun.ngrok.natapp.cn", 0, null );
+        addDnsItem("cyan.core.Test", "dreaminsun.ngrok.natapp.cn", 0, null);
     }
 
     /*====================================================*/
@@ -78,11 +78,7 @@ public class SvcDns {
     }
 
     public void addDnsItem(String svcName, String host, int port, String pathBase) {
-        DnsItem dnsItem = new DnsItem();
-        dnsItem.svcName = svcName;
-        dnsItem.host = host;
-        dnsItem.port = port;
-        dnsItem.pathBase = pathBase;
+        DnsItem dnsItem = new DnsItem(svcName, host, port, pathBase);
         m_DnsMap.put(svcName, dnsItem);
     }
 

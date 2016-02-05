@@ -151,7 +151,7 @@
                     <password>admin</password>
                     <path>/${project.build.finalName}</path>
                     <!-- war文件路径缺省情况下指向target -->
-                    <!--<warFile>${basedir}/target/${project.doRequest.finalName}.war</warFile> -->
+                    <!--<warFile>${basedir}/target/${project.execRequest.finalName}.war</warFile> -->
                 </configuration>
             </plugin>
         </plugins>
@@ -219,10 +219,13 @@
             <version>1.2.7</version>
         </dependency>
 
+
+        <!-- ========== Auto Import ========== -->
         <dependency>
             <groupId>com.thoughtworks.xstream</groupId>
             <artifactId>xstream</artifactId>
             <version>1.4.7</version>
         </dependency>
+
     </dependencies>
 </project>
