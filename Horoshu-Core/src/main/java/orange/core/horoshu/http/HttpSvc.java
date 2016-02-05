@@ -62,6 +62,7 @@ public class HttpSvc {
     private PoolingNHttpClientConnectionManager m_nHttpClientMngr;
     private ConnectingIOReactor m_ioReactor;
     private IHooks m_hooks;
+
     /*========== Constructor ==========*/
     private HttpSvc(IConfig config) {
         /*===== Store Config =====*/
@@ -108,7 +109,7 @@ public class HttpSvc {
     /**
      * 快速创建一个Http请求并调用。
      * <p/>
-     * HttpResponse res = HttpSvc.build("http://dreaminsun.ngrok.natapp.cn/").get();
+     * CHttpResponse res = HttpSvc.build("http://dreaminsun.ngrok.natapp.cn/").get();
      *
      * @param uriStr 合法的URI字符串
      * @return Http链式构造类
@@ -122,13 +123,13 @@ public class HttpSvc {
      * 快速创建一个Http请求构造器并链式调用。
      * <p/>
      * 例如：
-     * HttpResponse res = HttpSvc.build()
+     * CHttpResponse res = HttpSvc.build()
      * .setURI("http://dreaminsun.ngrok.natapp.cn/weiphp/ppp")
      * .setParam("s", "/home/user/login")
      * .setHeader(HttpSvc.HEADER_FIELD_ACCESSTOKEN, "HKLJHJWEQPOWJ")
      * .setHeaders(headerMap)
      * .setParams(paramMap)
-     * .setContent(content, HttpRequest.CONTENT_TYPE_JSON)
+     * .setContent(content, CHttpRequest.CONTENT_TYPE_JSON)
      * .post();
      *
      * @return Http链式构造类
@@ -188,25 +189,25 @@ public class HttpSvc {
         return m_SvcDns.translateAddr(uriBuilder);
     }
 
-    public HttpResponse syncRequest(HttpRequest req) {
+    public CHttpResponse syncRequest(CHttpRequest req) {
          /*===== STEP 1. Prepare =====*/
-        HttpResponse res = null;
+        CHttpResponse res = null;
         CloseableHttpClient httpClient = getHttpClient();
         /*===== STEP 2. Execute =====*/
         try {
-            res = httpClient.execute(req);
+            res = (CHttpResponse) httpClient.execute(req);
         } catch (IOException e) {
             g_logger.error("func:build", e);
         }
         return res;
     }
 
-    public void asyncRequest(HttpRequest req, FutureCallback<HttpResponse> httpRespHandler) {
+    public void asyncRequest(CHttpRequest req, FutureCallback<HttpResponse> httpRespHandler) {
         CloseableHttpAsyncClient httpclient = getAsyncHttpClient();
         try {
             httpclient.start();
             httpclient.execute(req, httpRespHandler);
-            httpclient.close();
+            //httpclient.close();
         } catch (Exception e) {
             g_logger.error(e.getMessage());
         }

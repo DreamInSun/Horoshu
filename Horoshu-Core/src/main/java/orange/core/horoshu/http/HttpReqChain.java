@@ -3,7 +3,6 @@ package orange.core.horoshu.http;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.serializer.SerializeConfig;
 import org.apache.http.Header;
-import org.apache.http.HttpResponse;
 import org.apache.http.NameValuePair;
 import org.apache.http.client.utils.URIBuilder;
 import org.apache.http.concurrent.FutureCallback;
@@ -49,8 +48,8 @@ public class HttpReqChain {
     public long m_timestamp;
     /*===== Chain Properties =====*/
     private HttpSvc m_httpSvc;
-    private HttpRequest m_req;
-    private FutureCallback<HttpResponse> m_respFutureClbk;
+    private CHttpRequest m_req;
+    private FutureCallback<? extends CHttpResponse> m_respFutureClbk;
     private URIBuilder m_uriBuilder;
     private List<Throwable> m_errors;
 
@@ -65,7 +64,7 @@ public class HttpReqChain {
         /*=====  =====*/
         m_httpSvc = httpSvc;
         m_uriBuilder = new URIBuilder();
-        m_req = new HttpRequest();
+        m_req = new CHttpRequest();
     }
 
     /*===== Assistant Function =====*/
@@ -81,7 +80,7 @@ public class HttpReqChain {
     }
 
     /*===== Getter & Setter =====*/
-    public HttpRequest getReq() {
+    public CHttpRequest getReq() {
         return m_req;
     }
 
@@ -105,8 +104,8 @@ public class HttpReqChain {
     public HttpReqChain setURI(String uriStr) {
         if (isLastOpFail()) return this;
         /*===== Input Protection =====*/
-        if (null == uriStr || uriStr.isEmpty() ) {
-            //m_expLog.setStackTrace(  );
+        if (null == uriStr || uriStr.isEmpty()) {
+            pushError(new NullPointerException("uriStr is Null"));
         }
         /*===== Convert =====*/
         try {
@@ -284,7 +283,7 @@ public class HttpReqChain {
      * @return Http构造链
      */
     public HttpReqChain setContent(String bodyStr) {
-        this.setContent(bodyStr, HttpRequest.CONTENT_TYPE_PLAIN);
+        this.setContent(bodyStr, CHttpRequest.CONTENT_TYPE_PLAIN);
         return this;
     }
 
@@ -295,7 +294,7 @@ public class HttpReqChain {
      * @return Http构造链
      */
     public HttpReqChain setContent(Object bodyObj) {
-        this.setContent(bodyObj, HttpRequest.CONTENT_TYPE_JSON);
+        this.setContent(bodyObj, CHttpRequest.CONTENT_TYPE_JSON);
         return this;
     }
 
@@ -304,12 +303,12 @@ public class HttpReqChain {
      *
      * @param bodyObj 　要传输的请求体
      * @param encode  可使用参数<ul>
-     *                <li>HttpRequest.CONTENT_TYPE_XML，暂不启用</li>
-     *                <li>HttpRequest.CONTENT_TYPE_JSON_UTF8</li>
-     *                <li>HttpRequest.CONTENT_TYPE_JSON</li>
-     *                <li>HttpRequest.CONTENT_TYPE_PROTOBUF，暂不启用</li>
-     *                <li>HttpRequest.CONTENT_TYPE_MULTIPART, bodyObj必须为Multipart类型</li>
-     *                <li>HttpRequest.CONTENT_TYPE_PLAIN，bodyObj及其子项必须支持或自定义"toString"函数</li>
+     *                <li>CHttpRequest.CONTENT_TYPE_XML，暂不启用</li>
+     *                <li>CHttpRequest.CONTENT_TYPE_JSON_UTF8</li>
+     *                <li>CHttpRequest.CONTENT_TYPE_JSON</li>
+     *                <li>CHttpRequest.CONTENT_TYPE_PROTOBUF，暂不启用</li>
+     *                <li>CHttpRequest.CONTENT_TYPE_MULTIPART, bodyObj必须为Multipart类型</li>
+     *                <li>CHttpRequest.CONTENT_TYPE_PLAIN，bodyObj及其子项必须支持或自定义"toString"函数</li>
      *                </ul>
      * @return Http构造链
      */
@@ -319,29 +318,29 @@ public class HttpReqChain {
         try {
             m_req.setHeader(HTTP.CONTENT_TYPE, encode);
             switch (encode) {
-                case HttpRequest.CONTENT_TYPE_XML:
+                case CHttpRequest.CONTENT_TYPE_XML:
                     //TODO : Implements it !
                     //XStream xstream = new XStream();
                     break;
-                case HttpRequest.CONTENT_TYPE_JSON_UTF8:
+                case CHttpRequest.CONTENT_TYPE_JSON_UTF8:
                     m_req.setEntity(new StringEntity(JSON.toJSONString(bodyObj, g_jsonSerializeConfig)));
                     break;
-                case HttpRequest.CONTENT_TYPE_JSON:
+                case CHttpRequest.CONTENT_TYPE_JSON:
                     m_req.setEntity(new StringEntity(JSON.toJSONString(bodyObj, g_jsonSerializeConfig)));
                     break;
-                case HttpRequest.CONTENT_TYPE_PROTOBUF:
+                case CHttpRequest.CONTENT_TYPE_PROTOBUF:
                     //TODO Binary Serilization
                     m_req.setEntity(new StringEntity(bodyObj.toString()));
                     break;
-                case HttpRequest.CONTENT_TYPE_MULTIPART:
+                case CHttpRequest.CONTENT_TYPE_MULTIPART:
                     MultipartEntityBuilder multiBuilder = MultipartEntityBuilder.create();
                     //TODO : Parse Multipart Form Defiition.
                     multiBuilder.addTextBody("file", bodyObj.toString());
                     m_req.setEntity(multiBuilder.build());
                     break;
-                case HttpRequest.CONTENT_TYPE_PLAIN:
+                case CHttpRequest.CONTENT_TYPE_PLAIN:
                 default:
-                    m_req.setHeader(HTTP.CONTENT_TYPE, HttpRequest.CONTENT_TYPE_MULTIPART);
+                    m_req.setHeader(HTTP.CONTENT_TYPE, CHttpRequest.CONTENT_TYPE_MULTIPART);
                     m_req.setEntity(new StringEntity(bodyObj.toString()));
                     break;
             }
@@ -352,51 +351,51 @@ public class HttpReqChain {
     }
 
     /*========== Execute Request ==========*/
-    public HttpResponse get() {
-        m_req.setMethod(HttpRequest.METHOD_GET);
+    public CHttpResponse get() {
+        m_req.setMethod(CHttpRequest.METHOD_GET);
         return genericInvoke();
     }
 
-    public HttpResponse post() {
-        m_req.setMethod(HttpRequest.METHOD_POST);
+    public CHttpResponse post() {
+        m_req.setMethod(CHttpRequest.METHOD_POST);
         return genericInvoke();
     }
 
-    public HttpResponse put() {
-        m_req.setMethod(HttpRequest.METHOD_PUT);
+    public CHttpResponse put() {
+        m_req.setMethod(CHttpRequest.METHOD_PUT);
         return genericInvoke();
     }
 
-    public HttpResponse delete() {
-        m_req.setMethod(HttpRequest.METHOD_DELETE);
+    public CHttpResponse delete() {
+        m_req.setMethod(CHttpRequest.METHOD_DELETE);
         return genericInvoke();
     }
 
-    public HttpResponse options() {
-        m_req.setMethod(HttpRequest.METHOD_OPTIONS);
+    public CHttpResponse options() {
+        m_req.setMethod(CHttpRequest.METHOD_OPTIONS);
         return genericInvoke();
 
     }
 
-    public HttpResponse head() {
-        m_req.setMethod(HttpRequest.METHOD_HEAD);
-        return genericInvoke();
-    }
-
-    @Deprecated
-    public HttpResponse trace() {
-        m_req.setMethod(HttpRequest.METHOD_TRACE);
+    public CHttpResponse head() {
+        m_req.setMethod(CHttpRequest.METHOD_HEAD);
         return genericInvoke();
     }
 
     @Deprecated
-    public HttpResponse patch() {
-        m_req.setMethod(HttpRequest.METHOD_PATCH);
+    public CHttpResponse trace() {
+        m_req.setMethod(CHttpRequest.METHOD_TRACE);
+        return genericInvoke();
+    }
+
+    @Deprecated
+    public CHttpResponse patch() {
+        m_req.setMethod(CHttpRequest.METHOD_PATCH);
         return genericInvoke();
     }
 
     /*========== Execute Request ==========*/
-    private HttpResponse genericInvoke() {
+    private CHttpResponse genericInvoke() {
         if (isLastOpFail()) {
             for (Throwable error : m_errors) {
                 g_logger.error(error.getMessage());
@@ -404,7 +403,7 @@ public class HttpReqChain {
             return null;
         }
         // TODO get ErrorLog
-        HttpResponse resp = null;
+        CHttpResponse resp = null;
         HttpSvc.IHooks hooks = m_httpSvc.getHooks();
         /*===== Hook : preInvoke =====*/
         if (hooks != null) hooks.preInvoke(this);
@@ -418,7 +417,7 @@ public class HttpReqChain {
         if (hooks != null) hooks.postDns(this);
         /* Execute Request */
         if (m_respFutureClbk != null) {
-            m_httpSvc.asyncRequest(m_req, m_respFutureClbk);
+            m_httpSvc.asyncRequest(m_req, (FutureCallback<org.apache.http.HttpResponse>) m_respFutureClbk);
         } else {
             resp = m_httpSvc.syncRequest(m_req);
         }
@@ -430,7 +429,7 @@ public class HttpReqChain {
 
 
     /*========== Public Request ==========*/
-    public HttpReqChain setRespFutureClbk(FutureCallback<HttpResponse> respFutureClbk) {
+    public HttpReqChain setRespFutureClbk(FutureCallback<CHttpResponse> respFutureClbk) {
         m_req.setHeader(HttpSvc.HEADER_FIELD_CONNECTION, HttpSvc.CONN_STAT_CLOSE);
         m_respFutureClbk = respFutureClbk;
         return this;

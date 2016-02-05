@@ -6,7 +6,7 @@ import org.apache.http.client.methods.*;
  * 通用Http请求类
  * Created by DreamInSun on 2016/2/5.
  */
-public class HttpRequest extends HttpEntityEnclosingRequestBase {
+public class CHttpRequest extends HttpEntityEnclosingRequestBase {
 
     /*========== Constant ==========*/
      /* REquest Method */
@@ -31,10 +31,10 @@ public class HttpRequest extends HttpEntityEnclosingRequestBase {
     public static final String CONTENT_TYPE_HTML = "text/html";
 
     /*========== Properties ==========*/
-    private String m_method = HttpRequest.METHOD_GET;
+    private String m_method = CHttpRequest.METHOD_GET;
 
     /*========== Constructor ==========*/
-    public HttpRequest() {
+    public CHttpRequest() {
         super();
     }
 
@@ -47,14 +47,14 @@ public class HttpRequest extends HttpEntityEnclosingRequestBase {
     /*========== Export Function ==========*/
     public void setMethod(String method) {
         switch (method) {
-            case HttpRequest.METHOD_DELETE:
-            case HttpRequest.METHOD_PUT:
-            case HttpRequest.METHOD_POST:
-            case HttpRequest.METHOD_GET:
-            case HttpRequest.METHOD_OPTIONS:
-            case HttpRequest.METHOD_HEAD:
-            case HttpRequest.METHOD_TRACE:
-            case HttpRequest.METHOD_PATCH:
+            case CHttpRequest.METHOD_DELETE:
+            case CHttpRequest.METHOD_PUT:
+            case CHttpRequest.METHOD_POST:
+            case CHttpRequest.METHOD_GET:
+            case CHttpRequest.METHOD_OPTIONS:
+            case CHttpRequest.METHOD_HEAD:
+            case CHttpRequest.METHOD_TRACE:
+            case CHttpRequest.METHOD_PATCH:
                 m_method = method;
                 break;
         }
