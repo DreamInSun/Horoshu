@@ -3,6 +3,7 @@ package orange.core.horoshu.http;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.serializer.SerializeConfig;
 import org.apache.http.Header;
+import org.apache.http.HttpResponse;
 import org.apache.http.NameValuePair;
 import org.apache.http.client.utils.URIBuilder;
 import org.apache.http.concurrent.FutureCallback;
@@ -49,7 +50,7 @@ public class HttpReqChain {
     /*===== Chain Properties =====*/
     private HttpSvc m_httpSvc;
     private CHttpRequest m_req;
-    private FutureCallback<? extends CHttpResponse> m_respFutureClbk;
+    private FutureCallback<? super HttpResponse> m_respFutureClbk;
     private URIBuilder m_uriBuilder;
     private List<Throwable> m_errors;
 
@@ -351,51 +352,51 @@ public class HttpReqChain {
     }
 
     /*========== Execute Request ==========*/
-    public CHttpResponse get() {
+    public HttpResponse get() {
         m_req.setMethod(CHttpRequest.METHOD_GET);
         return genericInvoke();
     }
 
-    public CHttpResponse post() {
+    public HttpResponse post() {
         m_req.setMethod(CHttpRequest.METHOD_POST);
         return genericInvoke();
     }
 
-    public CHttpResponse put() {
+    public HttpResponse put() {
         m_req.setMethod(CHttpRequest.METHOD_PUT);
         return genericInvoke();
     }
 
-    public CHttpResponse delete() {
+    public HttpResponse delete() {
         m_req.setMethod(CHttpRequest.METHOD_DELETE);
         return genericInvoke();
     }
 
-    public CHttpResponse options() {
+    public HttpResponse options() {
         m_req.setMethod(CHttpRequest.METHOD_OPTIONS);
         return genericInvoke();
 
     }
 
-    public CHttpResponse head() {
+    public HttpResponse head() {
         m_req.setMethod(CHttpRequest.METHOD_HEAD);
         return genericInvoke();
     }
 
     @Deprecated
-    public CHttpResponse trace() {
+    public HttpResponse trace() {
         m_req.setMethod(CHttpRequest.METHOD_TRACE);
         return genericInvoke();
     }
 
     @Deprecated
-    public CHttpResponse patch() {
+    public HttpResponse patch() {
         m_req.setMethod(CHttpRequest.METHOD_PATCH);
         return genericInvoke();
     }
 
     /*========== Execute Request ==========*/
-    private CHttpResponse genericInvoke() {
+    private HttpResponse genericInvoke() {
         if (isLastOpFail()) {
             for (Throwable error : m_errors) {
                 g_logger.error(error.getMessage());
@@ -403,7 +404,7 @@ public class HttpReqChain {
             return null;
         }
         // TODO get ErrorLog
-        CHttpResponse resp = null;
+        HttpResponse resp = null;
         HttpSvc.IHooks hooks = m_httpSvc.getHooks();
         /*===== Hook : preInvoke =====*/
         if (hooks != null) hooks.preInvoke(this);
@@ -417,7 +418,7 @@ public class HttpReqChain {
         if (hooks != null) hooks.postDns(this);
         /* Execute Request */
         if (m_respFutureClbk != null) {
-            m_httpSvc.asyncRequest(m_req, (FutureCallback<org.apache.http.HttpResponse>) m_respFutureClbk);
+            m_httpSvc.asyncRequest(m_req, (FutureCallback<HttpResponse>) m_respFutureClbk);
         } else {
             resp = m_httpSvc.syncRequest(m_req);
         }
@@ -429,7 +430,7 @@ public class HttpReqChain {
 
 
     /*========== Public Request ==========*/
-    public HttpReqChain setRespFutureClbk(FutureCallback<CHttpResponse> respFutureClbk) {
+    public HttpReqChain setRespFutureClbk(FutureCallback<HttpResponse> respFutureClbk) {
         m_req.setHeader(HttpSvc.HEADER_FIELD_CONNECTION, HttpSvc.CONN_STAT_CLOSE);
         m_respFutureClbk = respFutureClbk;
         return this;

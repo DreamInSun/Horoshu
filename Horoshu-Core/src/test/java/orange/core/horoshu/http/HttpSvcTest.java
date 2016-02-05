@@ -4,6 +4,7 @@ import com.cyan.arsenal.Console;
 import cyan.core.config.BaseConfig;
 import orange.core.horoshu.dns.DnsItem;
 import org.apache.http.HttpEntity;
+import org.apache.http.HttpResponse;
 import org.apache.http.concurrent.FutureCallback;
 import org.apache.http.util.EntityUtils;
 import org.junit.After;
@@ -60,9 +61,9 @@ public class HttpSvcTest {
         /*===== Create Config =====*/
         HttpSvc.config(new BaseConfig().set(HttpSvc.CONFIG_HOOKS, hooks));
         /*===== Create Response Handler =====*/
-        FutureCallback<CHttpResponse> respFutureClbk = new FutureCallback<CHttpResponse>() {
+        FutureCallback<HttpResponse> respFutureClbk = new FutureCallback<HttpResponse>() {
             @Override
-            public void completed(CHttpResponse resp) {
+            public void completed(HttpResponse resp) {
                 Console.info("########## Async Callback ##########");
                 Console.info(resp);
                 if (resp != null) {
@@ -128,13 +129,13 @@ public class HttpSvcTest {
         }};
 
         /*===== Start Request =====*/
-        CHttpResponse res0 = HttpSvc.build().setURI("http://127.0.0.1:8080/Working").setHeader("access-token", "123456").setContent("Hello").setParam("userId", "1").setPath("/Library/Path").post();
-        CHttpResponse res1 = HttpSvc.build().setURI(uri).setRespFutureClbk(respFutureClbk).get();
-        CHttpResponse res2 = HttpSvc.build("http://cyan.core.Test").get();
-        CHttpResponse res3 = HttpSvc.build("http://cyan.core.Test").setRespFutureClbk(respFutureClbk).options();
+        HttpResponse res0 = HttpSvc.build().setURI("http://127.0.0.1:8080/Working").setHeader("access-token", "123456").setContent("Hello").setParam("userId", "1").setPath("/Library/Path").post();
+        HttpResponse res1 = HttpSvc.build().setURI(uri).setRespFutureClbk(respFutureClbk).get();
+        HttpResponse res2 = HttpSvc.build("http://cyan.core.Test").get();
+        HttpResponse res3 = HttpSvc.build("http://cyan.core.Test").setRespFutureClbk(respFutureClbk).options();
         res2.getLocale();
-        CHttpResponse res4 = HttpSvc.build("http://dreaminsun.ngrok.natapp.cn/").setRespFutureClbk(respFutureClbk).head();
-        CHttpResponse res5 = HttpSvc.build()
+        HttpResponse res4 = HttpSvc.build("http://dreaminsun.ngrok.natapp.cn/").setRespFutureClbk(respFutureClbk).head();
+        HttpResponse res5 = HttpSvc.build()
                 .setURI("http://dreaminsun.ngrok.natapp.cn/weiphp/ppp")
                 .setParam("s", "/home/user/login")
                 .setHeader(HttpSvc.HEADER_FIELD_CONNECTION, HttpSvc.CONN_STAT_KEEP_ALIVE)
@@ -147,17 +148,17 @@ public class HttpSvcTest {
                 .setRespFutureClbk(respFutureClbk)
                 .post();
 
-        CHttpResponse res6 = HttpSvc.build()
+        HttpResponse res6 = HttpSvc.build()
                 .setURI("http://dreaminsun.ngrok.natapp.cn/ppj").setParam("s", "/home/user/login")
                 .setContent(content, CHttpRequest.CONTENT_TYPE_PLAIN)
                 .setRespFutureClbk(respFutureClbk)
                 .put();
 
-        CHttpResponse res7 = HttpSvc.build("http://dreaminsun.ngrok.natapp.cn/delete")
+        HttpResponse res7 = HttpSvc.build("http://dreaminsun.ngrok.natapp.cn/delete")
                 .setRespFutureClbk(respFutureClbk)
                 .setContent(new Object())
                 .delete();
-        CHttpResponse res8 = HttpSvc.build("http://www.baidu.com").get();
+        HttpResponse res8 = HttpSvc.build("http://www.baidu.com").get();
 
         /*===== Start Request =====*/
         Console.info("/*========== Wait for Return. ==========*/");

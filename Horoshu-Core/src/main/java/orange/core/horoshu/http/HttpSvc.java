@@ -189,13 +189,13 @@ public class HttpSvc {
         return m_SvcDns.translateAddr(uriBuilder);
     }
 
-    public CHttpResponse syncRequest(CHttpRequest req) {
+    public HttpResponse syncRequest(CHttpRequest req) {
          /*===== STEP 1. Prepare =====*/
-        CHttpResponse res = null;
+        HttpResponse res = null;
         CloseableHttpClient httpClient = getHttpClient();
         /*===== STEP 2. Execute =====*/
         try {
-            res = (CHttpResponse) httpClient.execute(req);
+            res = httpClient.execute(req);
         } catch (IOException e) {
             g_logger.error("func:build", e);
         }
