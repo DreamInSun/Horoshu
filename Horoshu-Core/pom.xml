@@ -70,13 +70,7 @@
             </plugin>
 
             <!-- ===== Build Plugin : Deploy ===== -->
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-deploy-plugin</artifactId>
-                <version>2.5</version>
-                <configuration>
-                </configuration>
-            </plugin>
+
 
             <!-- ===== Build Plugin : Verify ===== -->
             <plugin>
@@ -96,64 +90,6 @@
                 </executions>
             </plugin>
 
-            <!-- ===== Build Plugin : Package ===== -->
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-shade-plugin</artifactId>
-                <version>1.2.1</version>
-                <executions>
-                    <execution>
-                        <phase>package</phase>
-                        <goals>
-                            <goal>shade</goal>
-                        </goals>
-                        <configuration>
-                            <transformers>
-                                <transformer
-                                        implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
-                                    <mainClass>com.cyan.cicd.App</mainClass>
-                                </transformer>
-                            </transformers>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
-
-            <!-- ========== War Plugins ========== -->
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-war-plugin</artifactId>
-                <version>2.2</version>
-                <configuration>
-                    <webResources>
-                        <resource>
-                            <!-- 元配置文件的目录，相对于pom.xml文件的路径 -->
-                            <directory>src/main/webapp/WEB-INF</directory>
-                            <!-- 是否过滤文件，也就是是否启动auto-config的功能 -->
-                            <filtering>false</filtering>
-                            <!-- 目标路径 -->
-                            <targetPath>WEB-INF</targetPath>
-                        </resource>
-                    </webResources>
-                </configuration>
-            </plugin>
-
-            <!-- ===== Tomcat Plugins ===== -->
-            <plugin>
-                <groupId>org.apache.tomcat.maven</groupId>
-                <artifactId>tomcat7-maven-plugin</artifactId>
-                <version>2.2</version>
-                <configuration>
-                    <url>http://localhost:8080/cicd</url>
-                    <!-- server、username、password对应maven的setting下的配置 -->
-                    <server>tomcat</server>
-                    <username>admin</username>
-                    <password>admin</password>
-                    <path>/${project.build.finalName}</path>
-                    <!-- war文件路径缺省情况下指向target -->
-                    <!--<warFile>${basedir}/target/${project.execRequest.finalName}.war</warFile> -->
-                </configuration>
-            </plugin>
         </plugins>
     </build>
 
@@ -211,6 +147,16 @@
             <artifactId>httpclient</artifactId>
             <version>${httpcomponents.version}</version>
         </dependency>
+        <dependency>
+            <groupId>org.apache.httpcomponents</groupId>
+            <artifactId>httpcore-nio</artifactId>
+            <version>4.3.2</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.httpcomponents</groupId>
+            <artifactId>httpasyncclient</artifactId>
+            <version>4.1.1</version>
+        </dependency>
 
         <!-- ========== Data Packer ========== -->
         <dependency>
@@ -219,13 +165,15 @@
             <version>1.2.7</version>
         </dependency>
 
-
         <!-- ========== Auto Import ========== -->
         <dependency>
             <groupId>com.thoughtworks.xstream</groupId>
             <artifactId>xstream</artifactId>
             <version>1.4.7</version>
         </dependency>
-
     </dependencies>
+
+    <!-- ====================================================== -->
+    <!-- ==================== Repositories ==================== -->
+    <!-- ====================================================== -->
 </project>

@@ -27,7 +27,7 @@ public class DnsItem {
      */
     public String protocol;
     /**
-     * must be execRequest with '/'
+     * must be build with '/'
      */
     public String pathBase;
 

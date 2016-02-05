@@ -24,17 +24,10 @@
         <module>Horoshu-Demo</module>
         <module>Horoshu-Core</module>
     </modules>
-
-
+    
     <!--========== Dependence ===========-->
 
-
     <!--========== Build ==========-->
-    <build>
-
-    </build>
 
     <!--========== Build ===========-->
-
-
 </project>

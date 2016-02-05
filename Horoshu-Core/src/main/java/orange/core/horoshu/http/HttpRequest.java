@@ -3,6 +3,7 @@ package orange.core.horoshu.http;
 import org.apache.http.client.methods.*;
 
 /**
+ * 通用Http请求类
  * Created by DreamInSun on 2016/2/5.
  */
 public class HttpRequest extends HttpEntityEnclosingRequestBase {
@@ -27,6 +28,7 @@ public class HttpRequest extends HttpEntityEnclosingRequestBase {
     public static final String CONTENT_TYPE_PLAIN = "text/plain";
     public static final String CONTENT_TYPE_PROTOBUF = "application/octet-stream";
     public static final String CONTENT_TYPE_MULTIPART = "multipart/form-data";
+    public static final String CONTENT_TYPE_HTML = "text/html";
 
     /*========== Properties ==========*/
     private String m_method = HttpRequest.METHOD_GET;
