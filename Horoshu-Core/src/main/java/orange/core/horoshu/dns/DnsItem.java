@@ -1,6 +1,7 @@
 package orange.core.horoshu.dns;
 
 /**
+ * Value Object
  * Created by DreamInSun on 2016/2/2.
  */
 public class DnsItem {

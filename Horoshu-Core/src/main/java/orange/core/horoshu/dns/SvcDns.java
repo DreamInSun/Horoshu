@@ -2,6 +2,9 @@ package orange.core.horoshu.dns;
 
 import cyan.core.config.BaseConfig;
 import cyan.core.config.IConfig;
+import net.sf.ehcache.Cache;
+import net.sf.ehcache.CacheManager;
+import net.sf.ehcache.Ehcache;
 import org.apache.http.client.utils.URIBuilder;
 
 import java.net.URI;
@@ -17,13 +20,19 @@ public class SvcDns {
     /*========== Factory ==========*/
     private static SvcDns g_svcDns;
     /*========== Properties ==========*/
-    private Map<String, DnsItem> m_DnsMap = new ConcurrentHashMap<String, DnsItem>();
+    private Map<String, DnsItem> m_DnsMap;
+    private Ehcache m_DnsCache;
+
     /* Fresh DNS Item Interval, in Second */
     private Integer m_freshInterval = 15;
 
     /*========== Constructor ==========*/
     private SvcDns() {
-        test();
+        /*===== Init Hash Map =====*/
+        m_DnsMap = new ConcurrentHashMap<>();
+        /*===== Init Cache =====*/
+        m_DnsCache = new Cache("SvcRouteCache", 5000, false, false, 5, 2);
+        CacheManager.newInstance("src/config/ehcache.xml").addCache(m_DnsCache);
     }
 
     public static SvcDns getInstance() {

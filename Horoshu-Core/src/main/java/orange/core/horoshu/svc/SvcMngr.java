@@ -6,14 +6,26 @@ package orange.core.horoshu.svc;
 public class SvcMngr {
 
     /*========== Static Properties ==========*/
+    //public final static ehcache
 
+    /*========== Factory ==========*/
+    public synchronized static SvcMngr getInstance() {
+        return null;
+    }
 
-    /*========== Static Function ==========*/
-    public static void registerSvc(){
+    public static void initCache(){
+
+    }
+    /*========== Svc Management ==========*/
+    public static void registerSvc(String svcName) {
 
     }
 
-    public static void unregisterSvc(){
+    public static void unregisterSvc() {
+
+    }
+
+    public static void findSvc() {
 
     }
 
