@@ -1,7 +1,7 @@
-package orange.core.horoshu.dns;
+package cyan.svc.horoshu.dns;
 
-import cyan.core.config.BaseConfig;
-import cyan.core.config.IConfig;
+import cyan.svc.config.BaseConfig;
+import cyan.svc.config.IConfig;
 import net.sf.ehcache.Cache;
 import net.sf.ehcache.CacheManager;
 import net.sf.ehcache.Ehcache;

@@ -1,4 +1,4 @@
-package orange.core.horoshu.http;
+package cyan.svc.horoshu.http;
 
 import org.apache.http.HttpResponse;
 

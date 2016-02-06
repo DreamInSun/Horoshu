@@ -1,9 +1,8 @@
-package cyan.core.horoshu.http;
+package cyan.svc.horoshu.http;
 
 import com.cyan.arsenal.Console;
-import cyan.core.config.BaseConfig;
-import orange.core.horoshu.dns.DnsItem;
-import orange.core.horoshu.http.*;
+import cyan.svc.config.BaseConfig;
+import cyan.svc.horoshu.dns.DnsItem;
 import org.apache.http.HttpResponse;
 import org.junit.After;
 import org.junit.Before;

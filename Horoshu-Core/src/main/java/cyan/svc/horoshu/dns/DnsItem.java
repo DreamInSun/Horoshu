@@ -1,4 +1,4 @@
-package orange.core.horoshu.dns;
+package cyan.svc.horoshu.dns;
 
 /**
  * Value Object

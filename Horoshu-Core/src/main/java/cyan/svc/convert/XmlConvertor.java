@@ -1,4 +1,4 @@
-package cyan.core.convert;
+package cyan.svc.convert;
 
 import java.beans.XMLDecoder;
 import java.beans.XMLEncoder;

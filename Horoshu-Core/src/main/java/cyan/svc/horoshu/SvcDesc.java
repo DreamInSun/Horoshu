@@ -1,4 +1,4 @@
-package orange.core.horoshu.svc;
+package cyan.svc.horoshu;
 
 import java.io.Serializable;
 

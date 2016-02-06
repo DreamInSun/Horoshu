@@ -1,4 +1,4 @@
-package orange.core.horoshu.http;
+package cyan.svc.horoshu.http;
 
 import com.cyan.arsenal.Console;
 import org.apache.http.Header;

@@ -1,4 +1,4 @@
-package cyan.core.config;
+package cyan.svc.config;
 
 /**
  * Created by DreamInSun on 2016/2/2.

@@ -1,6 +1,7 @@
 package cyan.data.amoeba;
 
-import ctop.v3.msb.amoeba.prototype.Prototype;
+
+import cyan.data.amoeba.prototype.Prototype;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;

@@ -1,4 +1,4 @@
-package cyan.core.config;
+package cyan.svc.config;
 
 import java.util.HashMap;
 import java.util.Map;

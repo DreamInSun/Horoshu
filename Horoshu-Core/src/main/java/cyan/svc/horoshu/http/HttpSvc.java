@@ -1,9 +1,9 @@
-package orange.core.horoshu.http;
+package cyan.svc.horoshu.http;
 
 import com.cyan.arsenal.Console;
-import cyan.core.config.BaseConfig;
-import cyan.core.config.IConfig;
-import orange.core.horoshu.dns.SvcDns;
+import cyan.svc.config.BaseConfig;
+import cyan.svc.config.IConfig;
+import cyan.svc.horoshu.dns.SvcDns;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.utils.URIBuilder;
 import org.apache.http.concurrent.FutureCallback;

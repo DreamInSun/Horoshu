@@ -1,4 +1,4 @@
-package orange.core.horoshu.svc;
+package cyan.svc.horoshu.svc;
 
 import java.io.Externalizable;
 import java.io.IOException;

@@ -1,4 +1,4 @@
-package orange.core.horoshu.http;
+package cyan.svc.horoshu.http;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.serializer.SerializeConfig;
