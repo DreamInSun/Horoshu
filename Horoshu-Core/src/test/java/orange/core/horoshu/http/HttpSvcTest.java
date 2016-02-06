@@ -3,15 +3,11 @@ package orange.core.horoshu.http;
 import com.cyan.arsenal.Console;
 import cyan.core.config.BaseConfig;
 import orange.core.horoshu.dns.DnsItem;
-import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
-import org.apache.http.concurrent.FutureCallback;
-import org.apache.http.util.EntityUtils;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.io.IOException;
 import java.net.URI;
 import java.util.Date;
 import java.util.HashMap;
@@ -39,70 +35,34 @@ public class HttpSvcTest {
      */
     @Test
     public void testGetHttpClient() throws Exception {
+        /*===== Start Request =====*/
         /*===== Create Hooks =====*/
-        HttpSvc.IHooks hooks = new HttpSvc.IHooks() {
+        HttpSvc.IHook hooks = new HttpSvc.IHook() {
             @Override
             public void preInvoke(HttpReqChain httpReq) {
-                Console.info("/*========================================*/");
-                long ts = System.currentTimeMillis();
-                Console.info("Start : [" + new Date(httpReq.markTime()) + "]: \t " + httpReq.getUriBuilder());
+                Console.info("========================================");
+                Console.info("START\t{" + httpReq.getReqId() + "} [" + new Date(httpReq.markTime()) + "]: \t " + httpReq.getUriBuilder());
             }
 
             @Override
             public void postDns(HttpReqChain httpReq) {
-                Console.info("Service DNS used: " + httpReq.getElapsedTime() + "ms \t" + httpReq.getReq());
+                Console.info("SVCDNS\t{" + httpReq.getReqId() + "}\tused:" + httpReq.getElapsedTime() + "ms \t" + httpReq.getReq());
             }
 
             @Override
             public void postInvoke(HttpReqChain httpReq) {
-                Console.info("Http remote invoke used: " + httpReq.getElapsedTime() + "ms");
+                Console.info("FINISH\t{" + httpReq.getReqId() + "}\tHttp invoke used: " + httpReq.getElapsedTime() + " ms");
             }
         };
         /*===== Create Config =====*/
         HttpSvc.config(new BaseConfig().set(HttpSvc.CONFIG_HOOKS, hooks));
         /*===== Create Response Handler =====*/
-        FutureCallback<HttpResponse> respFutureClbk = new FutureCallback<HttpResponse>() {
+        IHttpRespHandler respHandler = new IHttpRespHandler() {
             @Override
-            public void completed(HttpResponse resp) {
+            public void procHttpResponse(long reqId, HttpResponse resp) {
                 Console.info("########## Async Callback ##########");
-                Console.info(resp);
-                if (resp != null) {
-                    Console.info("Status Code:" + resp.getStatusLine().getStatusCode());
-                    HttpEntity entity = resp.getEntity();
-                    if (resp.getEntity() != null) {
-
-                        String contentType = entity.getContentType().getValue();
-                        String[] arr = contentType.split(";");
-                        String mime = arr[0];
-                        Console.info("MIME:" + mime);
-
-                        try {
-                            String outputStr;
-                            switch (arr[0]) {
-                                case CHttpRequest.CONTENT_TYPE_JSON:
-                                    outputStr = EntityUtils.toString(entity);
-                                    //Console.info(outputStr);
-                                    break;
-                                case CHttpRequest.CONTENT_TYPE_HTML:
-                                    outputStr = EntityUtils.toString(entity);
-                                    //Console.info(outputStr);
-                                    break;
-                            }
-                        } catch (IOException e) {
-                            e.printStackTrace();
-                        }
-                    }
-                }
-            }
-
-            @Override
-            public void failed(Exception ex) {
-                Console.error(ex.toString());
-            }
-
-            @Override
-            public void cancelled() {
-                Console.warn("Request Cancelled.");
+                Console.info("FINISH\t{" + reqId + "} \t" + resp);
+                HttpRespUtil.printResp(resp);
             }
         };
         /*===== Create URI =====*/
@@ -118,29 +78,37 @@ public class HttpSvcTest {
             put(HttpSvc.HEADER_FIELD_ACCESSTOKEN, "123456");
             put(HttpSvc.HEADER_FIELD_AUTHORIZATION, "OK");
         }};
-            /*===== Param Map =====*/
+        /*===== Param Map =====*/
         Map<String, Object> paramMap = new HashMap<String, Object>() {{
             put("s", "/home/user/logout");
             put("openId", "66668888");
         }};
-
-        /*===== Start Request =====*/
+        /*===== Start Sync Request =====*/
         HttpResponse res0 = HttpSvc.build().setURI("http://127.0.0.1:8080/Working").setHeader("access-token", "123456").setContent("Hello").setParam("userId", "1").setPath("/Library/Path").post();
+        HttpRespUtil.printResp(res0);
 
-        HttpResponse res01 = HttpSvc.build("http://www.baidu.com").get();
-        HttpRespUtil.getEntity(res01);
+        HttpResponse res1 = HttpSvc.build("http://www.baidu.com").get();
+        HttpRespUtil.printResp(res1);
 
-        HttpResponse res1 = HttpSvc.build().setURI(uri).get();
-        HttpRespUtil.getEntity(res1);
+        HttpResponse res2 = HttpSvc.build().setURI(uri).get();
+        HttpRespUtil.printResp(res2);
 
-        HttpResponse res2 = HttpSvc.build("http://www.weather.com.cn/adat/sk/101010100.html").get();
-        HttpRespUtil.getEntity(res2);
+        HttpResponse res3 = HttpSvc.build("http://www.baidu.com").get();
+        HttpRespUtil.printResp(res3);
 
-        HttpResponse res3 = HttpSvc.build("http://cyan.core.Test").setRespFutureClbk(respFutureClbk).options();
+        HttpResponse res4 = HttpSvc.build("http://www.weather.com.cn/adat/sk/101010100.html").get();
+        HttpRespUtil.printResp(res2);
 
-        HttpResponse res4 = HttpSvc.build("http://dreaminsun.ngrok.natapp.cn/").setRespFutureClbk(respFutureClbk).head();
+         /*===== Start Async Request =====*/
+        HttpSvc.build("http://cyan.core.Test")
+                .setRespHandler(respHandler)
+                .options();
 
-        HttpResponse res5 = HttpSvc.build()
+        HttpSvc.build("http://dreaminsun.ngrok.natapp.cn/")
+                .setRespHandler(respHandler)
+                .head();
+
+        HttpSvc.build()
                 .setURI("http://dreaminsun.ngrok.natapp.cn/weiphp/ppp")
                 .setParam("s", "/home/user/login")
                 .setHeader(HttpSvc.HEADER_FIELD_CONNECTION, HttpSvc.CONN_STAT_KEEP_ALIVE)
@@ -149,22 +117,21 @@ public class HttpSvcTest {
                 .setFragment("Chapter1")
                 .setHeaders(headerMap)
                 .setParams(paramMap)
-                .setContent(content, CHttpRequest.CONTENT_TYPE_JSON)
-                .setRespFutureClbk(respFutureClbk)
+                .setContent(content, HttpRequest.CONTENT_TYPE_JSON)
+                .setRespHandler(respHandler)
                 .post();
 
-        HttpResponse res6 = HttpSvc.build()
+        HttpSvc.build()
                 .setURI("http://dreaminsun.ngrok.natapp.cn/ppj").setParam("s", "/home/user/login")
-                .setContent(content, CHttpRequest.CONTENT_TYPE_PLAIN)
-                .setRespFutureClbk(respFutureClbk)
+                .setContent(content, HttpRequest.CONTENT_TYPE_PLAIN)
+                .setRespHandler(respHandler)
                 .put();
 
-        HttpResponse res7 = HttpSvc.build("http://dreaminsun.ngrok.natapp.cn/delete")
-                .setRespFutureClbk(respFutureClbk)
+        HttpSvc.build("http://dreaminsun.ngrok.natapp.cn/delete")
+                .setRespHandler(respHandler)
                 .setContent(new Object())
                 .delete();
 
-        HttpResponse res8 = HttpSvc.build("http://www.baidu.com").get();
 
         /*===== Start Request =====*/
         Console.info("/*========== Wait for Return. ==========*/");

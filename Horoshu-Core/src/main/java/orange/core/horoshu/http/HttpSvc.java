@@ -1,5 +1,6 @@
 package orange.core.horoshu.http;
 
+import com.cyan.arsenal.Console;
 import cyan.core.config.BaseConfig;
 import cyan.core.config.IConfig;
 import orange.core.horoshu.dns.SvcDns;
@@ -23,6 +24,7 @@ import java.io.IOException;
 import java.net.URISyntaxException;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.concurrent.CountDownLatch;
 
 /**
  * HttpSvc 可以创建并存储，多套不同配置的服务调用实例。
@@ -63,14 +65,14 @@ public class HttpSvc {
     /*=================================================*/
     private PoolingNHttpClientConnectionManager m_nHttpClientMngr;
     private ConnectingIOReactor m_ioReactor;
-    private IHooks m_hooks;
+    private IHook m_hooks;
 
     /*========== Constructor ==========*/
     private HttpSvc(IConfig config) {
         /*===== Store Config =====*/
         m_Config = config;
         /*===== Init Hooks =====*/
-        this.setHooks((IHooks) config.getObject(HttpSvc.CONFIG_HOOKS, null));
+        this.setHooks((IHook) config.getObject(HttpSvc.CONFIG_HOOKS, null));
         /*===== Init Properties =====*/
         initClientMngr(config);
     }
@@ -131,7 +133,7 @@ public class HttpSvc {
      * .setHeader(HttpSvc.HEADER_FIELD_ACCESSTOKEN, "HKLJHJWEQPOWJ")
      * .setHeaders(headerMap)
      * .setParams(paramMap)
-     * .setContent(content, CHttpRequest.CONTENT_TYPE_JSON)
+     * .setContent(content, HttpRequest.CONTENT_TYPE_JSON)
      * .post();
      *
      * @return Http链式构造类
@@ -191,42 +193,79 @@ public class HttpSvc {
         return m_SvcDns.translateAddr(uriBuilder);
     }
 
-    public HttpResponse syncRequest(CHttpRequest req) {
-         /*===== STEP 1. Prepare =====*/
+    public HttpResponse async2syncRequest(final HttpRequest req) {
+         /*===== STEP 1. Prepare Http Client =====*/
+        final HttpResponse[] res = {null};
+        final CountDownLatch latch = new CountDownLatch(1);
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                asyncRequest(req, new FutureCallback<HttpResponse>() {
+                    @Override
+                    public void completed(HttpResponse result) {
+                        res[0] = result;
+                        latch.countDown();
+                    }
+
+                    @Override
+                    public void failed(Exception ex) {
+                        g_logger.error(ex.getMessage());
+                        latch.countDown();
+                    }
+
+                    @Override
+                    public void cancelled() {
+                        g_logger.error("Request Cancelled : " + req);
+                        latch.countDown();
+                    }
+                });
+            }
+        }).start();
+        /*===== STEP 3. Wait for return =====*/
+        try {
+            latch.await();
+        } catch (InterruptedException e) {
+            Console.debug(e);
+        }
+        /*===== STEP 4. Return =====*/
+        return res[0];
+    }
+
+    public HttpResponse syncRequest(HttpRequest req) {
+         /*===== STEP 1. Prepare Http Client =====*/
         HttpResponse res = null;
         CloseableHttpClient httpClient = getHttpClient();
         /*===== STEP 2. Execute =====*/
         try {
             res = httpClient.execute(req);
         } catch (IOException e) {
-            g_logger.error("func:build", e);
+            g_logger.error(e.getMessage());
         }
         return res;
     }
 
-    public void asyncRequest(CHttpRequest req, FutureCallback<HttpResponse> httpRespHandler) {
+    public void asyncRequest(HttpRequest req, FutureCallback<HttpResponse> httpRespHandler) {
         CloseableHttpAsyncClient httpclient = getAsyncHttpClient();
         try {
             httpclient.start();
             httpclient.execute(req, httpRespHandler);
-            //httpclient.close();
         } catch (Exception e) {
             g_logger.error(e.getMessage());
         }
     }
 
-    public IHooks getHooks() {
+    public IHook getHooks() {
         return this.m_hooks;
     }
 
-    public void setHooks(HttpSvc.IHooks hooks) {
+    public void setHooks(IHook hooks) {
         m_hooks = hooks;
     }
 
     /*==========================================================*/
     /*==================== Hooks Management ====================*/
     /*==========================================================*/
-    public interface IHooks {
+    public interface IHook {
         void preInvoke(HttpReqChain httpReq);
 
         void postDns(HttpReqChain httpReq);

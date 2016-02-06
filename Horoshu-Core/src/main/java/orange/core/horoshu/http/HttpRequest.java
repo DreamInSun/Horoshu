@@ -6,7 +6,7 @@ import org.apache.http.client.methods.*;
  * 通用Http请求类
  * Created by DreamInSun on 2016/2/5.
  */
-public class CHttpRequest extends HttpEntityEnclosingRequestBase {
+public class HttpRequest extends HttpEntityEnclosingRequestBase {
 
     /*========== Constant ==========*/
      /* REquest Method */
@@ -30,17 +30,17 @@ public class CHttpRequest extends HttpEntityEnclosingRequestBase {
     public static final String CONTENT_TYPE_HTML = "text/html";
 
     /* Content Charset */
-    public static final String CONTENT_CHARSET_KEY= "charset";
+    public static final String CONTENT_CHARSET_KEY = "charset";
     public static final String CONTENT_CHARSET_LATIN = "ISO-8859-1";
     public static final String CONTENT_CHARSET_UTF8 = "utf-8";
     public static final String CONTENT_CHARSET_GBK = "gbk";
     public static final String CONTENT_CHARSET_GB2312 = "gb2312";
 
     /*========== Properties ==========*/
-    private String m_method = CHttpRequest.METHOD_GET;
+    private String m_method = HttpRequest.METHOD_GET;
 
     /*========== Constructor ==========*/
-    public CHttpRequest() {
+    public HttpRequest() {
         super();
     }
 
@@ -53,14 +53,14 @@ public class CHttpRequest extends HttpEntityEnclosingRequestBase {
     /*========== Export Function ==========*/
     public void setMethod(String method) {
         switch (method) {
-            case CHttpRequest.METHOD_DELETE:
-            case CHttpRequest.METHOD_PUT:
-            case CHttpRequest.METHOD_POST:
-            case CHttpRequest.METHOD_GET:
-            case CHttpRequest.METHOD_OPTIONS:
-            case CHttpRequest.METHOD_HEAD:
-            case CHttpRequest.METHOD_TRACE:
-            case CHttpRequest.METHOD_PATCH:
+            case HttpRequest.METHOD_DELETE:
+            case HttpRequest.METHOD_PUT:
+            case HttpRequest.METHOD_POST:
+            case HttpRequest.METHOD_GET:
+            case HttpRequest.METHOD_OPTIONS:
+            case HttpRequest.METHOD_HEAD:
+            case HttpRequest.METHOD_TRACE:
+            case HttpRequest.METHOD_PATCH:
                 m_method = method;
                 break;
         }

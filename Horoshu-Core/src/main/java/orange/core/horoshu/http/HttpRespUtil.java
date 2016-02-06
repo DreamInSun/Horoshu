@@ -24,53 +24,85 @@ public class HttpRespUtil {
         long contentLen = entity.getContentLength();
         Console.debug(contentLen);
         /*===== Get Content Type =====*/
-        if (200 == status) {
+        if (200 == getStatusCode(resp)) {
             /*===== Parse Content Type =====*/
-            String mimeName = "";
-            String charSet = "";
             Header contentType = entity.getContentType();
             if (contentType != null) {
-                HeaderElement elmt = entity.getContentType().getElements()[0];
-                mimeName = elmt.getName();
-//                charSet = elmt.getParameterByName("charset").getValue();
-                Console.debug(mimeName + charSet);
+                String mime = getMime(contentType);
+                String charset = getCharset(contentType);
+                Console.debug("MIME = " + mime + " Charset = " + charset);
+
+                /*===== Parse Content =====*/
+                try {
+                    String outputStr;
+                    switch (mime) {
+                        case HttpRequest.CONTENT_TYPE_JSON:
+                            outputStr = EntityUtils.toString(entity);
+                            //Console.info(outputStr);
+                            break;
+                        case HttpRequest.CONTENT_TYPE_HTML:
+                            outputStr = EntityUtils.toString(entity);
+                            //Console.info(outputStr);
+                            break;
+                    }
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                /*===== Parse Content =====*/
+                try {
+                    EntityUtils.consume(entity);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
             }
-
-            /*===== Parse Content =====*/
-//            try {
-//                String outputStr;
-//                switch (arr[0]) {
-//                    case CHttpRequest.CONTENT_TYPE_JSON:
-//                        outputStr = EntityUtils.toString(entity);
-//                        //Console.info(outputStr);
-//                        break;
-//                    case CHttpRequest.CONTENT_TYPE_JSON_UTF8:
-//                        outputStr = EntityUtils.toString(entity);
-//                        //Console.info(outputStr);
-//                        break;
-//                    case CHttpRequest.CONTENT_TYPE_HTML:
-//                        outputStr = EntityUtils.toString(entity);
-//                        //Console.info(outputStr);
-//                        break;
-//                }
-//            } catch (IOException e) {
-//                e.printStackTrace();
-//            }
-
-        }
-
-        try {
-            EntityUtils.consume(entity);
-        } catch (IOException e) {
-            e.printStackTrace();
         }
         return null;
     }
 
-
     public static void printResp(HttpResponse resp) {
-        /*=====  =====*/
-        Console.info("Status Code:" + resp.getStatusLine().getStatusCode());
+        /*===== Input Protection =====*/
+        if (resp == null) {
+            Console.info("Response is Null");
+            return;
+        }
+        Console.info(resp);
+        /*===== Parse Header =====*/
+        HttpEntity entity = resp.getEntity();
+        if (entity == null) {
+            Console.info("Response Entuty is Null");
+            return;
+        }
+        int status = getStatusCode(resp);
+        String mime = getMime(entity.getContentType());
+        String charset = getCharset(entity.getContentType());
+        long contentLen = entity.getContentLength();
+        Console.info("{ Status Code:" + status + ", MIME:" + mime + ", Charset:" + charset + ", ContentLen:"+ contentLen +"}");
+        /*===== Parse Content =====*/
+
     }
 
+    public static int getStatusCode(HttpResponse resp) {
+        if (null != resp && null != resp.getStatusLine()) return 0;
+        return resp.getStatusLine().getStatusCode();
+    }
+
+    /*========== Assistant Function ==========*/
+    private static String getMime(Header contentType) {
+        String mime = null;
+        if (contentType != null) {
+            mime = contentType.getElements()[0].getName();
+        }
+        return mime;
+    }
+
+    private static String getCharset(Header contentType) {
+        String charset = null;
+        if (contentType != null) {
+            HeaderElement elmt = contentType.getElements()[0];
+            if (null != elmt.getParameterByName("charset")) {
+                charset = elmt.getParameterByName("charset").getValue();
+            }
+        }
+        return charset;
+    }
 }

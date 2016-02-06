@@ -46,22 +46,23 @@ public class HttpReqChain {
     };
     /*========== Static Properties ==========*/
     private static Logger g_logger = org.slf4j.LoggerFactory.getLogger(HttpReqChain.class.getName());
-    public long m_timestamp;
-
-    /*===== Configuration =====*/
-    private String m_dfltCharset = CHttpRequest.CONTENT_CHARSET_UTF8;
-
-    private NameValuePair m_dfltCharsetPair = new BasicNameValuePair(CHttpRequest.CONTENT_CHARSET_KEY, CHttpRequest.CONTENT_CHARSET_UTF8);
-    /*========== Properties ==========*/
-
+    /*========== Execute Request ==========*/
+    private static long g_RequestIdCnt = 0;
     /*===== Chain Properties =====*/
-    private HttpSvc m_httpSvc;
-    private CHttpRequest m_req;
-    private FutureCallback<? super HttpResponse> m_respFutureClbk;
+    final private HttpSvc m_httpSvc;
+    public long m_timestamp;
+    /*========== Properties ==========*/
+    /*===== Configuration =====*/
+    private String m_dfltCharset = HttpRequest.CONTENT_CHARSET_UTF8;
+    private NameValuePair m_dfltCharsetPair = new BasicNameValuePair(HttpRequest.CONTENT_CHARSET_KEY, HttpRequest.CONTENT_CHARSET_UTF8);
+    private long m_reqestId;
     private URIBuilder m_uriBuilder;
+    private HttpRequest m_req;
+    private FutureCallback<? super HttpResponse> m_respFutureClbk;
+    //TODO Optimize this error dealer
     private List<Throwable> m_errors;
 
-
+    /*===== Constructor =====*/
     public HttpReqChain(HttpSvc httpSvc) {
         /*===== Input Protection =====*/
         if (null == httpSvc) {
@@ -72,7 +73,16 @@ public class HttpReqChain {
         /*=====  =====*/
         m_httpSvc = httpSvc;
         m_uriBuilder = new URIBuilder();
-        m_req = new CHttpRequest();
+        m_req = new HttpRequest();
+    }
+
+    private static long getReqID() {
+        return g_RequestIdCnt++;
+    }
+
+    /*===== Assistant Function =====*/
+    public long getReqId() {
+        return m_reqestId;
     }
 
     /*===== Assistant Function =====*/
@@ -88,9 +98,12 @@ public class HttpReqChain {
     }
 
     /*===== Getter & Setter =====*/
-    public CHttpRequest getReq() {
+    public HttpRequest getReq() {
         return m_req;
     }
+
+
+    /*===== Export Function =====*/
 
     public URIBuilder getUriBuilder() {
         return m_uriBuilder;
@@ -99,9 +112,6 @@ public class HttpReqChain {
     public HttpSvc getHttpSvc() {
         return m_httpSvc;
     }
-
-
-    /*===== Export Function =====*/
 
     /**
      * 直接使用字符串设置资源名（URI），输入字符串必须符合URI规范
@@ -187,6 +197,8 @@ public class HttpReqChain {
         return this;
     }
 
+    /*========== Param ==========*/
+
     /**
      * 设置请求端口
      *
@@ -211,8 +223,6 @@ public class HttpReqChain {
         return this;
     }
 
-    /*========== Param ==========*/
-
     /**
      * 设置查询参数，若Key相同，则会覆盖，会被UrlEncode。
      *
@@ -225,6 +235,8 @@ public class HttpReqChain {
         m_uriBuilder.setParameter(key, val);
         return this;
     }
+
+    /*========== Header ==========*/
 
     /**
      * 设置查询参数，若Key相同，则会覆盖，会被UrlEncode。
@@ -249,7 +261,7 @@ public class HttpReqChain {
         return this;
     }
 
-    /*========== Header ==========*/
+    /*========== Content ==========*/
 
     /**
      * 设置请求头，如key相同则会覆盖。
@@ -282,8 +294,6 @@ public class HttpReqChain {
         return this;
     }
 
-    /*========== Content ==========*/
-
     /**
      * 设置Ｈttp请求内容，默认"text/plain"编码
      *
@@ -291,7 +301,7 @@ public class HttpReqChain {
      * @return Http构造链
      */
     public HttpReqChain setContent(String bodyStr) {
-        this.setContent(bodyStr, CHttpRequest.CONTENT_TYPE_PLAIN);
+        this.setContent(bodyStr, HttpRequest.CONTENT_TYPE_PLAIN);
         return this;
     }
 
@@ -302,7 +312,7 @@ public class HttpReqChain {
      * @return Http构造链
      */
     public HttpReqChain setContent(Object bodyObj) {
-        this.setContent(bodyObj, CHttpRequest.CONTENT_TYPE_JSON);
+        this.setContent(bodyObj, HttpRequest.CONTENT_TYPE_JSON);
         return this;
     }
 
@@ -316,12 +326,12 @@ public class HttpReqChain {
      *
      * @param bodyObj 　要传输的请求体
      * @param encode  可使用参数<ul>
-     *                <li>CHttpRequest.CONTENT_TYPE_XML，暂不启用</li>
-     *                <li>CHttpRequest.CONTENT_TYPE_JSON_UTF8</li>
-     *                <li>CHttpRequest.CONTENT_TYPE_JSON</li>
-     *                <li>CHttpRequest.CONTENT_TYPE_PROTOBUF，暂不启用</li>
-     *                <li>CHttpRequest.CONTENT_TYPE_MULTIPART, bodyObj必须为Multipart类型</li>
-     *                <li>CHttpRequest.CONTENT_TYPE_PLAIN，bodyObj及其子项必须支持或自定义"toString"函数</li>
+     *                <li>HttpRequest.CONTENT_TYPE_XML，暂不启用</li>
+     *                <li>HttpRequest.CONTENT_TYPE_JSON_UTF8</li>
+     *                <li>HttpRequest.CONTENT_TYPE_JSON</li>
+     *                <li>HttpRequest.CONTENT_TYPE_PROTOBUF，暂不启用</li>
+     *                <li>HttpRequest.CONTENT_TYPE_MULTIPART, bodyObj必须为Multipart类型</li>
+     *                <li>HttpRequest.CONTENT_TYPE_PLAIN，bodyObj及其子项必须支持或自定义"toString"函数</li>
      *                </ul>
      * @return Http构造链
      */
@@ -336,26 +346,26 @@ public class HttpReqChain {
         /*===== STEP 1. Obj to Json =====*/
         try {
             switch (encode) {
-                case CHttpRequest.CONTENT_TYPE_XML:
+                case HttpRequest.CONTENT_TYPE_XML:
                     //TODO : Implements it !
                     //XStream xstream = new XStream();
                     break;
-                case CHttpRequest.CONTENT_TYPE_JSON:
+                case HttpRequest.CONTENT_TYPE_JSON:
                     m_req.setEntity(new StringEntity(JSON.toJSONString(bodyObj, g_jsonSerializeConfig)));
                     break;
-                case CHttpRequest.CONTENT_TYPE_PROTOBUF:
+                case HttpRequest.CONTENT_TYPE_PROTOBUF:
                     //TODO Binary Serilization
                     m_req.setEntity(new StringEntity(bodyObj.toString()));
                     break;
-                case CHttpRequest.CONTENT_TYPE_MULTIPART:
+                case HttpRequest.CONTENT_TYPE_MULTIPART:
                     MultipartEntityBuilder multiBuilder = MultipartEntityBuilder.create();
                     //TODO : Parse Multipart Form Defiition.
                     multiBuilder.addTextBody("file", bodyObj.toString());
                     m_req.setEntity(multiBuilder.build());
                     break;
-                case CHttpRequest.CONTENT_TYPE_PLAIN:
+                case HttpRequest.CONTENT_TYPE_PLAIN:
                 default:
-                    m_req.setHeader(HTTP.CONTENT_TYPE, CHttpRequest.CONTENT_TYPE_MULTIPART);
+                    m_req.setHeader(HTTP.CONTENT_TYPE, HttpRequest.CONTENT_TYPE_MULTIPART);
                     m_req.setEntity(new StringEntity(bodyObj.toString()));
                     break;
             }
@@ -367,59 +377,61 @@ public class HttpReqChain {
 
     /*========== Execute Request ==========*/
     public HttpResponse get() {
-        m_req.setMethod(CHttpRequest.METHOD_GET);
+        m_req.setMethod(HttpRequest.METHOD_GET);
         return genericInvoke();
     }
 
     public HttpResponse post() {
-        m_req.setMethod(CHttpRequest.METHOD_POST);
+        m_req.setMethod(HttpRequest.METHOD_POST);
         return genericInvoke();
     }
 
     public HttpResponse put() {
-        m_req.setMethod(CHttpRequest.METHOD_PUT);
+        m_req.setMethod(HttpRequest.METHOD_PUT);
         return genericInvoke();
     }
 
     public HttpResponse delete() {
-        m_req.setMethod(CHttpRequest.METHOD_DELETE);
+        m_req.setMethod(HttpRequest.METHOD_DELETE);
         return genericInvoke();
     }
 
     public HttpResponse options() {
-        m_req.setMethod(CHttpRequest.METHOD_OPTIONS);
+        m_req.setMethod(HttpRequest.METHOD_OPTIONS);
         return genericInvoke();
 
     }
 
     public HttpResponse head() {
-        m_req.setMethod(CHttpRequest.METHOD_HEAD);
+        m_req.setMethod(HttpRequest.METHOD_HEAD);
         return genericInvoke();
     }
 
     @Deprecated
     public HttpResponse trace() {
-        m_req.setMethod(CHttpRequest.METHOD_TRACE);
+        m_req.setMethod(HttpRequest.METHOD_TRACE);
         return genericInvoke();
     }
 
     @Deprecated
     public HttpResponse patch() {
-        m_req.setMethod(CHttpRequest.METHOD_PATCH);
+        m_req.setMethod(HttpRequest.METHOD_PATCH);
         return genericInvoke();
     }
 
-    /*========== Execute Request ==========*/
     private HttpResponse genericInvoke() {
         if (isLastOpFail()) {
             for (Throwable error : m_errors) {
+                // TODO get ErrorLog
                 g_logger.error(error.getMessage());
             }
             return null;
         }
-        // TODO get ErrorLog
+        /*===== Hook : Prepare Request =====*/
+        m_reqestId = HttpReqChain.getReqID();
+
         HttpResponse resp = null;
-        HttpSvc.IHooks hooks = m_httpSvc.getHooks();
+        HttpSvc.IHook hooks = m_httpSvc.getHooks();
         /*===== Hook : preInvoke =====*/
         if (hooks != null) hooks.preInvoke(this);
         /*===== Translate =====*/
@@ -434,7 +446,7 @@ public class HttpReqChain {
         if (m_respFutureClbk != null) {
             m_httpSvc.asyncRequest(m_req, (FutureCallback<HttpResponse>) m_respFutureClbk);
         } else {
-            resp = m_httpSvc.syncRequest(m_req);
+            resp = m_httpSvc.async2syncRequest(m_req);
         }
         /*===== Hook : postInvoke =====*/
         if (hooks != null) hooks.postInvoke(this);
@@ -453,7 +465,7 @@ public class HttpReqChain {
      * @param respFutureClbk 需要按照Java Future规范实现回调函数
      * @return
      */
-    public HttpReqChain setRespFutureClbk(FutureCallback<HttpResponse> respFutureClbk) {
+    private HttpReqChain setRespFutureClbk(FutureCallback<HttpResponse> respFutureClbk) {
         m_req.setHeader(HttpSvc.HEADER_FIELD_CONNECTION, HttpSvc.CONN_STAT_CLOSE);
         m_respFutureClbk = respFutureClbk;
         return this;
@@ -463,7 +475,7 @@ public class HttpReqChain {
         FutureCallback<HttpResponse> futureClbk = new FutureCallback<HttpResponse>() {
             @Override
             public void completed(HttpResponse result) {
-                respHandler.procHttpResponse(result);
+                respHandler.procHttpResponse(m_reqestId, result);
             }
 
             @Override
