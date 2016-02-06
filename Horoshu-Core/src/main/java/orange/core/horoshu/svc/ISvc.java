@@ -1,4 +1,4 @@
-package orange.core.horoshu;
+package orange.core.horoshu.svc;
 
 /**
  * Created by DreamInSun on 2016/2/2.

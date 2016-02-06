@@ -1,5 +1,6 @@
 package orange.core.horoshu.dns;
 
+import com.justinsb.etcd.EtcdClient;
 
 /**
  * Created by DreamInSun on 2016/2/2.
@@ -7,8 +8,7 @@ package orange.core.horoshu.dns;
 public class EtcdDns {
 
     public void test() {
-        //Etcdclient client;
-        /*
+
         EtcdClient client = new EtcdClient(URI.create("http://127.0.0.1:4001/"));
 
         String key = "/watch";

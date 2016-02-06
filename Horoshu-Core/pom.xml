@@ -113,13 +113,13 @@
             <version>0.0.2</version>
         </dependency>
 
-        <!-- ========== Cache Client ========== -->
         <dependency>
-            <groupId>net.floatingsun</groupId>
-            <artifactId>jetcd</artifactId>
-            <version>0.3.1</version>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+            <version>12.0</version>
         </dependency>
 
+        <!-- ========== Cache Client ========== -->
         <dependency>
             <groupId>redis.clients</groupId>
             <artifactId>jedis</artifactId>
@@ -168,6 +168,11 @@
             <groupId>com.alibaba</groupId>
             <artifactId>fastjson</artifactId>
             <version>1.2.7</version>
+        </dependency>
+        <dependency>
+            <groupId>com.google.code.gson</groupId>
+            <artifactId>gson</artifactId>
+            <version>2.3.1</version>
         </dependency>
 
         <!-- ========== Auto Import ========== -->

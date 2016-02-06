@@ -1,11 +1,12 @@
 #cyan.lib.HoroShu
 
-作者：DreamInSun
-yancy_chen@hotmail.com
+Author:DreamInSun<br/>
+Email: yancy_chen@hotmail.com<br/>
 
 Horoshu是针对分布式SOA运行环境下的统一服务调用框架。旨在短小轻便，解决分布式微服务环境的服务调用。
 
-<br>====================<br/>
+====================
+
 该项目具备以下特性：
 
 ##快速Http请求
@@ -26,7 +27,7 @@ Horoshu是针对分布式SOA运行环境下的统一服务调用框架。旨在�
 ##多协议传输
 <ul>
 <li>支持JSON</li>
-<li>支持JSON</li>
+<li>支持XML</li>
 </ul>
 
 
