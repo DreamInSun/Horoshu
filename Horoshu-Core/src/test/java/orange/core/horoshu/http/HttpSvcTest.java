@@ -83,10 +83,6 @@ public class HttpSvcTest {
                                     outputStr = EntityUtils.toString(entity);
                                     //Console.info(outputStr);
                                     break;
-                                case CHttpRequest.CONTENT_TYPE_JSON_UTF8:
-                                    outputStr = EntityUtils.toString(entity);
-                                    //Console.info(outputStr);
-                                    break;
                                 case CHttpRequest.CONTENT_TYPE_HTML:
                                     outputStr = EntityUtils.toString(entity);
                                     //Console.info(outputStr);
@@ -110,7 +106,7 @@ public class HttpSvcTest {
             }
         };
         /*===== Create URI =====*/
-        URI uri = new URI("http://jandan.net");
+        URI uri = new URI("http://wthrcdn.etouch.cn/weather_mini?citykey=101020800");
         /*===== Create Content =====*/
         final DnsItem dns1 = new DnsItem("cyan.core.Test", "dreaminsun.ngrok.natapp.cn", 80, "proj", DnsItem.SVC_TYPE_HTTP);
         Map<String, Object> content = new HashMap<String, Object>() {{
@@ -130,11 +126,20 @@ public class HttpSvcTest {
 
         /*===== Start Request =====*/
         HttpResponse res0 = HttpSvc.build().setURI("http://127.0.0.1:8080/Working").setHeader("access-token", "123456").setContent("Hello").setParam("userId", "1").setPath("/Library/Path").post();
-        HttpResponse res1 = HttpSvc.build().setURI(uri).setRespFutureClbk(respFutureClbk).get();
-        HttpResponse res2 = HttpSvc.build("http://cyan.core.Test").get();
+
+        HttpResponse res01 = HttpSvc.build("http://www.baidu.com").get();
+        HttpRespUtil.getEntity(res01);
+
+        HttpResponse res1 = HttpSvc.build().setURI(uri).get();
+        HttpRespUtil.getEntity(res1);
+
+        HttpResponse res2 = HttpSvc.build("http://www.weather.com.cn/adat/sk/101010100.html").get();
+        HttpRespUtil.getEntity(res2);
+
         HttpResponse res3 = HttpSvc.build("http://cyan.core.Test").setRespFutureClbk(respFutureClbk).options();
-        res2.getLocale();
+
         HttpResponse res4 = HttpSvc.build("http://dreaminsun.ngrok.natapp.cn/").setRespFutureClbk(respFutureClbk).head();
+
         HttpResponse res5 = HttpSvc.build()
                 .setURI("http://dreaminsun.ngrok.natapp.cn/weiphp/ppp")
                 .setParam("s", "/home/user/login")
@@ -158,6 +163,7 @@ public class HttpSvcTest {
                 .setRespFutureClbk(respFutureClbk)
                 .setContent(new Object())
                 .delete();
+
         HttpResponse res8 = HttpSvc.build("http://www.baidu.com").get();
 
         /*===== Start Request =====*/

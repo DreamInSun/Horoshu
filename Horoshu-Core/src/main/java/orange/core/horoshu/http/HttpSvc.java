@@ -41,6 +41,8 @@ public class HttpSvc {
     /* Connection Status */
     public static final String CONN_STAT_CLOSE = "close";
     public static final String CONN_STAT_KEEP_ALIVE = "keep-alive";
+
+
     /* Config Key */
     public static final String CONFIG_HOOKS = "hooks";
     /*=================================================*/
@@ -78,7 +80,7 @@ public class HttpSvc {
      *
      * @param config 配置文件
      */
-    public static void config(IConfig config) {
+    public static synchronized void config(final IConfig config) {
         g_httpSvcConfig = config;
     }
 
@@ -87,7 +89,7 @@ public class HttpSvc {
      *
      * @return HttpSvc
      */
-    public static HttpSvc getInstance() {
+    public static synchronized HttpSvc getInstance() {
         return HttpSvc.getInstance(g_httpSvcConfig);
     }
 
@@ -97,7 +99,7 @@ public class HttpSvc {
      * @param config 配置使用静态变量，减少重复创建。
      * @return HttpSvc
      */
-    public static HttpSvc getInstance(IConfig config) {
+    public static synchronized HttpSvc getInstance(final IConfig config) {
         HttpSvc httpSvc = g_httpSvcMap.get(config);
         if (null == httpSvc) {
             httpSvc = new HttpSvc(config);
@@ -109,7 +111,7 @@ public class HttpSvc {
     /**
      * 快速创建一个Http请求并调用。
      * <p/>
-     * CHttpResponse res = HttpSvc.build("http://dreaminsun.ngrok.natapp.cn/").get();
+     * HttpResponse res = HttpSvc.build("http://dreaminsun.ngrok.natapp.cn/").get();
      *
      * @param uriStr 合法的URI字符串
      * @return Http链式构造类
@@ -123,7 +125,7 @@ public class HttpSvc {
      * 快速创建一个Http请求构造器并链式调用。
      * <p/>
      * 例如：
-     * CHttpResponse res = HttpSvc.build()
+     * HttpResponse res = HttpSvc.build()
      * .setURI("http://dreaminsun.ngrok.natapp.cn/weiphp/ppp")
      * .setParam("s", "/home/user/login")
      * .setHeader(HttpSvc.HEADER_FIELD_ACCESSTOKEN, "HKLJHJWEQPOWJ")

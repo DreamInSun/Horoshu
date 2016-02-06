@@ -47,6 +47,13 @@ public class HttpReqChain {
     /*========== Static Properties ==========*/
     private static Logger g_logger = org.slf4j.LoggerFactory.getLogger(HttpReqChain.class.getName());
     public long m_timestamp;
+
+    /*===== Configuration =====*/
+    private String m_dfltCharset = CHttpRequest.CONTENT_CHARSET_UTF8;
+
+    private NameValuePair m_dfltCharsetPair = new BasicNameValuePair(CHttpRequest.CONTENT_CHARSET_KEY, CHttpRequest.CONTENT_CHARSET_UTF8);
+    /*========== Properties ==========*/
+
     /*===== Chain Properties =====*/
     private HttpSvc m_httpSvc;
     private CHttpRequest m_req;
@@ -54,7 +61,7 @@ public class HttpReqChain {
     private URIBuilder m_uriBuilder;
     private List<Throwable> m_errors;
 
-    /*===== Chain Properties =====*/
+
     public HttpReqChain(HttpSvc httpSvc) {
         /*===== Input Protection =====*/
         if (null == httpSvc) {
@@ -299,6 +306,11 @@ public class HttpReqChain {
         return this;
     }
 
+    public HttpReqChain setContent(Object bodyObj, String encode) {
+        this.setContent(bodyObj, encode, null);
+        return this;
+    }
+
     /**
      * 设置Http请求体，编码格式
      *
@@ -313,18 +325,20 @@ public class HttpReqChain {
      *                </ul>
      * @return Http构造链
      */
-    public HttpReqChain setContent(Object bodyObj, String encode) {
+    public HttpReqChain setContent(Object bodyObj, String encode, String charset) {
         if (isLastOpFail()) return this;
+        /*===== STEP 1. SetHeader=====*/
+        if (null == charset) {
+            m_req.setHeader(HTTP.CONTENT_TYPE, encode);
+        } else {
+            m_req.setHeader(HTTP.CONTENT_TYPE, encode + "; charset=" + charset);
+        }
         /*===== STEP 1. Obj to Json =====*/
         try {
-            m_req.setHeader(HTTP.CONTENT_TYPE, encode);
             switch (encode) {
                 case CHttpRequest.CONTENT_TYPE_XML:
                     //TODO : Implements it !
                     //XStream xstream = new XStream();
-                    break;
-                case CHttpRequest.CONTENT_TYPE_JSON_UTF8:
-                    m_req.setEntity(new StringEntity(JSON.toJSONString(bodyObj, g_jsonSerializeConfig)));
                     break;
                 case CHttpRequest.CONTENT_TYPE_JSON:
                     m_req.setEntity(new StringEntity(JSON.toJSONString(bodyObj, g_jsonSerializeConfig)));
@@ -430,9 +444,39 @@ public class HttpReqChain {
 
 
     /*========== Public Request ==========*/
+
+    /**
+     * 玩真的Future回调模式，需自己实现。<br/>
+     * 注意：一定要自己处理HttpClient的关闭，否则容易发生内存泄漏。
+     * 一般情况建议使用setRespHandler；
+     *
+     * @param respFutureClbk 需要按照Java Future规范实现回调函数
+     * @return
+     */
     public HttpReqChain setRespFutureClbk(FutureCallback<HttpResponse> respFutureClbk) {
         m_req.setHeader(HttpSvc.HEADER_FIELD_CONNECTION, HttpSvc.CONN_STAT_CLOSE);
         m_respFutureClbk = respFutureClbk;
+        return this;
+    }
+
+    public HttpReqChain setRespHandler(final IHttpRespHandler respHandler) {
+        FutureCallback<HttpResponse> futureClbk = new FutureCallback<HttpResponse>() {
+            @Override
+            public void completed(HttpResponse result) {
+                respHandler.procHttpResponse(result);
+            }
+
+            @Override
+            public void failed(Exception ex) {
+                g_logger.error(ex.getMessage());
+            }
+
+            @Override
+            public void cancelled() {
+                g_logger.error(m_req + " is Cancelled.");
+            }
+        };
+        setRespFutureClbk(futureClbk);
         return this;
     }
 

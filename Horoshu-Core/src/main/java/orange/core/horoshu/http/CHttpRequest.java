@@ -23,12 +23,18 @@ public class CHttpRequest extends HttpEntityEnclosingRequestBase {
 
     /* Content-Type */
     public static final String CONTENT_TYPE_JSON = "application/json";
-    public static final String CONTENT_TYPE_JSON_UTF8 = "application/json;charset=utf-8";
     public static final String CONTENT_TYPE_XML = "application/xml";
     public static final String CONTENT_TYPE_PLAIN = "text/plain";
     public static final String CONTENT_TYPE_PROTOBUF = "application/octet-stream";
     public static final String CONTENT_TYPE_MULTIPART = "multipart/form-data";
     public static final String CONTENT_TYPE_HTML = "text/html";
+
+    /* Content Charset */
+    public static final String CONTENT_CHARSET_KEY= "charset";
+    public static final String CONTENT_CHARSET_LATIN = "ISO-8859-1";
+    public static final String CONTENT_CHARSET_UTF8 = "utf-8";
+    public static final String CONTENT_CHARSET_GBK = "gbk";
+    public static final String CONTENT_CHARSET_GB2312 = "gb2312";
 
     /*========== Properties ==========*/
     private String m_method = CHttpRequest.METHOD_GET;
