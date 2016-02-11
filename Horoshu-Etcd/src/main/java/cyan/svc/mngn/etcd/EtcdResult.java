@@ -1,4 +1,4 @@
-package cyan.svc.mngm.etcd;
+package cyan.svc.mngn.etcd;
 
 /**
  * Value Object

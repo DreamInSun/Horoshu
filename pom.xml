@@ -18,6 +18,12 @@
     </organization>
 
     <!--========== Properties ==========-->
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <slf4j.version>1.7.5</slf4j.version>
+        <httpcomponents.version>4.5.1</httpcomponents.version>
+        <ehcache.version>2.6.11</ehcache.version>
+    </properties>
 
     <!--========== Module ==========-->
     <modules>
