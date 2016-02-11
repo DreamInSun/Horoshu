@@ -33,9 +33,16 @@
         <module>Horoshu-Etcd</module>
     </modules>
 
-    <!--========== Dependence ===========-->
-
-    <!--========== Build ==========-->
+    <!--========== Global Dependence ===========-->
+    <dependencies>
+        <!-- ========== Unit Test ========== -->
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.12</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
 
     <!--========== Build ===========-->
 </project>

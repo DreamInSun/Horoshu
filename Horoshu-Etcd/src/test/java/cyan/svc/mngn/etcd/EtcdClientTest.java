@@ -1,9 +1,6 @@
-package cyan.svc.horoshu.dns;
+package cyan.svc.mngn.etcd;
 
 import com.google.common.util.concurrent.ListenableFuture;
-import cyan.svc.mngm.etcd.EtcdClient;
-import cyan.svc.mngm.etcd.EtcdClientException;
-import cyan.svc.mngm.etcd.EtcdResult;
 import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
@@ -21,13 +18,13 @@ import java.util.concurrent.TimeoutException;
  * @version 1.0
  * @since <pre>02/06/2016</pre>
  */
-public class EtcdDnsTest extends TestCase {
-    public EtcdDnsTest(String name) {
+public class EtcdClientTest extends TestCase {
+    public EtcdClientTest(String name) {
         super(name);
     }
 
     public static Test suite() {
-        return new TestSuite(EtcdDnsTest.class);
+        return new TestSuite(EtcdClientTest.class);
     }
 
     public void setUp() throws Exception {

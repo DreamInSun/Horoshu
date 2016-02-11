@@ -180,7 +180,12 @@
             <version>0.0.2</version>
         </dependency>
 
-
+        <!-- ========== Cache Client ========== -->
+        <dependency>
+            <groupId>redis.clients</groupId>
+            <artifactId>jedis</artifactId>
+            <version>2.8.0</version>
+        </dependency>
 
     </dependencies>
 

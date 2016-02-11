@@ -6,6 +6,7 @@ import cyan.svc.mngm.SvcMngr;
 import cyan.svc.mngm.consul.vo.ServiceDesc;
 import cyan.svc.mngm.consul.vo.Services;
 import org.apache.http.HttpResponse;
+import org.apache.http.client.utils.URIBuilder;
 
 import java.net.URI;
 import java.net.URISyntaxException;
@@ -30,8 +31,20 @@ public class ConsulSvcMngr extends SvcMngr {
     private URI m_consulNode;
 
     /*========== Constructor ==========*/
-    public ConsulSvcMngr() throws URISyntaxException {
-        m_consulNode = new URI("http://lord.17orange.com:8500/");
+    public ConsulSvcMngr(String url) throws URISyntaxException {
+        url = url.toLowerCase();
+        URIBuilder uriBuilder = new URIBuilder(url);
+        switch (uriBuilder.getScheme()) {
+            case "consul":
+                uriBuilder.setScheme("http");
+            case "http":
+            case "https":
+                m_consulNode = uriBuilder.build();
+                break;
+            default:
+                new URISyntaxException(url, "Consul URL mast be start with consul/http/https.");
+                break;
+        }
     }
 
     /*========== Assistant Function : Rest API ==========*/
