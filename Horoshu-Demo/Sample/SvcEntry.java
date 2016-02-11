@@ -1,4 +1,4 @@
-package cyan.svc.horoshu.svc;
+package cyan.svc.horoshu.svcmngr;
 
 import java.io.Externalizable;
 import java.io.IOException;

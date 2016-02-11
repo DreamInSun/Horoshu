@@ -3,8 +3,8 @@ package cyan.svc.horoshu.http;
 import com.alibaba.fastjson.JSONObject;
 import com.cyan.arsenal.Console;
 import com.google.gson.JsonObject;
-import cyan.core.config.BaseConfig;
-import cyan.svc.horoshu.dns.vo.DnsItem;
+import cyan.core.config.BasicConfig;
+import cyan.svc.horoshu.dns.vo.SvcDns;
 import org.apache.http.HttpResponse;
 import org.junit.After;
 import org.junit.Before;
@@ -57,7 +57,10 @@ public class HttpSvcTest {
             }
         };
         /*===== Create Config =====*/
-        HttpSvc.config(new BaseConfig().set(HttpSvc.CONFIG_HOOKS, hooks));
+        HttpSvc.config(new BasicConfig()
+                        .set(HttpSvc.CONFIG_HOOKS, hooks)
+                        .set(HttpSvc.CONFIG_SVC_MNGR_URI, "consul://lord.17orange.com:8500")
+        );
         /*===== Create Response Handler =====*/
         IHttpRespHandler respHandler = new IHttpRespHandler() {
             @Override
@@ -70,7 +73,7 @@ public class HttpSvcTest {
         /*===== Create URI =====*/
         URI uri = new URI("http://wthrcdn.etouch.cn/weather_mini?citykey=101020800");
         /*===== Create Content =====*/
-        final DnsItem dns1 = new DnsItem("cyan.core.Test", "dreaminsun.ngrok.natapp.cn", 80, "proj", DnsItem.SVC_TYPE_HTTP);
+        final SvcDns dns1 = new SvcDns("cyan.core.Test", "dreaminsun.ngrok.natapp.cn", 80, "proj", SvcDns.SVC_TYPE_HTTP);
         Map<String, Object> content = new HashMap<String, Object>() {{
             put("key1", "val1");
             put("Dns", dns1);
@@ -85,11 +88,13 @@ public class HttpSvcTest {
             put("s", "/home/user/logout");
             put("openId", "66668888");
         }};
+
+        Thread.sleep(2000);
         /*===== Start Sync Request =====*/
         HttpResponse res0 = HttpSvc.build().setURI("http://127.0.0.1:8080/Working").setHeader("access-token", "123456").setContent("Hello").setParam("userId", "1").setPath("/Library/Path").post();
         HttpRespUtil.printResp(res0);
 
-        HttpResponse res1 = HttpSvc.build("http://www.baidu.com").get();
+        HttpResponse res1 = HttpSvc.build("http://OneRing-8080").get();
         HttpRespUtil.printResp(res1);
 
         HttpResponse res2 = HttpSvc.build().setURI(uri).get();
@@ -105,11 +110,11 @@ public class HttpSvcTest {
 
         HttpResponse res41 = HttpSvc.build("http://lord.17orange.com:8500/v1/catalog/services").get();
         HttpRespUtil.printResp(res41);
-        JsonObject gObj = HttpRespUtil.getJsonObject(res4);
+        JsonObject gObj = HttpRespUtil.getJsonObject(res41);
         Console.info(gObj);
 
          /*===== Start Async Request =====*/
-        HttpSvc.build("http://cyan.core.Test")
+        HttpSvc.build("http://OneRing-8080")
                 .setRespHandler(respHandler)
                 .options();
 

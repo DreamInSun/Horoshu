@@ -1,6 +1,8 @@
 package cyan.svc.horoshu.support;
 
-import com.cyan.arsenal.Console;
+import cyan.svc.horoshu.dns.SvcRouteMap;
+import cyan.svc.horoshu.dns.vo.SvcDns;
+import cyan.svc.horoshu.svcmngr.BasicSvcMngr;
 import cyan.svc.mngm.consul.ConsulClient;
 import cyan.svc.mngm.consul.vo.ServiceDesc;
 import cyan.svc.mngm.consul.vo.Services;
@@ -18,11 +20,12 @@ public class ConsulSvcMngr extends BasicSvcMngr {
     private ConsulClient m_consul;
 
     /*========== Constructor ===========*/
-    public ConsulSvcMngr(String consulUri) throws URISyntaxException {
+    public ConsulSvcMngr(SvcRouteMap svcRouteMap , String consulUri) throws URISyntaxException {
+        super(svcRouteMap);
         m_consul = new ConsulClient(consulUri);
     }
 
-    /*========== Interface : ISvcMngm ===========*/
+    /*========== Interface : ISvcMngr ===========*/
     @Override
     public void registerSvc(String svcName) {
 
@@ -35,12 +38,19 @@ public class ConsulSvcMngr extends BasicSvcMngr {
 
     @Override
     public void discoverSvc() {
+
+    }
+
+    @Override
+    public void refreshSvcRoute() {
         Services services = m_consul.listServices();
-        for (String key : services.keySet() ) {
+        for (String key : services.keySet()) {
             ServiceDesc[] serviceDescArr = m_consul.getServiceDescArr(key);
             for (ServiceDesc svc : serviceDescArr) {
-                Console.info(svc);
+                SvcDns svcDns = new SvcDns(key, svc.ServiceAddress, svc.ServicePort, null);
+                m_SvcRouteMap.addDnsItem(svcDns);
             }
         }
+        m_SvcRouteMap.printSvcRouteMap();
     }
 }

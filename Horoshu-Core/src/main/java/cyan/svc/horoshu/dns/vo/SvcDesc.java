@@ -1,4 +1,4 @@
-package cyan.svc.horoshu;
+package cyan.svc.horoshu.dns.vo;
 
 import java.io.Serializable;
 

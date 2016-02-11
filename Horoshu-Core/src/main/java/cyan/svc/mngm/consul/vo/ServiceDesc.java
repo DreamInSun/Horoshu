@@ -8,7 +8,7 @@ import java.io.ObjectInput;
 import java.io.ObjectOutput;
 
 /**
- * ConsulµÄServiceÃèÊö
+ * Consulçš„Serviceæè¿°
  * {
  * "Node": "foobar",
  * "Address": "10.1.10.12",

@@ -8,7 +8,7 @@ import java.util.Map;
 public class ObjectDynamicCreator {
 
 	/**
-	 * ·µ»ØÓÉ¶ÔÏóµÄÊôĞÔÎªkey,ÖµÎªmapµÄvalueµÄMap¼¯ºÏ
+	 * è¿”å›ç”±å¯¹è±¡çš„å±æ€§ä¸ºkey,å€¼ä¸ºmapçš„valueçš„Mapé›†åˆ
 	 * 
 	 * @param obj
 	 *            Object
@@ -31,7 +31,7 @@ public class ObjectDynamicCreator {
 	}
 
 	/**
-	 * ·µ»ØÓÉMapµÄkey¶ÔÊôĞÔ£¬value¶ÔÓ¦Öµ×é³ÉµÄ¶ÔÓ¦
+	 * è¿”å›ç”±Mapçš„keyå¯¹å±æ€§ï¼Œvalueå¯¹åº”å€¼ç»„æˆçš„å¯¹åº”
 	 * 
 	 * @param map
 	 *            Map<String,String>
@@ -57,7 +57,7 @@ public class ObjectDynamicCreator {
 	}
 
 	/**
-	 * ½«MapÀïÃæµÄ²¿·ÖÖµÍ¨¹ı·´ÉäÉèÖÃµ½ÒÑÓĞ¶ÔÏóÀïÈ¥
+	 * å°†Mapé‡Œé¢çš„éƒ¨åˆ†å€¼é€šè¿‡åå°„è®¾ç½®åˆ°å·²æœ‰å¯¹è±¡é‡Œå»
 	 * 
 	 * @param obj
 	 *            Object
@@ -83,13 +83,13 @@ public class ObjectDynamicCreator {
 	}
 
 	/**
-	 * °Ñ¶ÔÏóµÄÖµÓÃMap¶ÔÓ¦×°ÆğÀ´
+	 * æŠŠå¯¹è±¡çš„å€¼ç”¨Mapå¯¹åº”è£…èµ·æ¥
 	 * 
 	 * @param map
 	 *            Map<String,String>
 	 * @param obj
 	 *            Object
-	 * @return Óë¶ÔÏóÊôĞÔ¶ÔÓ¦µÄMap Map<String,String>
+	 * @return ä¸å¯¹è±¡å±æ€§å¯¹åº”çš„Map Map<String,String>
 	 */
 	public static Map<String, String> compareMap(Map<String, String> map, Object obj) {
 		Map<String, String> mapValue = new HashMap<String, String>();
@@ -104,13 +104,13 @@ public class ObjectDynamicCreator {
 	}
 
 	/**
-	 * °ÑÁÙÊ±¶ÔÏóµÄÖµ¸´ÖÆµ½³Ö¾Ã»¯¶ÔÏóÉÏ
+	 * æŠŠä¸´æ—¶å¯¹è±¡çš„å€¼å¤åˆ¶åˆ°æŒä¹…åŒ–å¯¹è±¡ä¸Š
 	 * 
 	 * @param oldObject
-	 *            Object ³Ö¾Ã»¯¶ÔÏó
+	 *            Object æŒä¹…åŒ–å¯¹è±¡
 	 * @param newObject
-	 *            Object ÁÙÊ±¶ÔÏó
-	 * @return ³Ö¾Ã»¯¶ÔÏó
+	 *            Object ä¸´æ—¶å¯¹è±¡
+	 * @return æŒä¹…åŒ–å¯¹è±¡
 	 * @throws Exception
 	 */
 	public static Object mergedObject(Object oldObject, Object newObject) throws Exception {

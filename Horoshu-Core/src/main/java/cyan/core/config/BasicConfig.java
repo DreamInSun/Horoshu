@@ -6,18 +6,18 @@ import java.util.Map;
 /**
  * Created by DreamInSun on 2016/2/2.
  */
-public class BaseConfig implements IConfig {
+public class BasicConfig implements IConfig {
     /*========= Properties =========*/
     private Map<String, Object> m_configMap = new HashMap<>();
 
     /*========= Constructor =========*/
-    public BaseConfig() {
+    public BasicConfig() {
 
     }
 
     /*========= Factory =========*/
-    public static BaseConfig getEmptyConfig() {
-        return new BaseConfig();
+    public static BasicConfig getEmptyConfig() {
+        return new BasicConfig();
     }
 
     /*========= Interface : IConfig =========*/

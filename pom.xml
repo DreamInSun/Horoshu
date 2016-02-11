@@ -25,8 +25,7 @@
         <name>DreamInSun</name>
         <url>cyan.org.cn</url>
     </organization>
-
-
+    
     <!--========== Module ==========-->
     <modules>
         <module>Horoshu-Demo</module>

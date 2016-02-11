@@ -55,7 +55,7 @@ public class HttpRespUtil {
                 }
             }
 
-            Console.debug("MIME = " + mime + " Charset = " + charset);
+            //Console.debug("MIME = " + mime + " Charset = " + charset);
 
             /*===== Parse Content =====*/
             try {
@@ -71,6 +71,7 @@ public class HttpRespUtil {
                                 break;
                             case "com.alibaba.fastjson.JSONObject":
                                 ret = JSON.parseObject(retStr);
+                                break;
                             default:
                                 ret = JSON.parseObject(retStr, outputClazz);
                                 break;

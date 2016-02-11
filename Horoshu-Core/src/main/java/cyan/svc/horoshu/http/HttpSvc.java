@@ -2,9 +2,11 @@ package cyan.svc.horoshu.http;
 
 import com.cyan.arsenal.Console;
 import com.google.common.collect.Maps;
-import cyan.core.config.BaseConfig;
+import cyan.core.config.BasicConfig;
 import cyan.core.config.IConfig;
-import cyan.svc.horoshu.dns.SvcDns;
+import cyan.svc.horoshu.dns.SvcRouteMap;
+import cyan.svc.horoshu.support.ConsulSvcMngr;
+import cyan.svc.horoshu.svcmngr.ISvcMngr;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.utils.URIBuilder;
 import org.apache.http.concurrent.FutureCallback;
@@ -49,11 +51,12 @@ public class HttpSvc {
 
     /* Config Key */
     public static final String CONFIG_HOOKS = "hooks";
+    public static final String CONFIG_SVC_MNGR_URI = "svc.mngr.uri";
     /*=================================================*/
     /*==================== Factory ====================*/
     /*=================================================*/
     public static Map<IConfig, HttpSvc> g_httpSvcMap = Maps.newHashMap();
-    public static IConfig g_httpSvcConfig = BaseConfig.getEmptyConfig();
+    public static IConfig g_httpSvcConfig = BasicConfig.getEmptyConfig();
     /*===== Create Hooks =====*/
     public static IHook defaultHooks = new IHook() {
         @Override
@@ -75,7 +78,8 @@ public class HttpSvc {
     /*========== Static Properties ==========*/
     private static Logger g_logger = org.slf4j.LoggerFactory.getLogger(HttpSvc.class.getName());
     /*========== Properties ==========*/
-    private SvcDns m_SvcDns = SvcDns.getInstance();
+    private ISvcMngr m_SvcMngr;
+    private SvcRouteMap m_SvcDns = SvcRouteMap.getInstance();
     private IConfig m_Config;
     private PoolingHttpClientConnectionManager m_httpClientMngr;
     /*=================================================*/
@@ -93,6 +97,9 @@ public class HttpSvc {
         this.setHooks((IHook) config.getObject(HttpSvc.CONFIG_HOOKS, null));
         /*===== Init Properties =====*/
         initClientMngr(config);
+        /*===== Init DN =====*/
+        initSvcMngr(config);
+
     }
 
     /**
@@ -173,6 +180,21 @@ public class HttpSvc {
         return new HttpReqChain(HttpSvc.getInstance());
     }
 
+
+    public HttpReqChain start() {
+        return new HttpReqChain(this);
+    }
+
+    public HttpReqChain start(URI uri) {
+        HttpReqChain chain = new HttpReqChain(this);
+        return chain.setURI(uri);
+    }
+
+    public HttpReqChain start(String string) {
+        HttpReqChain chain = new HttpReqChain(this);
+        return chain.setURI(string);
+    }
+
     /*========== Assistant Function :Sync ==========*/
     private HttpClientConnectionManager initClientMngr() {
         return initClientMngr(m_Config);
@@ -189,6 +211,19 @@ public class HttpSvc {
 
     private CloseableHttpClient getHttpClient() {
         return HttpClientBuilder.create().setConnectionManager(initClientMngr()).build();
+    }
+
+    private void initSvcMngr(IConfig config) {
+        String svcMngrUri = config.getString(CONFIG_SVC_MNGR_URI);
+        /*===== Input Protection =====*/
+        if (null == svcMngrUri) return;
+        /*===== Init =====*/
+        try {
+            m_SvcMngr = new ConsulSvcMngr(m_SvcDns, svcMngrUri);
+        } catch (URISyntaxException e) {
+            g_logger.error(e.getMessage());
+        }
+        m_SvcMngr.refreshSvcRoute();
     }
 
     /*========== Assistant Function : Async ==========*/
@@ -221,6 +256,7 @@ public class HttpSvc {
 
     /*========== Export Function ==========*/
     public URIBuilder translateDNS(URIBuilder uriBuilder) throws URISyntaxException {
+        if( m_SvcMngr == null ) return uriBuilder;
         return m_SvcDns.translateAddr(uriBuilder);
     }
 
@@ -287,6 +323,10 @@ public class HttpSvc {
         }
     }
 
+    /*==========================================================*/
+    /*==================== Hooks Management ====================*/
+    /*==========================================================*/
+
     public IHook getHooks() {
         return this.m_hooks;
     }
@@ -295,9 +335,6 @@ public class HttpSvc {
         m_hooks = hooks;
     }
 
-    /*==========================================================*/
-    /*==================== Hooks Management ====================*/
-    /*==========================================================*/
     public interface IHook {
         void preInvoke(HttpReqChain httpReq);
 

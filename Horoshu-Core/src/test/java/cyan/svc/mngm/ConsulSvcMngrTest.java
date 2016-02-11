@@ -34,7 +34,7 @@ public class ConsulSvcMngrTest extends TestCase {
     /*========== Prepare ==========*/
     public void setUp() throws Exception {
         super.setUp();
-        //HttpSvc.config(new BaseConfig().set(HttpSvc.CONFIG_HOOKS, HttpSvc.defaultHooks));
+        //HttpSvc.config(new BasicConfig().set(HttpSvc.CONFIG_HOOKS, HttpSvc.defaultHooks));
         if (null == g_consul) {
             g_consul = new ConsulClient("consul://lord.17orange.com:8500");
         }

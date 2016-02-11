@@ -108,7 +108,7 @@ public class DynObject extends HashMap<String, Object> {
 				String fieldName = field.getName();
 				Type fieldType = field.getType();
 				Object value = null;
-				/* 根据字段类型决定结果集中使用哪种get方法从数据中取到数据 */
+				/* 鏍规嵁瀛楁绫诲瀷鍐冲畾缁撴灉闆嗕腑浣跨敤鍝get鏂规硶浠庢暟鎹腑鍙栧埌鏁版嵁 */
 				if (fieldType.equals(String.class)) {
 					value = this.getString(fieldName);
 					field.set(tmpObj, value);

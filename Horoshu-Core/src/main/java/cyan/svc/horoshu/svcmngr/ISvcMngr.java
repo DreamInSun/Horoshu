@@ -1,13 +1,15 @@
-package cyan.svc.horoshu;
+package cyan.svc.horoshu.svcmngr;
 
 /**
  * Created by DreamInSun on 2016/2/9.
  */
-public interface ISvcMngm {
+public interface ISvcMngr {
 
     void registerSvc(String svcName);
 
     void unregisterSvc();
 
     void discoverSvc();
+
+    void refreshSvcRoute();
 }

@@ -1,8 +1,9 @@
 package cyan.svc.horoshu.dns;
 
-import cyan.core.config.BaseConfig;
+import com.cyan.arsenal.Console;
+import cyan.core.config.BasicConfig;
 import cyan.core.config.IConfig;
-import cyan.svc.horoshu.dns.vo.DnsItem;
+import cyan.svc.horoshu.dns.vo.SvcDns;
 import org.apache.http.client.utils.URIBuilder;
 
 import java.net.URI;
@@ -13,36 +14,34 @@ import java.util.concurrent.ConcurrentHashMap;
 /**
  * Created by DreamInSun on 2016/2/2.
  */
-public class SvcDns {
+public class SvcRouteMap {
 
     /*========== Factory ==========*/
-    private static SvcDns g_svcDns;
-    /*========== Properties ==========*/
-    private Map<String, DnsItem[]> m_DnsMap;
+    private static SvcRouteMap g_svcDns;
 
-    /* Fresh DNS Item Interval, in Second */
-    private Integer m_freshInterval = 15;
+    /*========== Properties ==========*/
+    //private Multimap<String, SvcDns> m_DnsMap = HashMultimap.create();
+    private Map<String, SvcDns> n_DnsRuntimeMap = new ConcurrentHashMap<>();
 
     /*========== Constructor ==========*/
-    private SvcDns() {
-        /*===== Init Hash Map =====*/
-        m_DnsMap = new ConcurrentHashMap<>();
+    private SvcRouteMap() {
+
     }
 
-    public static SvcDns getInstance() {
-        return SvcDns.getInstance(BaseConfig.getEmptyConfig());
+    public static SvcRouteMap getInstance() {
+        return SvcRouteMap.getInstance(BasicConfig.getEmptyConfig());
     }
 
-    public static SvcDns getInstance(IConfig config) {
+    public static SvcRouteMap getInstance(IConfig config) {
         if (null == g_svcDns) {
-            g_svcDns = new SvcDns();
+            g_svcDns = new SvcRouteMap();
         }
         return g_svcDns;
     }
 
     /*========== Export Functions ==========*/
     public URIBuilder translateAddr(URIBuilder uriBuilder) throws URISyntaxException {
-        DnsItem realAddr = this.lookup(uriBuilder.getHost());
+        SvcDns realAddr = this.lookup(uriBuilder.getHost());
         if (realAddr != null) {
             if (null != realAddr.host && !realAddr.host.isEmpty()) {
                 uriBuilder.setHost(realAddr.host);
@@ -62,11 +61,18 @@ public class SvcDns {
     }
 
     /*========== Assistant Functions ==========*/
-    private DnsItem lookup(String svcName) {
+    private SvcDns lookup(String svcName) {
         /*==== Input Protection =====*/
         if (null == svcName || svcName.isEmpty()) return null;
         /*==== LookUp From Map =====*/
-        return m_DnsMap.get(svcName)[0];
+        return n_DnsRuntimeMap.get(svcName);
+    }
+
+    public void printSvcRouteMap(){
+        Console.info("==================== Runtime Service Route Map ====================");
+        for( SvcDns svcDns : n_DnsRuntimeMap.values() ){
+            Console.info(svcDns);
+        }
     }
 
     private void test() {
@@ -76,20 +82,16 @@ public class SvcDns {
     /*====================================================*/
     /*========== DNS Synchronization Management ==========*/
     /*====================================================*/
-    public void addDnsItem(DnsItem[] dnsItems) {
-        m_DnsMap.put(dnsItems[0].svcName, dnsItems);
+    public void addDnsItem(SvcDns svcDns) {
+        n_DnsRuntimeMap.put(svcDns.svcName, svcDns);
     }
 
     public void addDnsItem(String svcName, String host, int port, String pathBase) {
-        DnsItem[] dnsItems = new DnsItem[1];
-        dnsItems[0] = new DnsItem(svcName, host, port, pathBase);
-        m_DnsMap.put(svcName, dnsItems);
+        SvcDns svcDns = new SvcDns(svcName, host, port, pathBase);
+        addDnsItem(svcDns);
     }
 
-    public void fresh() {
-    }
-
-    public void cleanCache() {
-        this.m_DnsMap.clear();
+    public void clean() {
+        //this.m_DnsMap.clear();
     }
 }

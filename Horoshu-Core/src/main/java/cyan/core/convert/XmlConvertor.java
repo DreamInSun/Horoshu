@@ -10,15 +10,15 @@ import java.io.*;
 public class XmlConvertor {
     public static String object2XML(Object obj, String outFileName)
             throws FileNotFoundException {
-        // ¹¹ÔìÊä³öXMLÎÄ¼şµÄ×Ö½ÚÊä³öÁ÷
+        // æ„é€ è¾“å‡ºXMLæ–‡ä»¶çš„å­—èŠ‚è¾“å‡ºæµ
         File outFile = new File(outFileName);
         BufferedOutputStream bos = new BufferedOutputStream(
                 new FileOutputStream(outFile));
-        // ¹¹ÔìÒ»¸öXML±àÂëÆ÷
+        // æ„é€ ä¸€ä¸ªXMLç¼–ç å™¨
         XMLEncoder xmlEncoder = new XMLEncoder(bos);
-        // Ê¹ÓÃXML±àÂëÆ÷Ğ´¶ÔÏó
+        // ä½¿ç”¨XMLç¼–ç å™¨å†™å¯¹è±¡
         xmlEncoder.writeObject(obj);
-        // ¹Ø±Õ±àÂëÆ÷
+        // å…³é—­ç¼–ç å™¨
         xmlEncoder.close();
 
         return outFile.getAbsolutePath();
@@ -26,14 +26,14 @@ public class XmlConvertor {
 
     public static Object xml2Object(String inFileName)
             throws FileNotFoundException {
-        // ¹¹ÔìÊäÈëµÄXMLÎÄ¼şµÄ×Ö½ÚÊäÈëÁ÷
+        // æ„é€ è¾“å…¥çš„XMLæ–‡ä»¶çš„å­—èŠ‚è¾“å…¥æµ
         BufferedInputStream bis = new BufferedInputStream(
                 new FileInputStream(inFileName));
-        // ¹¹ÔìÒ»¸öXML½âÂëÆ÷
+        // æ„é€ ä¸€ä¸ªXMLè§£ç å™¨
         XMLDecoder xmlDecoder = new XMLDecoder(bis);
-        // Ê¹ÓÃXML½âÂëÆ÷¶Á¶ÔÏó
+        // ä½¿ç”¨XMLè§£ç å™¨è¯»å¯¹è±¡
         Object obj = xmlDecoder.readObject();
-        // ¹Ø±Õ½âÂëÆ÷
+        // å…³é—­è§£ç å™¨
         xmlDecoder.close();
 
         return obj;

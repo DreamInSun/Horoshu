@@ -1,5 +1,7 @@
 package cyan.svc.mngm.consul;
 
+import cyan.core.config.BasicConfig;
+import cyan.core.config.IConfig;
 import cyan.svc.horoshu.http.HttpRespUtil;
 import cyan.svc.horoshu.http.HttpSvc;
 import cyan.svc.mngm.consul.vo.ServiceDesc;
@@ -24,7 +26,8 @@ public class ConsulClient {
     /* */
 
     /*========== Factory ==========*/
-
+    HttpSvc m_httpSvc;
+    IConfig m_httpSvcConfig;
 
     /*========== Properties ==========*/
     private URI m_consulNode;
@@ -44,6 +47,9 @@ public class ConsulClient {
                 new URISyntaxException(url, "Consul URL mast be start with consul/http/https.");
                 break;
         }
+        /*=====  =====*/
+        m_httpSvcConfig = new BasicConfig().set("invoker", ConsulClient.class.getName());
+        m_httpSvc = HttpSvc.getInstance(m_httpSvcConfig);
     }
 
     /*========== Assistant Function : Rest API ==========*/
@@ -51,13 +57,13 @@ public class ConsulClient {
 
     /*========== Export Function : Catalog ==========*/
     public Services listServices() {
-        HttpResponse resp = HttpSvc.build(m_consulNode).setPath(API_MOD_CATALOG + "services").get();
+        HttpResponse resp = m_httpSvc.start(m_consulNode).setPath(API_MOD_CATALOG + "services").get();
         Services services = HttpRespUtil.getEntity(resp, Services.class);
         return services;
     }
 
     public ServiceDesc[] getServiceDescArr(String serviceName) {
-        HttpResponse resp = HttpSvc.build(m_consulNode).setPath(API_MOD_CATALOG + "service/" + serviceName).get();
+        HttpResponse resp = m_httpSvc.start(m_consulNode).setPath(API_MOD_CATALOG + "service/" + serviceName).get();
         ServiceDesc[] serviceDescArr = HttpRespUtil.getEntity(resp, ServiceDesc[].class);
         return serviceDescArr;
     }
