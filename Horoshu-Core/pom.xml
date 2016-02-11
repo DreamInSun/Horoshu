@@ -8,47 +8,18 @@
     <parent>
         <groupId>cyan.core</groupId>
         <artifactId>Horoshu</artifactId>
-        <version>1.0-SNAPSHOT</version>
+        <version>${horoshu.version}</version>
     </parent>
 
     <artifactId>Horoshu-Core</artifactId>
     <packaging>jar</packaging>
-
-    <!-- ========= Properties ========= -->
-
+    <version>${horoshu.version}</version>
 
     <!-- =============================================== -->
     <!-- ==================== Build ==================== -->
     <!-- =============================================== -->
     <build>
-        <!-- ========== Plugins Configuration ========== -->
         <plugins>
-            <!-- ===== Build Plugin : Compile ===== -->
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <version>2.0.2</version>
-                <configuration>
-                    <source>1.7</source>
-                    <target>1.7</target>
-                    <encoding>utf8</encoding>
-                </configuration>
-            </plugin>
-
-            <!-- ===== Build Plugin : Compile ===== -->
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-resources-plugin</artifactId>
-                <version>2.4.3</version>
-            </plugin>
-
-            <!-- ===== Build Plugin : Clean ===== -->
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-clean-plugin</artifactId>
-                <version>2.4.1</version>
-            </plugin>
-
             <!-- ===== Build Plugin : Package ===== -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -64,28 +35,6 @@
                     </archive>
                 </configuration>
             </plugin>
-
-            <!-- ===== Build Plugin : Deploy ===== -->
-
-
-            <!-- ===== Build Plugin : Verify ===== -->
-            <plugin>
-                <groupId>com.ning.maven.plugins</groupId>
-                <artifactId>maven-duplicate-finder-plugin</artifactId>
-                <version>1.0.5</version>
-                <configuration>
-                    <failBuildInCaseOfConflict>true</failBuildInCaseOfConflict>
-                </configuration>
-                <executions>
-                    <execution>
-                        <phase>verify</phase>
-                        <goals>
-                            <goal>check</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
-
         </plugins>
     </build>
 
@@ -94,22 +43,6 @@
     <!-- ==================== Dependence ==================== -->
     <!-- ==================================================== -->
     <dependencies>
-
-
-        <!-- ========== Cyan Arsenal ========== -->
-        <dependency>
-            <groupId>com.cyan</groupId>
-            <artifactId>arsenal-console</artifactId>
-            <version>0.0.2</version>
-        </dependency>
-
-        <!-- ========== Guava ========== -->
-        <dependency>
-            <groupId>com.google.guava</groupId>
-            <artifactId>guava</artifactId>
-            <version>12.0</version>
-        </dependency>
-
         <!-- ========== Apache Commons ========== -->
         <dependency>
             <groupId>commons-io</groupId>
@@ -117,26 +50,7 @@
             <version>2.4</version>
         </dependency>
 
-
-        <!-- ========== Local Cache ========== -->
-        <!--<dependency>-->
-        <!--<groupId>net.sf.ehcache</groupId>-->
-        <!--<artifactId>ehcache</artifactId>-->
-        <!--<exclusions>-->
-        <!--<exclusion>-->
-        <!--<groupId>org.slf4j</groupId>-->
-        <!--<artifactId>slf4j-api</artifactId>-->
-        <!--</exclusion>-->
-        <!--</exclusions>-->
-        <!--<version>2.10.1</version>-->
-        <!--</dependency>-->
-
         <!-- ========== Http Components ========== -->
-        <dependency>
-            <groupId>org.apache.httpcomponents</groupId>
-            <artifactId>fluent-hc</artifactId>
-            <version>${httpcomponents.version}</version>
-        </dependency>
         <dependency>
             <groupId>org.apache.httpcomponents</groupId>
             <artifactId>httpclient-cache</artifactId>
@@ -150,11 +64,6 @@
         <dependency>
             <groupId>org.apache.httpcomponents</groupId>
             <artifactId>httpclient</artifactId>
-            <version>${httpcomponents.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.httpcomponents</groupId>
-            <artifactId>httpmime</artifactId>
             <version>${httpcomponents.version}</version>
         </dependency>
         <dependency>
@@ -179,13 +88,11 @@
             <artifactId>fastjson</artifactId>
             <version>1.2.6</version>
         </dependency>
-        <dependency>
-            <groupId>com.fasterxml.jackson.core</groupId>
-            <artifactId>jackson-core</artifactId>
-            <version>2.7.1</version>
-        </dependency>
-
-
+        <!--<dependency>-->
+        <!--<groupId>com.fasterxml.jackson.core</groupId>-->
+        <!--<artifactId>jackson-core</artifactId>-->
+        <!--<version>2.7.1</version>-->
+        <!--</dependency>-->
         <!-- ========== Auto Import ========== -->
 
 

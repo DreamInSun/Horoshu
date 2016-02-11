@@ -2,6 +2,7 @@ package cyan.svc.horoshu.dns;
 
 import cyan.core.config.BaseConfig;
 import cyan.core.config.IConfig;
+import cyan.svc.horoshu.dns.vo.DnsItem;
 import org.apache.http.client.utils.URIBuilder;
 
 import java.net.URI;
@@ -17,7 +18,7 @@ public class SvcDns {
     /*========== Factory ==========*/
     private static SvcDns g_svcDns;
     /*========== Properties ==========*/
-    private Map<String, DnsItem> m_DnsMap;
+    private Map<String, DnsItem[]> m_DnsMap;
 
     /* Fresh DNS Item Interval, in Second */
     private Integer m_freshInterval = 15;
@@ -65,7 +66,7 @@ public class SvcDns {
         /*==== Input Protection =====*/
         if (null == svcName || svcName.isEmpty()) return null;
         /*==== LookUp From Map =====*/
-        return m_DnsMap.get(svcName);
+        return m_DnsMap.get(svcName)[0];
     }
 
     private void test() {
@@ -75,19 +76,17 @@ public class SvcDns {
     /*====================================================*/
     /*========== DNS Synchronization Management ==========*/
     /*====================================================*/
-    public void addDnsItem(DnsItem dnsItem) {
-        m_DnsMap.put(dnsItem.svcName, dnsItem);
+    public void addDnsItem(DnsItem[] dnsItems) {
+        m_DnsMap.put(dnsItems[0].svcName, dnsItems);
     }
 
     public void addDnsItem(String svcName, String host, int port, String pathBase) {
-        DnsItem dnsItem = new DnsItem(svcName, host, port, pathBase);
-        m_DnsMap.put(svcName, dnsItem);
+        DnsItem[] dnsItems = new DnsItem[1];
+        dnsItems[0] = new DnsItem(svcName, host, port, pathBase);
+        m_DnsMap.put(svcName, dnsItems);
     }
 
     public void fresh() {
-        /*===== STEP 1. Remove Expired DNS =====*/
-
-        /*===== STEP 1. Remove Expired DNS =====*/
     }
 
     public void cleanCache() {

@@ -4,7 +4,7 @@ import com.alibaba.fastjson.JSONObject;
 import com.cyan.arsenal.Console;
 import com.google.gson.JsonObject;
 import cyan.core.config.BaseConfig;
-import cyan.svc.horoshu.dns.DnsItem;
+import cyan.svc.horoshu.dns.vo.DnsItem;
 import org.apache.http.HttpResponse;
 import org.junit.After;
 import org.junit.Before;
