@@ -1,4 +1,4 @@
-package cyan.svc.etcd;
+package cyan.svc.mngm.etcd;
 
 import com.google.common.util.concurrent.ListenableFuture;
 import org.junit.Assert;

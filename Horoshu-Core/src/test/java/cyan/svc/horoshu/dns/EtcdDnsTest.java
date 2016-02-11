@@ -1,9 +1,9 @@
 package cyan.svc.horoshu.dns;
 
 import com.google.common.util.concurrent.ListenableFuture;
-import cyan.svc.etcd.EtcdClient;
-import cyan.svc.etcd.EtcdClientException;
-import cyan.svc.etcd.EtcdResult;
+import cyan.svc.mngm.etcd.EtcdClient;
+import cyan.svc.mngm.etcd.EtcdClientException;
+import cyan.svc.mngm.etcd.EtcdResult;
 import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
@@ -44,22 +44,21 @@ public class EtcdDnsTest extends TestCase {
         try {
             String key = "/watch";
 
-            EtcdResult result = client.set(key, "hello");
-            Assert.assertEquals("hello", result.node.value);
+            EtcdResult result1 = client.set(key, "hello");
+            Assert.assertFalse(result1.isError());
 
-            result = client.get(key);
-            Assert.assertEquals("hello", result.node.value);
+            EtcdResult result2 = client.get(key);
+            Assert.assertEquals("hello", result2.node.value);
 
-            ListenableFuture<EtcdResult> watchFuture = client.watch(key, result.node.createdIndex + 1, true);
+            ListenableFuture<EtcdResult> watchFuture = client.watch(key, result2.node.createdIndex + 1, true);
             Assert.assertFalse(watchFuture.isDone());
 
-            result = client.set(key, "world");
+            EtcdResult result3 = client.set(key, "world");
+            Assert.assertFalse(result3.isError());
 
-            Assert.assertEquals("world", result.node.value);
-
-            EtcdResult watchResult = watchFuture.get(100, TimeUnit.MILLISECONDS);
-            Assert.assertNotNull(result);
-            Assert.assertEquals("world", result.node.value);
+            EtcdResult result4 = watchFuture.get(100, TimeUnit.MILLISECONDS);
+            Assert.assertNotNull(result4);
+            Assert.assertEquals("world", result4.node.value);
         } catch (EtcdClientException e) {
             e.printStackTrace();
         } catch (InterruptedException e) {

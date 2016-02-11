@@ -12,7 +12,8 @@ public class DnsItem {
 
     /*========== Properties ==========*/
     /**
-     * Uniformed Service Name
+     * Uniformed Service Name, Combination of ServiceName & Port
+     * e.g. Etcd-4001 of cyan.core.UCenter-80
      */
     public String svcName;
     /**

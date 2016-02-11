@@ -1,7 +1,9 @@
 package cyan.svc.horoshu.http;
 
+import com.alibaba.fastjson.JSONObject;
 import com.cyan.arsenal.Console;
-import cyan.svc.config.BaseConfig;
+import com.google.gson.JsonObject;
+import cyan.core.config.BaseConfig;
 import cyan.svc.horoshu.dns.DnsItem;
 import org.apache.http.HttpResponse;
 import org.junit.After;
@@ -96,8 +98,15 @@ public class HttpSvcTest {
         HttpResponse res3 = HttpSvc.build("http://www.baidu.com").get();
         HttpRespUtil.printResp(res3);
 
-        HttpResponse res4 = HttpSvc.build("http://www.weather.com.cn/adat/sk/101010100.html").get();
-        HttpRespUtil.printResp(res2);
+        HttpResponse res4 = HttpSvc.build("http://lord.17orange.com:8500/v1/catalog/services").get();
+        HttpRespUtil.printResp(res4);
+        JSONObject jObj = HttpRespUtil.getJSONObject(res4);
+        Console.info(jObj);
+
+        HttpResponse res41 = HttpSvc.build("http://lord.17orange.com:8500/v1/catalog/services").get();
+        HttpRespUtil.printResp(res41);
+        JsonObject gObj = HttpRespUtil.getJsonObject(res4);
+        Console.info(gObj);
 
          /*===== Start Async Request =====*/
         HttpSvc.build("http://cyan.core.Test")

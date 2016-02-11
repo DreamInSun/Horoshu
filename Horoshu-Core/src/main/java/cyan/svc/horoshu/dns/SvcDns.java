@@ -1,10 +1,7 @@
 package cyan.svc.horoshu.dns;
 
-import cyan.svc.config.BaseConfig;
-import cyan.svc.config.IConfig;
-import net.sf.ehcache.Cache;
-import net.sf.ehcache.CacheManager;
-import net.sf.ehcache.Ehcache;
+import cyan.core.config.BaseConfig;
+import cyan.core.config.IConfig;
 import org.apache.http.client.utils.URIBuilder;
 
 import java.net.URI;
@@ -21,7 +18,6 @@ public class SvcDns {
     private static SvcDns g_svcDns;
     /*========== Properties ==========*/
     private Map<String, DnsItem> m_DnsMap;
-    private Ehcache m_DnsCache;
 
     /* Fresh DNS Item Interval, in Second */
     private Integer m_freshInterval = 15;
@@ -30,9 +26,6 @@ public class SvcDns {
     private SvcDns() {
         /*===== Init Hash Map =====*/
         m_DnsMap = new ConcurrentHashMap<>();
-        /*===== Init Cache =====*/
-        m_DnsCache = new Cache("SvcRouteCache", 5000, false, false, 5, 2);
-        CacheManager.newInstance("src/config/ehcache.xml").addCache(m_DnsCache);
     }
 
     public static SvcDns getInstance() {
