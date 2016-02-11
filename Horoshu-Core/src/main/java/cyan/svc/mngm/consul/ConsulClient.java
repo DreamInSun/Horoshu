@@ -2,7 +2,6 @@ package cyan.svc.mngm.consul;
 
 import cyan.svc.horoshu.http.HttpRespUtil;
 import cyan.svc.horoshu.http.HttpSvc;
-import cyan.svc.mngm.SvcMngr;
 import cyan.svc.mngm.consul.vo.ServiceDesc;
 import cyan.svc.mngm.consul.vo.Services;
 import org.apache.http.HttpResponse;
@@ -14,7 +13,7 @@ import java.net.URISyntaxException;
 /**
  * Created by DreamInSun on 2016/2/10.
  */
-public class ConsulSvcMngr extends SvcMngr {
+public class ConsulClient {
 
     /*========== Constant ==========*/
     /* API Module */
@@ -31,7 +30,7 @@ public class ConsulSvcMngr extends SvcMngr {
     private URI m_consulNode;
 
     /*========== Constructor ==========*/
-    public ConsulSvcMngr(String url) throws URISyntaxException {
+    public ConsulClient(String url) throws URISyntaxException {
         url = url.toLowerCase();
         URIBuilder uriBuilder = new URIBuilder(url);
         switch (uriBuilder.getScheme()) {
@@ -53,8 +52,6 @@ public class ConsulSvcMngr extends SvcMngr {
     /*========== Export Function : Catalog ==========*/
     public Services listServices() {
         HttpResponse resp = HttpSvc.build(m_consulNode).setPath(API_MOD_CATALOG + "services").get();
-        //JSONObject jsonObj = HttpRespUtil.getJSONObject(resp);
-        //Services services = new Services(jsonObj);
         Services services = HttpRespUtil.getEntity(resp, Services.class);
         return services;
     }
@@ -63,21 +60,5 @@ public class ConsulSvcMngr extends SvcMngr {
         HttpResponse resp = HttpSvc.build(m_consulNode).setPath(API_MOD_CATALOG + "service/" + serviceName).get();
         ServiceDesc[] serviceDescArr = HttpRespUtil.getEntity(resp, ServiceDesc[].class);
         return serviceDescArr;
-    }
-
-    /*========== Interface : ISvcMngr ==========*/
-    @Override
-    public void registerSvc(String svcName) {
-
-    }
-
-    @Override
-    public void unregisterSvc() {
-
-    }
-
-    @Override
-    public void discoverSvc() {
-
     }
 }

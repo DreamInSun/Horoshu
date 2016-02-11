@@ -1,15 +1,17 @@
-package cyan.svc.mngm;
+package cyan.svc.horoshu.support;
+
+import cyan.svc.horoshu.ISvcMngm;
 
 /**
  * Created by DreamInSun on 2016/2/6.
  */
-public abstract class SvcMngr implements ISvcMngm {
+public abstract class BasicSvcMngr implements ISvcMngm {
 
     /*========== Static Properties ==========*/
     //public final static ehcache
 
     /*========== Factory ==========*/
-    public synchronized static SvcMngr getInstance() {
+    public synchronized static BasicSvcMngr getInstance() {
         return null;
     }
 

@@ -1,4 +1,4 @@
-package cyan.svc.mngm;
+package cyan.svc.horoshu;
 
 /**
  * Created by DreamInSun on 2016/2/9.
