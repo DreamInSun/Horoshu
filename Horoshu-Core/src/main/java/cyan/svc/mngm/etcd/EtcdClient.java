@@ -1,4 +1,4 @@
-package cyan.svc.etcd;
+package cyan.svc.mngm.etcd;
 
 import com.google.common.base.Charsets;
 import com.google.common.base.Splitter;

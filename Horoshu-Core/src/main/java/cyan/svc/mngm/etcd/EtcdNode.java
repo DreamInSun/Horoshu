@@ -1,4 +1,4 @@
-package cyan.svc.etcd;
+package cyan.svc.mngm.etcd;
 
 import java.util.List;
 
