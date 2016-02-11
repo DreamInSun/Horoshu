@@ -2,6 +2,7 @@ package cyan.svc.horoshu.http;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.serializer.SerializeConfig;
+import com.google.common.collect.Lists;
 import org.apache.http.Header;
 import org.apache.http.HttpResponse;
 import org.apache.http.NameValuePair;
@@ -53,8 +54,8 @@ public class HttpReqChain {
     public long m_timestamp;
     /*========== Properties ==========*/
     /*===== Configuration =====*/
-    private String m_dfltCharset = HttpRequest.CONTENT_CHARSET_UTF8;
-    private NameValuePair m_dfltCharsetPair = new BasicNameValuePair(HttpRequest.CONTENT_CHARSET_KEY, HttpRequest.CONTENT_CHARSET_UTF8);
+    //TODO private String m_dfltCharset = HttpRequest.CONTENT_CHARSET_UTF8;
+    //TODO private NameValuePair m_dfltCharsetPair = new BasicNameValuePair(HttpRequest.CONTENT_CHARSET_KEY, HttpRequest.CONTENT_CHARSET_UTF8);
     private long m_reqestId;
     private URIBuilder m_uriBuilder;
     private HttpRequest m_req;
@@ -92,7 +93,7 @@ public class HttpReqChain {
 
     private void pushError(Exception e) {
         if (m_errors == null) {
-            m_errors = new ArrayList<>();
+            m_errors = Lists.newArrayList();
         }
         m_errors.add(e);
     }

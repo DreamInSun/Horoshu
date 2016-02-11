@@ -23,8 +23,10 @@
     <modules>
         <module>Horoshu-Demo</module>
         <module>Horoshu-Core</module>
+        <module>Horoshu-Consul</module>
+        <module>Horoshu-Etcd</module>
     </modules>
-    
+
     <!--========== Dependence ===========-->
 
     <!--========== Build ==========-->

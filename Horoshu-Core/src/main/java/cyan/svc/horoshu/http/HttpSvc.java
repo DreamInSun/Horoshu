@@ -1,8 +1,9 @@
 package cyan.svc.horoshu.http;
 
 import com.cyan.arsenal.Console;
-import cyan.svc.config.BaseConfig;
-import cyan.svc.config.IConfig;
+import com.google.common.collect.Maps;
+import cyan.core.config.BaseConfig;
+import cyan.core.config.IConfig;
 import cyan.svc.horoshu.dns.SvcDns;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.utils.URIBuilder;
@@ -21,8 +22,9 @@ import org.apache.http.nio.reactor.IOReactorException;
 import org.slf4j.Logger;
 
 import java.io.IOException;
+import java.net.URI;
 import java.net.URISyntaxException;
-import java.util.HashMap;
+import java.util.Date;
 import java.util.Map;
 import java.util.concurrent.CountDownLatch;
 
@@ -50,16 +52,32 @@ public class HttpSvc {
     /*=================================================*/
     /*==================== Factory ====================*/
     /*=================================================*/
-    public static Map<IConfig, HttpSvc> g_httpSvcMap = new HashMap<>();
+    public static Map<IConfig, HttpSvc> g_httpSvcMap = Maps.newHashMap();
     public static IConfig g_httpSvcConfig = BaseConfig.getEmptyConfig();
+    /*===== Create Hooks =====*/
+    public static IHook defaultHooks = new IHook() {
+        @Override
+        public void preInvoke(HttpReqChain httpReq) {
+            Console.info("========================================");
+            Console.info("START\t{" + httpReq.getReqId() + "} [" + new Date(httpReq.markTime()) + "]: \t " + httpReq.getUriBuilder());
+        }
+
+        @Override
+        public void postDns(HttpReqChain httpReq) {
+            Console.info("SVCDNS\t{" + httpReq.getReqId() + "}\tused:" + httpReq.getElapsedTime() + "ms \t" + httpReq.getReq());
+        }
+
+        @Override
+        public void postInvoke(HttpReqChain httpReq) {
+            Console.info("FINISH\t{" + httpReq.getReqId() + "}\tHttp invoke used: " + httpReq.getElapsedTime() + " ms");
+        }
+    };
     /*========== Static Properties ==========*/
     private static Logger g_logger = org.slf4j.LoggerFactory.getLogger(HttpSvc.class.getName());
     /*========== Properties ==========*/
     private SvcDns m_SvcDns = SvcDns.getInstance();
     private IConfig m_Config;
     private PoolingHttpClientConnectionManager m_httpClientMngr;
-
-
     /*=================================================*/
     /*==================== Instant ====================*/
     /*=================================================*/
@@ -108,6 +126,19 @@ public class HttpSvc {
             g_httpSvcMap.put(config, httpSvc);
         }
         return httpSvc;
+    }
+
+    /**
+     * 快速创建一个Http请求并调用。
+     * <p/>
+     * HttpResponse res = HttpSvc.build("http://dreaminsun.ngrok.natapp.cn/").get();
+     *
+     * @param uri 构造好的有效URI
+     * @return Http链式构造类
+     */
+    public static HttpReqChain build(URI uri) {
+        HttpReqChain chain = new HttpReqChain(HttpSvc.getInstance());
+        return chain.setURI(uri);
     }
 
     /**
@@ -179,14 +210,14 @@ public class HttpSvc {
         return m_nHttpClientMngr;
     }
 
-    private CloseableHttpAsyncClient getAsyncHttpClient() {
-        return HttpAsyncClients.custom().setConnectionManager(initAsyncClientMngr()).build();
-    }
-
 
     /*=========================================================*/
     /*==================== Chain Operation ====================*/
     /*=========================================================*/
+
+    private CloseableHttpAsyncClient getAsyncHttpClient() {
+        return HttpAsyncClients.custom().setConnectionManager(initAsyncClientMngr()).build();
+    }
 
     /*========== Export Function ==========*/
     public URIBuilder translateDNS(URIBuilder uriBuilder) throws URISyntaxException {
@@ -238,8 +269,10 @@ public class HttpSvc {
         /*===== STEP 2. Execute =====*/
         try {
             res = httpClient.execute(req);
+            httpClient.close();
         } catch (IOException e) {
             g_logger.error(e.getMessage());
+        } finally {
         }
         return res;
     }
@@ -272,6 +305,4 @@ public class HttpSvc {
 
         void postInvoke(HttpReqChain httpReq);
     }
-
-
 }
