@@ -2,11 +2,9 @@ package cyan.svc.mngm.consul;
 
 import cyan.core.config.BasicConfig;
 import cyan.core.config.IConfig;
-import cyan.svc.horoshu.http.HttpRespUtil;
 import cyan.svc.horoshu.http.HttpSvc;
 import cyan.svc.mngm.consul.vo.ServiceDesc;
 import cyan.svc.mngm.consul.vo.Services;
-import org.apache.http.HttpResponse;
 import org.apache.http.client.utils.URIBuilder;
 
 import java.net.URI;
@@ -57,14 +55,12 @@ public class ConsulClient {
 
     /*========== Export Function : Catalog ==========*/
     public Services listServices() {
-        HttpResponse resp = m_httpSvc.start(m_consulNode).setPath(API_MOD_CATALOG + "services").get();
-        Services services = HttpRespUtil.getEntity(resp, Services.class);
+        Services services = m_httpSvc.start(m_consulNode).setPath(API_MOD_CATALOG + "services").get().getEntity(Services.class);
         return services;
     }
 
     public ServiceDesc[] getServiceDescArr(String serviceName) {
-        HttpResponse resp = m_httpSvc.start(m_consulNode).setPath(API_MOD_CATALOG + "service/" + serviceName).get();
-        ServiceDesc[] serviceDescArr = HttpRespUtil.getEntity(resp, ServiceDesc[].class);
+        ServiceDesc[] serviceDescArr = m_httpSvc.start(m_consulNode).setPath(API_MOD_CATALOG + "service/" + serviceName).get().getEntity(ServiceDesc[].class);
         return serviceDescArr;
     }
 }

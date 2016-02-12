@@ -35,6 +35,11 @@ import java.util.concurrent.CountDownLatch;
  * 每个HttpSvc实例维护了一组同步HttpClient，一组异步NHttpClient。
  * <p/>
  * 支付“服务名称DNS”功能，可以将注册的服务名称，转为实际的“IP+端口+工程根路径”。
+ *
+ * <p/>
+ * 若使用静态HttpSvc.build()方式发起请求，则使用公用默认配置的HttpSvc。
+ * 若使用 new HttpSvc(config).start 发起请求，则根据config的实例区分请求。
+ * 如有特别要求，如设置DNS路径，建议使用全局静态config创建HttpSvc实例，不污染全局调用。
  */
 public class HttpSvc {
 

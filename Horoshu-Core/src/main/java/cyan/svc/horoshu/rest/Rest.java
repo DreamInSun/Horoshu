@@ -28,22 +28,22 @@ public class Rest {
 
     /*========== Export Function : CURDL ==========*/
     public Object C(String endpoint, Object request) {
-        HttpResponse res = HttpSvc.build().setPath(endpoint).setContent(request).post();
+        HttpResponse res = HttpSvc.build().setPath(endpoint).setContent(request).post().getEntity(null);
         return HttpRespUtil.getEntity(res);
     }
 
     public Object R(String endpoint, Object request) {
-        HttpResponse res = HttpSvc.build().setPath(endpoint).setContent(request).get();
+        HttpResponse res = HttpSvc.build().setPath(endpoint).setContent(request).get().getEntity(null);
         return HttpRespUtil.getEntity(res);
     }
 
     public Object U(String endpoint, Object request) {
-        HttpResponse res = HttpSvc.build().setPath(endpoint).setContent(request).put();
+        HttpResponse res = HttpSvc.build().setPath(endpoint).setContent(request).put().getEntity(null);
         return HttpRespUtil.getEntity(res);
     }
 
     public Object D(String endpoint, Object request) {
-        HttpResponse res = HttpSvc.build().setPath(endpoint).setContent(request).delete();
+        HttpResponse res = HttpSvc.build().setPath(endpoint).setContent(request).delete().getEntity(null);
         return HttpRespUtil.getEntity(res);
     }
 

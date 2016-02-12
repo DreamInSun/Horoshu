@@ -64,10 +64,10 @@ public class HttpSvcTest {
         /*===== Create Response Handler =====*/
         IHttpRespHandler respHandler = new IHttpRespHandler() {
             @Override
-            public void procHttpResponse(long reqId, HttpResponse resp) {
+            public void procHttpResponse(long reqId, HttpResp resp) {
                 Console.info("########## Async Callback ##########");
                 Console.info("FINISH\t{" + reqId + "} \t" + resp);
-                HttpRespUtil.printResp(resp);
+                resp.print();
             }
         };
         /*===== Create URI =====*/
@@ -91,24 +91,24 @@ public class HttpSvcTest {
 
         Thread.sleep(2000);
         /*===== Start Sync Request =====*/
-        HttpResponse res0 = HttpSvc.build().setURI("http://127.0.0.1:8080/Working").setHeader("access-token", "123456").setContent("Hello").setParam("userId", "1").setPath("/Library/Path").post();
+        HttpResponse res0 = HttpSvc.build().setURI("http://127.0.0.1:8080/Working").setHeader("access-token", "123456").setContent("Hello").setParam("userId", "1").setPath("/Library/Path").post().getRawResponse();
         HttpRespUtil.printResp(res0);
 
-        HttpResponse res1 = HttpSvc.build("http://OneRing-8080").get();
+        HttpResponse res1 = HttpSvc.build("http://OneRing-8080").get().getRawResponse();
         HttpRespUtil.printResp(res1);
 
-        HttpResponse res2 = HttpSvc.build().setURI(uri).get();
+        HttpResponse res2 = HttpSvc.build().setURI(uri).get().getRawResponse();
         HttpRespUtil.printResp(res2);
 
-        HttpResponse res3 = HttpSvc.build("http://www.baidu.com").get();
+        HttpResponse res3 = HttpSvc.build("http://www.baidu.com").get().getRawResponse();
         HttpRespUtil.printResp(res3);
 
-        HttpResponse res4 = HttpSvc.build("http://lord.17orange.com:8500/v1/catalog/services").get();
+        HttpResponse res4 = HttpSvc.build("http://lord.17orange.com:8500/v1/catalog/services").get().getRawResponse();
         HttpRespUtil.printResp(res4);
         JSONObject jObj = HttpRespUtil.getJSONObject(res4);
         Console.info(jObj);
 
-        HttpResponse res41 = HttpSvc.build("http://lord.17orange.com:8500/v1/catalog/services").get();
+        HttpResponse res41 = HttpSvc.build("http://lord.17orange.com:8500/v1/catalog/services").get().getRawResponse();
         HttpRespUtil.printResp(res41);
         JsonObject gObj = HttpRespUtil.getJsonObject(res41);
         Console.info(gObj);

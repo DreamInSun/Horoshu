@@ -377,50 +377,50 @@ public class HttpReqChain {
     }
 
     /*========== Execute Request ==========*/
-    public HttpResponse get() {
+    public HttpResp get() {
         m_req.setMethod(HttpRequest.METHOD_GET);
         return genericInvoke();
     }
 
-    public HttpResponse post() {
+    public HttpResp post() {
         m_req.setMethod(HttpRequest.METHOD_POST);
         return genericInvoke();
     }
 
-    public HttpResponse put() {
+    public HttpResp put() {
         m_req.setMethod(HttpRequest.METHOD_PUT);
         return genericInvoke();
     }
 
-    public HttpResponse delete() {
+    public HttpResp delete() {
         m_req.setMethod(HttpRequest.METHOD_DELETE);
         return genericInvoke();
     }
 
-    public HttpResponse options() {
+    public HttpResp options() {
         m_req.setMethod(HttpRequest.METHOD_OPTIONS);
         return genericInvoke();
 
     }
 
-    public HttpResponse head() {
+    public HttpResp head() {
         m_req.setMethod(HttpRequest.METHOD_HEAD);
         return genericInvoke();
     }
 
     @Deprecated
-    public HttpResponse trace() {
+    public HttpResp trace() {
         m_req.setMethod(HttpRequest.METHOD_TRACE);
         return genericInvoke();
     }
 
     @Deprecated
-    public HttpResponse patch() {
+    public HttpResp patch() {
         m_req.setMethod(HttpRequest.METHOD_PATCH);
         return genericInvoke();
     }
 
-    private HttpResponse genericInvoke() {
+    private HttpResp genericInvoke() {
         if (isLastOpFail()) {
             for (Throwable error : m_errors) {
                 // TODO get ErrorLog
@@ -452,7 +452,7 @@ public class HttpReqChain {
         /*===== Hook : postInvoke =====*/
         if (hooks != null) hooks.postInvoke(this);
         /*===== Return =====*/
-        return resp;
+        return new HttpResp(resp);
     }
 
 
@@ -476,7 +476,7 @@ public class HttpReqChain {
         FutureCallback<HttpResponse> futureClbk = new FutureCallback<HttpResponse>() {
             @Override
             public void completed(HttpResponse result) {
-                respHandler.procHttpResponse(m_reqestId, result);
+                respHandler.procHttpResponse(m_reqestId, new HttpResp(result));
             }
 
             @Override
