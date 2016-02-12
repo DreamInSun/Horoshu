@@ -5,7 +5,7 @@ import java.util.List;
 /**
  * Value Object
  */
-public class EtcdNode {
+public class EtcdNode implements Comparable {
 
 	/*======== General values ========*/
 	public String key;
@@ -25,5 +25,15 @@ public class EtcdNode {
 	@Override
 	public String toString() {
 		return EtcdClient.format(this);
+	}
+
+	@Override
+	public int compareTo(Object o) {
+		EtcdNode target = (EtcdNode)o;
+		if(this.createdIndex - target.createdIndex == 0){
+			return (int) (this.modifiedIndex - target.modifiedIndex);
+		} else {
+			return (int) (this.createdIndex - target.createdIndex);
+		}
 	}
 }

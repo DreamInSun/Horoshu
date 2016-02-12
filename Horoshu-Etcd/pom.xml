@@ -6,7 +6,7 @@
     <!--========== Project Information ==========-->
     <modelVersion>4.0.0</modelVersion>
     <parent>
-        <groupId>cyan.core</groupId>
+        <groupId>cyan.svc</groupId>
         <artifactId>Horoshu</artifactId>
         <version>${horoshu.version}</version>
     </parent>
@@ -23,7 +23,16 @@
             <artifactId>httpclient</artifactId>
             <version>${httpcomponents.version}</version>
         </dependency>
-
+        <dependency>
+            <groupId>org.apache.httpcomponents</groupId>
+            <artifactId>httpcore-nio</artifactId>
+            <version>4.3.2</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.httpcomponents</groupId>
+            <artifactId>httpasyncclient</artifactId>
+            <version>4.1.1</version>
+        </dependency>
         <!-- ========== JSON ========== -->
         <dependency>
             <groupId>com.google.code.gson</groupId>
