@@ -5,7 +5,7 @@ import com.google.gson.JsonObject;
 import org.apache.http.HttpResponse;
 
 /**
- * HttpRespÊÇ¶ÔHttpResponseµÄ¹¤¾ß·â×°£¬±ãÓÚÁ´Ê½µ÷ÓÃÊ±µÄ¿ìËÙ²Ù×÷¡£
+ * HttpRespæ˜¯å¯¹HttpResponseçš„å·¥å…·å°è£…ï¼Œä¾¿äºé“¾å¼è°ƒç”¨æ—¶çš„å¿«é€Ÿæ“ä½œã€‚
  * <p/>
  * Created by DreamInSun on 2016/2/13.
  */

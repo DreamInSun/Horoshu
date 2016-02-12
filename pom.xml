@@ -14,7 +14,7 @@
     </properties>
 
     <!-- ========== Project Info ========== -->
-    <groupId>cyan.core</groupId>
+    <groupId>cyan.svc</groupId>
     <artifactId>Horoshu</artifactId>
     <version>${horoshu.version}</version>
     <description>Distripbute Service Managment Framwork</description>
@@ -25,7 +25,7 @@
         <name>DreamInSun</name>
         <url>cyan.org.cn</url>
     </organization>
-    
+
     <!--========== Module ==========-->
     <modules>
         <module>Horoshu-Demo</module>
@@ -59,7 +59,9 @@
 
     </dependencies>
 
-    <!--========== Build ===========-->
+    <!--================================================-->
+    <!--==================== Build =====================-->
+    <!--================================================-->
     <build>
         <!-- ========== Plugins Configuration ========== -->
         <plugins>
@@ -103,6 +105,27 @@
                     </execution>
                 </executions>
             </plugin>
+            <!-- ===== Build Plugin : Dependency Duplicated ===== -->
+                <plugin>
+                    <artifactId>maven-dependency-plugin</artifactId>
+                    <version>2.10</version>
+                </plugin>
         </plugins>
     </build>
+
+    <!--=====================================================-->
+    <!--==================== Distribute =====================-->
+    <!--=====================================================-->
+    <distributionManagement>
+        <repository>
+            <id>orange-release</id>
+            <name>orangelife release</name>
+            <url>http://developer.17orange.com:18081/nexus/content/repositories/releases</url>
+        </repository>
+        <snapshotRepository>
+            <id>orange-snapshot</id>
+            <name>orangelife snapshot</name>
+            <url>http://developer.17orange.com:18081/nexus/content/repositories/snapshots</url>
+        </snapshotRepository>
+    </distributionManagement>
 </project>

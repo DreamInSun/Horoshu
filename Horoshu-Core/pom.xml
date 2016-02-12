@@ -6,7 +6,7 @@
     <!-- ========== Project Info ========== -->
     <modelVersion>4.0.0</modelVersion>
     <parent>
-        <groupId>cyan.core</groupId>
+        <groupId>cyan.svc</groupId>
         <artifactId>Horoshu</artifactId>
         <version>${horoshu.version}</version>
     </parent>
