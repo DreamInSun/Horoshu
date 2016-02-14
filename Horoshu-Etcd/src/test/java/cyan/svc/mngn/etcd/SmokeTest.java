@@ -197,7 +197,7 @@ public class SmokeTest {
         EtcdResult listing = this.client.listChildren(key);
         Assert.assertEquals(4, listing.node.nodes.size());
         Assert.assertEquals("get", listing.action);
-        //获取时可能会乱序
+        //TODO 获取时可能会乱序,增加了排序函数
         sort(listing.node.nodes);
         {
             EtcdNode child = listing.node.nodes.get(0);
