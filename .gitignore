@@ -1,6 +1,7 @@
-#过滤工程文件夹
+﻿#过滤工程文件夹
 .idea/
-.logs/
-Horoshu-Core/target/test-class/
-Horoshu-Core/target/generated-sources
-Horoshu-Core/target/generated-test-sources
+logs
+Horoshu-Core/target/*
+Horoshu-Consul/target/*
+Horoshu-Etcd/target/*
+Horoshu-Demo/target/*
